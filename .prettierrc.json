@@ -1,0 +1,9 @@
+{
+  "editor.formatOnType": true,
+  "prettier.bracketSameLine": true,
+  "prettier.useTabs": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.requireConfig": false
+}

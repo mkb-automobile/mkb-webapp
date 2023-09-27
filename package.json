@@ -1,5 +1,5 @@
 {
-  "name": "car-showcase",
+  "name": "mkb-automobile",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "axios": "^1.5.1",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
@@ -20,6 +21,7 @@
     "@types/react-dom": "latest",
     "autoprefixer": "latest",
     "postcss": "latest",
+    "prettier": "3.0.3",
     "tailwindcss": "latest",
     "typescript": "latest"
   }
