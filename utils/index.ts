@@ -1,3 +1,4 @@
+import { CarProps } from "@/types";
 import axios from "axios";
 
 export async function fetchCars() {
@@ -18,3 +19,5 @@ export async function fetchCars() {
     console.error(error);
   }
 }
+
+export const genereteCarImageUrl = (car: CarProps, angle?: string) => {};
