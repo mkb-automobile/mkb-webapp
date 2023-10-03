@@ -6,7 +6,7 @@ import CustomButton from "./CustomButton";
 function Navbar() {
   return (
     <header className="w-full absolute z-10">
-      <nav className="max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4">
+      <div className="header__info">
         <Link href={"/"} className="flex justify-center items-center">
           <Image
             src={"/logo.svg"}
@@ -16,7 +16,8 @@ function Navbar() {
             className="objetc-contain"
           />
         </Link>
-
+      </div>
+      <nav className="max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4">
         <CustomButton
           title="Connexion"
           btnType="button"
