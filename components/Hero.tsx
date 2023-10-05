@@ -2,6 +2,8 @@
 import React from "react";
 import CustomButton from "./CustomButton";
 import Image from "next/image";
+import CustomLink from "./CustomLink";
+import Catalogue from "@/pages/catalogue";
 
 const Hero = () => {
   const handleScroll = () => {};
@@ -17,10 +19,10 @@ const Hero = () => {
           besoins
         </p>
 
-        <CustomButton
-          title={"Trouver votre voiture"}
-          containerStyles="bg-primary-orange text-white rounded-full mt-10"
-          handleClick={handleScroll}
+        <CustomLink
+          href="/catalog"
+          children={"Trouver votre voiture"}
+          containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[14rem]"
         />
       </div>
       <div className="hero__image-container">

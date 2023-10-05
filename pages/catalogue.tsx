@@ -4,6 +4,7 @@ import { fetchCars } from "@/utils";
 import React from "react";
 
 async function Catalogue({ searchParams }) {
+  console.log("searchParams", searchParams);
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || 2022,

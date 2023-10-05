@@ -1,8 +1,6 @@
+import { Hero } from "@/components";
 import Image from "next/image";
-
-import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
-import { fetchCars } from "@/utils";
-import Catalogue from "@/pages/catalogue/Catalogue";
+import Catalog from "./catalog/page";
 
 export default function Home({}) {
   return (
@@ -45,7 +43,6 @@ export default function Home({}) {
           </p>
         </div>
       </div>
-      <Catalogue searchParams />
     </main>
   );
 }
