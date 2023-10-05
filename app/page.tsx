@@ -20,7 +20,7 @@ export default function Home({}) {
             alt="..."
             className="pb-4"
           />
-          <h2>Titre</h2>
+          <h1 className="text-3xl">Simplicité</h1>
           <p className="p-8">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos,
             architecto.

@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
 import { footerLinks } from "@/constants";
 
 function Footer() {
@@ -43,11 +42,11 @@ function Footer() {
 
         <div className="footer__copyrights-link">
           <Link href="/" className="text-gray-500">
-            Privacy Policy
+            Politique de confidentialité
           </Link>
 
           <Link href="/" className="text-gray-500">
-            Terms Of Use
+            Mentions légales
           </Link>
         </div>
       </div>

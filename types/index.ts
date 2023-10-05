@@ -11,12 +11,6 @@ export interface CustomButtonProps {
   isDisabled?: boolean;
 }
 
-export interface CustomLinkProps {
-  href: string;
-  children: string;
-  containerStyles?: string;
-}
-
 export interface SearchManufacturerProps {
   manufacturer: string;
   setManufacturer: (manufacturer: string) => void;

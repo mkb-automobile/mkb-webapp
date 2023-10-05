@@ -1,12 +1,3 @@
-// Header
-export const navLinks = [
-  { title: "Achat", path: "/purchase" },
-  { title: "Reprise", path: "/taking" },
-  { title: "Recherche personnalisé", path: "/personalized" },
-  { title: "Financement", path: "/financing" },
-  { title: "Comment ça marche", path: "/howworks" },
-];
-
 export const manufacturers = [
   "Abarth",
   "Alfa Romeo",
@@ -165,32 +156,55 @@ export const fuels = [
   },
 ];
 
+// Header
+export const navLinks = [
+  { title: "Achat", path: "/purchase" },
+  { title: "Reprise", path: "/taking" },
+  { title: "Recherche personnalisé", path: "/personalized" },
+  { title: "Financement", path: "/financing" },
+  { title: "Comment ça marche", path: "/howworks" },
+];
+
+// Footer
 export const footerLinks = [
   {
-    title: "About",
+    title: "A Propos de",
     links: [
-      { title: "How it works", url: "/" },
-      { title: "Featured", url: "/" },
-      { title: "Partnership", url: "/" },
-      { title: "Bussiness Relation", url: "/" },
+      { title: "MKB Automobile", url: "/about" },
+      { title: "Contact", url: "/contact" },
+      { title: "FAQ", url: "/faq" },
+      { title: "Comment ça marche", url: "/howworks" },
     ],
   },
   {
-    title: "Company",
+    title: "Nos Services",
     links: [
-      { title: "Events", url: "/" },
-      { title: "Blog", url: "/" },
-      { title: "Podcast", url: "/" },
-      { title: "Invite a friend", url: "/" },
+      { title: "Achat", url: "/purchase" },
+      { title: "Reprise", url: "/taking" },
+      { title: "Financement", url: "/financing" },
+      { title: "Recherche personnalisée", url: "/personalized" },
     ],
   },
   {
-    title: "Socials",
+    title: "Contact",
     links: [
-      { title: "Discord", url: "/" },
-      { title: "Instagram", url: "/" },
-      { title: "Twitter", url: "/" },
-      { title: "Facebook", url: "/" },
+      {
+        title: "Linkedin",
+        url: "https://www.linkedin.com/company/mkb-automobile/",
+      },
+      {
+        title: "Instagram",
+        url: "https://www.instagram.com/mkbautomobile/?igshid=MzRlODBiNWFlZA%3D%3D",
+      },
+    ],
+  },
+  {
+    title: "Autres",
+    links: [
+      {
+        title: "Politique des Cokkies",
+        url: "/",
+      },
     ],
   },
 ];

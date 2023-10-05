@@ -2,10 +2,10 @@
 import React from "react";
 import CustomButton from "./CustomButton";
 import Image from "next/image";
-import CustomLink from "./CustomLink";
-import Catalogue from "@/pages/catalogue";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
+  const router = useRouter();
   const handleScroll = () => {};
   return (
     <div className="hero">
@@ -19,10 +19,12 @@ const Hero = () => {
           besoins
         </p>
 
-        <CustomLink
-          href="/catalog"
-          children={"Trouver votre voiture"}
+        <CustomButton
+          title="Trouver votre véhicule"
           containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[14rem]"
+          handleClick={() => {
+            router.push("/catalog");
+          }}
         />
       </div>
       <div className="hero__image-container">
