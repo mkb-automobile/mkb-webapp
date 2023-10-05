@@ -1,3 +1,12 @@
+// Header
+export const navLinks = [
+  { title: "Achat", path: "/purchase" },
+  { title: "Reprise", path: "/taking" },
+  { title: "Recherche personnalisé", path: "/personalized" },
+  { title: "Financement", path: "/financing" },
+  { title: "Comment ça marche", path: "/howworks" },
+];
+
 export const manufacturers = [
   "Abarth",
   "Alfa Romeo",
@@ -100,14 +109,6 @@ export const manufacturers = [
   "Rezvani Motors",
   "Zenvo Automotive",
 ];
-
-// export function afficherKilometrages() {
-//   let kilometer = [];
-//   for (let kilometrage = 0; kilometrage <= 300000; kilometrage += 10000) {
-//     kilometer.push(kilometrage);
-//   }
-//   return kilometer;
-// }
 
 export const yearsOfProduction = [
   { title: "Année", value: "" },

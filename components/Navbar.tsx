@@ -1,15 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-
-import CustomButton from "./CustomButton";
-
-const navLinks = [
-  "Achat",
-  "Reprise",
-  "Recherche personalisée",
-  "Financemenet",
-  "Comment ça marche",
-];
+import { navLinks } from "@/constants";
 
 function Navbar() {
   return (
@@ -25,21 +16,14 @@ function Navbar() {
           />
         </Link>
         <div className="flex flex-between w-[75%]">
-          <Link href={"achat"} className="font-semibold text-base leading-8">
-            Achat
-          </Link>
-          <Link href={"achat"} className="font-semibold text-base leading-8">
-            Reprise
-          </Link>
-          <Link href={"achat"} className="font-semibold text-base leading-8">
-            Recherche personalisée
-          </Link>
-          <Link href={"achat"} className="font-semibold text-base leading-8">
-            Financemenet
-          </Link>
-          <Link href={"achat"} className="font-semibold text-base leading-8">
-            Comment ça marche
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              href={link.path}
+              className="font-semibold text-base leading-8"
+            >
+              {link.title}
+            </Link>
+          ))}
         </div>
       </nav>
     </header>
