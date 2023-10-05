@@ -75,7 +75,7 @@ function CarCard({ car }: CarCardProps) {
         <div className="car-card__btn-container">
           <CustomButton
             title="Voir plus"
-            containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
+            containerStyles="w-full py-[16px] rounded-full bg-primary-orange"
             textStyles="text-white text-[14px] leading-[17px] font-bold"
             rightIcon="/right-arrow.svg"
             handleClick={() => setIsOpen(true)}

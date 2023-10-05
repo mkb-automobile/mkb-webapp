@@ -9,15 +9,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
       },
       colors: {
         "black-100": "#2B2C35",
-        "primary-blue": {
-          DEFAULT: "#2B59FF",
-          100: "#F5F8FF",
+        "primary-orange": {
+          DEFAULT: "#ff9f1c",
+          100: "#faeddc",
         },
-        "secondary-orange": "#f79761",
+        "secondary-red": "#8d080a",
         "light-white": {
           DEFAULT: "rgba(59,60,152,0.03)",
           100: "rgba(59,60,152,0.02)",

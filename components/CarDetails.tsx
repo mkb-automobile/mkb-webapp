@@ -42,7 +42,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                   <button
                     type="button"
                     onClick={closeModal}
-                    className="absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full"
+                    className="absolute top-2 right-2 z-10 w-fit p-2 bg-primary-orange-100 rounded-full"
                   >
                     <Image
                       src="/close.svg"
@@ -63,7 +63,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       />
                     </div>
                     <div className="flex gap-3">
-                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
+                      <div className="flex-1 relative w-full h-24 bg-primary-orange-100 rounded-lg">
                         <Image
                           src="/hero.png"
                           alt='"car model'
@@ -72,7 +72,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                           className="object-contain"
                         />
                       </div>
-                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
+                      <div className="flex-1 relative w-full h-24 bg-primary-orange-100 rounded-lg">
                         <Image
                           src="/hero.png"
                           alt='"car model'
@@ -81,7 +81,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                           className="object-contain"
                         />
                       </div>
-                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
+                      <div className="flex-1 relative w-full h-24 bg-primary-orange-100 rounded-lg">
                         <Image
                           src="/hero.png"
                           alt='"car model'
