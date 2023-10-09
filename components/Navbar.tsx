@@ -10,8 +10,8 @@ function Navbar() {
           <Image
             src={"/logo.png"}
             alt="MKB-Automobile Logo"
-            width={118}
-            height={18}
+            width={130}
+            height={130}
             className="objetc-contain"
           />
         </Link>

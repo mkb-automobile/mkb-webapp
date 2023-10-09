@@ -1,4 +1,4 @@
-import { manufacturers } from "./../constants/index";
+import { manufacturers } from "../constants/index";
 import { MouseEventHandler } from "react";
 
 export interface CustomButtonProps {
