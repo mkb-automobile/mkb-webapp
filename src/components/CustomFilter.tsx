@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, Fragment, useEffect } from "react";
 import { Listbox, Transition } from "@headlessui/react";
-import { CustomFiltersProps } from "@/types";
+import { CustomFiltersProps } from "@/src/types";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 

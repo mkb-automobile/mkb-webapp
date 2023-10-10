@@ -3,8 +3,8 @@
 import { useState, Fragment } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import Image from "next/image";
-import { manufacturers } from "@/constants";
-import { SearchManufacturerProps } from "@/types";
+import { manufacturers } from "@/src/constants";
+import { SearchManufacturerProps } from "@/src/types";
 import { EventEmitter } from "stream";
 
 const SearchManufacturer = ({

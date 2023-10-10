@@ -1,6 +1,6 @@
-import { CarCard, CustomFilter, SearchBar } from "@/components";
-import { fuels, yearsOfProduction } from "@/constants";
-import { fetchCars } from "@/utils";
+import { CarCard, CustomFilter, SearchBar } from "@/src/components";
+import { fuels, yearsOfProduction } from "@/src/constants";
+import { fetchCars } from "@/src/utils";
 
 async function CatalogCars({ searchParams }) {
   const allCars = await fetchCars({

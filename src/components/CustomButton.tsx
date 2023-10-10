@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { CustomButtonProps } from "@/types";
+import { CustomButtonProps } from "@/src/types";
 
 const CustomButton = ({
   title,

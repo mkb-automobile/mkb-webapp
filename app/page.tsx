@@ -1,25 +1,8 @@
 "use client";
-import { CustomButton, Hero } from "@/components";
+import { CustomButton, Hero } from "@/src/components";
+import { sectionHome } from "@/src/constants";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
-const sectionHome = [
-  {
-    img: "/simplicite.svg",
-    title: "Simplicité",
-    text: "Nous vous aidons à trouver la voiture de vos rêves parmi un large choix de véhicules en France et en Europe. Du financement à l’immatriculation, achetez en toute simplicité.",
-  },
-  {
-    img: "/fiabilite.svg",
-    title: "Fiabilité",
-    text: "La meilleure façon d’acheter votre voiture à proximité de chez vous et cela partout en France.",
-  },
-  {
-    img: "/securite.svg",
-    title: "Sécurité",
-    text: "Nos équipes vérifient l’état de votre nouvelle voiture, la révisent et la préparent. Vous bénéficiez de l’expertise MKB Automobile et d’une garantie extensible pour votre véhicule.",
-  },
-];
 
 export default function Home({}) {
   const router = useRouter();
@@ -33,8 +16,8 @@ export default function Home({}) {
       </div>
       <section className="flex" style={{ backgroundColor: "#fff7f0" }}>
         <div className="max-w-[1440px] mx-auto flex justify-between">
-          {sectionHome.map((section) => (
-            <div className="flex flex-col items-center p-4">
+          {sectionHome.map((section, index) => (
+            <div key={index} className="flex flex-col items-center p-4">
               <Image
                 src={section.img}
                 width={50}

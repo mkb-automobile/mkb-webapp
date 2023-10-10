@@ -1,4 +1,4 @@
-import CatalogCars from "@/components/Catalog";
+import CatalogCars from "@/src/components/Catalog";
 import React from "react";
 
 const Catalog = () => {

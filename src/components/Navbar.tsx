@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { navLinks } from "@/constants";
+import { navLinks } from "@/src/constants";
 
 function Navbar() {
   return (

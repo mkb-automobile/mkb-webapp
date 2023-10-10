@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { CarProps } from "@/types";
+import { CarProps } from "@/src/types";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 

@@ -1,4 +1,4 @@
-import { CarProps, FilterProps } from "@/types";
+import { CarProps, FilterProps } from "@/src/types";
 import axios from "axios";
 
 export async function fetchCars(filter: FilterProps) {

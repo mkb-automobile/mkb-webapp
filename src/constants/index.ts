@@ -1,3 +1,21 @@
+export const sectionHome = [
+  {
+    img: "/simplicite.svg",
+    title: "Simplicité",
+    text: "Nous vous aidons à trouver la voiture de vos rêves parmi un large choix de véhicules en France et en Europe. Du financement à l’immatriculation, achetez en toute simplicité.",
+  },
+  {
+    img: "/fiabilite.svg",
+    title: "Fiabilité",
+    text: "La meilleure façon d’acheter votre voiture à proximité de chez vous et cela partout en France.",
+  },
+  {
+    img: "/securite.svg",
+    title: "Sécurité",
+    text: "Nos équipes vérifient l’état de votre nouvelle voiture, la révisent et la préparent. Vous bénéficiez de l’expertise MKB Automobile et d’une garantie extensible pour votre véhicule.",
+  },
+];
+
 export const manufacturers = [
   "Abarth",
   "Alfa Romeo",
