@@ -46,18 +46,9 @@ export default function Home({}) {
           />
         </div>
       </section>
-      <section className="flex" style={styles.section}>
-        <div className="flex flex-around w-full">
-          <div
-            className="flex md:flex-col"
-            style={{
-              maxWidth: "1350px",
-              display: "flex",
-              marginRight: " auto",
-              marginLeft: "auto",
-              position: "relative",
-            }}
-          >
+      <section className="flex justify-center" style={styles.section}>
+        <div className="flex justify-center items-center gap-3 max-w-screen-xl">
+          <div className="relative flex flex-col w-1/3">
             <div
               style={{
                 position: "relative",
@@ -65,7 +56,7 @@ export default function Home({}) {
                 display: "flex",
               }}
             >
-              <div>
+              <div className="font-semibold text-3xl">
                 <h2>
                   Ne ratez pas
                   <br />
@@ -74,34 +65,45 @@ export default function Home({}) {
               </div>
             </div>
             <div>
-              <div>
+              <p style={styles.occasion}>
                 La meilleure façon d’acheter votre voiture à proximité de chez
-                vous et cela partout en France{" "}
-              </div>
+                vous et cela partout en France
+              </p>
             </div>
             <div>
               <div>
-                <div>
-                  <a href="https://mkbautomobile.com/mkb-voitures-occasions/">
-                    <span>
-                      <span>Trouvez votre voiture</span>
-                    </span>
-                  </a>
+                <div className="flex justify-center w-full">
+                  <CustomButton
+                    title="Trouver votre voiture"
+                    containerStyles="bg-primary-orange text-white rounded-full mt-10"
+                    handleClick={() => {
+                      router.push("/catalog");
+                    }}
+                  />
                 </div>
               </div>
             </div>
           </div>
           <div>
-            <div className="flex flex-col justify-center items-center">
-              <Image src="/citadine.webp" width={429} height={200} alt="" />
-              <h2>Citadine</h2>
+            <div
+              className="flex flex-col justify-center items-center"
+              style={styles.cardsImag}
+            >
+              <Image
+                src="/citadine.webp"
+                width={429}
+                height={200}
+                alt=""
+                style={styles.cardsImag}
+              />
+              <h2 style={styles.cartTitle}>Citadine</h2>
             </div>
             <div
               className="flex flex-col justify-center items-center"
               style={styles.cardsImag}
             >
               <Image
-                src="/berline.webp"
+                src="/jon-koop-khYVyHiNZo0-unsplash.jpg"
                 width={429}
                 height={200}
                 alt=""
@@ -111,30 +113,68 @@ export default function Home({}) {
             </div>
           </div>
           <div>
-            <div className="flex flex-col justify-center items-center">
-              <Image src="/suv.webp" width={429} height={200} alt="" />
-              <h2>SUV / 4x4</h2>
+            <div
+              className="flex flex-col justify-center items-center"
+              style={styles.cardsImag}
+            >
+              <Image
+                src="/suv.webp"
+                width={429}
+                height={200}
+                alt=""
+                style={styles.cardsImag}
+              />
+              <h2 style={styles.cartTitle}>SUV / 4x4</h2>
             </div>
-            <div className="flex flex-col justify-center items-center">
+            <div
+              className="flex flex-col justify-center items-center"
+              style={styles.cardsImag}
+            >
               <Image
                 src="/leo-OnHZTmU7WKQ-unsplash.jpg"
                 width={429}
                 height={200}
-                alt="truk"
+                alt=""
+                style={styles.cardsImag}
               />
-
-              <span>Utilitaire</span>
+              <h2 style={styles.cartTitle}>Utilitaire</h2>
             </div>
           </div>
         </div>
       </section>
-      <div>
-        <div>
-          <h1>Beneficier d'un accompagnement adaté à vos besoin</h1>
+      <section className="flex w-full">
+        <div className="flex justify-around items-center w-full py-20">
+          <div>
+            <Image
+              src="/MKB-automobile-Trouvez-votre-voiture-600-400.webp"
+              width={300}
+              height={201}
+              alt="service-personnsalise"
+              className="rounded-3xl"
+            />
+          </div>
+          <div>
+            <div>
+              Bénéficier d'un accompagnement
+              <br />
+              adapté à vos besoins{" "}
+              <span style={{ color: "#ff9f1c" }}>
+                via la recherche personnalisée
+              </span>{" "}
+            </div>
+
+            <div>
+              Nos experts vous accompagnent
+              <br />
+              tout au long de votre processus d'achat.{" "}
+            </div>
+
+            <div>
+              <a>En savoir plus </a>
+            </div>
+          </div>
         </div>
-        <div>Img</div>
-      </div>
-      <div>card information</div>
+      </section>
     </main>
   );
 }
@@ -142,19 +182,21 @@ export default function Home({}) {
 const styles = {
   section: {
     backgroundColor: "#fff7f0",
-    transition:
-      "background .3s , border .3s , border-radius .3s , box-shadow .3s",
     padding: "2% 0% 2% 0%",
   },
   cardsImag: {
     borderRadius: "30px 30px 0 0 ",
   },
   cartTitle: {
-    marginBottom: "4rem",
+    marginBottom: "1rem",
     color: "black",
     padding: "35px",
     width: "100%",
     backgroundColor: "white",
     borderRadius: "0 0 30px 30px",
+  },
+  occasion: {
+    margin: "",
+    padding: "",
   },
 };
