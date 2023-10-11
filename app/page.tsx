@@ -1,8 +1,38 @@
 "use client";
 import { CustomButton, Hero } from "@/src/components";
 import { sectionHome } from "@/src/constants";
+import { url } from "inspector";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
+const supportCards = [
+  {
+    title: "Comment ça marche",
+    btnTitle: "On vous explique tout",
+    path: "/howworks",
+    backgroundImage: "/MKB-Automobile-service-personnalise-1.webp",
+  },
+  {
+    title: "Financement",
+    btnTitle: "Je me renseigne",
+    path: "/financing",
+    backgroundImage: "/MKB-Automobile-financement.webp",
+  },
+  {
+    title: "Reprise auto",
+    text: `Vous souhaitez vendre votre voiture ? Aucun problème - On est là pour vous`,
+    btnTitle: "Je demande une estimation",
+    path: "/taking",
+    backgroundImage: "/MKB-automobile-Trouvez-votre-voiture-600-400.webp",
+  },
+  {
+    title: "Contactez-nous",
+    text: "Vous avez des question ? Nous sommes à votre écoute pour échanger sur votre projet automobile",
+    btnTitle: "Contactez un conseiller",
+    path: "/",
+    backgroundImage: "/MKB-automobile-Trouvez-votre-voiture-600-400.webp",
+  },
+];
 
 export default function Home({}) {
   const router = useRouter();
@@ -31,19 +61,24 @@ export default function Home({}) {
           ))}
         </div>
       </section>
-      <section className="flex  flex-col items-center w-full">
-        <div>
-          <h1>Recommandation de nos clients</h1>
-        </div>
-        <div>Intégration de l'api </div>
-        <div>
-          <CustomButton
-            title="Découvrire tous les avis clients"
-            containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[20rem]"
-            handleClick={() => {
-              router.push("/catalog");
-            }}
-          />
+      <section className="flex  items-center w-full">
+        <div className="flex flex-col items-center w-full py-20">
+          <div className="font-semibold text-3xl">
+            <h2>
+              <span style={{ color: "#ff9f1c" }}>Recommandé</span> par nos
+              clients - 4,8/5
+            </h2>
+          </div>
+          <div>Intégration de l'api </div>
+          <div>
+            <CustomButton
+              title="Découvrire tous les avis clients"
+              containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[20rem]"
+              handleClick={() => {
+                router.push("/catalog");
+              }}
+            />
+          </div>
         </div>
       </section>
       <section className="flex justify-center" style={styles.section}>
@@ -144,17 +179,17 @@ export default function Home({}) {
       </section>
       <section className="flex w-full">
         <div className="flex justify-around items-center w-full py-20">
-          <div>
+          <div className="flex justify-center w-3/6">
             <Image
               src="/MKB-automobile-Trouvez-votre-voiture-600-400.webp"
               width={300}
               height={201}
               alt="service-personnsalise"
-              className="rounded-3xl"
+              className=" rounded-3xl"
             />
           </div>
-          <div>
-            <div>
+          <div className="w-3/6">
+            <div className="font-semibold text-3xl pb-5">
               Bénéficier d'un accompagnement
               <br />
               adapté à vos besoins{" "}
@@ -170,9 +205,42 @@ export default function Home({}) {
             </div>
 
             <div>
-              <a>En savoir plus </a>
+              <CustomButton
+                title="En savoir plus"
+                containerStyles="bg-primary-orange text-white rounded-full mt-10"
+                handleClick={() => {
+                  router.push("/catalog");
+                }}
+              />
             </div>
           </div>
+        </div>
+      </section>
+      <section className="flex w-full justify-center">
+        <div className="grid grid-cols-2 gap-4 py-20">
+          {supportCards.map((card, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center bg-cover bg-center rounded h-48"
+              style={{ backgroundImage: `url(${card.backgroundImage})` }}
+            >
+              <div className="font-semibold text-center text-3xl ">
+                <h2>{card.title}</h2>
+              </div>
+              <div>
+                <p>{card.text}</p>
+              </div>
+              <div>
+                <CustomButton
+                  title={card.btnTitle}
+                  containerStyles="bg-primary-orange text-white rounded-full mt-5"
+                  handleClick={() => {
+                    router.push(card.path);
+                  }}
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>
