@@ -48,7 +48,7 @@ export default function Home({}) {
       </section>
       <section className="flex justify-center" style={styles.section}>
         <div className="flex justify-center items-center gap-3 max-w-screen-xl">
-          <div className="relative flex flex-col w-1/3">
+          <div className="relative flex flex-col w-1/3 pr-28">
             <div
               style={{
                 position: "relative",
