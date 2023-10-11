@@ -201,7 +201,7 @@ export default function Home({}) {
             <div>
               Nos experts vous accompagnent
               <br />
-              tout au long de votre processus d'achat.{" "}
+              tout au long de votre processus d'achat.
             </div>
 
             <div>
@@ -217,11 +217,11 @@ export default function Home({}) {
         </div>
       </section>
       <section className="flex w-full justify-center">
-        <div className="grid grid-cols-2 gap-4 py-20">
+        <div className="grid grid-cols-2 gap-4 py-20 max-md:grid-cols-1  max-sm:p-4">
           {supportCards.map((card, index) => (
             <div
               key={index}
-              className="flex flex-col items-center bg-cover bg-center rounded h-48"
+              className="flex flex-col  justify-center items-center bg-cover bg-center rounded h-48"
               style={{ backgroundImage: `url(${card.backgroundImage})` }}
             >
               <div className="font-semibold text-center text-3xl ">
