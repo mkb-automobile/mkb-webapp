@@ -1,36 +1,68 @@
 "use client";
 import { CustomButton, Hero } from "@/src/components";
-import { sectionHome } from "@/src/constants";
-import { url } from "inspector";
+import { sectionHome, supportCards } from "@/src/constants";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const supportCards = [
+const manifactureLogo = [
   {
-    title: "Comment ça marche",
-    btnTitle: "On vous explique tout",
-    path: "/howworks",
-    backgroundImage: "/MKB-Automobile-service-personnalise-1.webp",
+    alt: "Peugeot",
+    img: "/Peugeot.png",
   },
   {
-    title: "Financement",
-    btnTitle: "Je me renseigne",
-    path: "/financing",
-    backgroundImage: "/MKB-Automobile-financement.webp",
+    alt: "Renault",
+    img: "/Renault.webp",
   },
   {
-    title: "Reprise auto",
-    text: `Vous souhaitez vendre votre voiture ? Aucun problème - On est là pour vous`,
-    btnTitle: "Je demande une estimation",
-    path: "/taking",
-    backgroundImage: "/MKB-automobile-Trouvez-votre-voiture-600-400.webp",
+    alt: "Citroen",
+    img: "/Citroen.webp",
   },
   {
-    title: "Contactez-nous",
-    text: "Vous avez des question ? Nous sommes à votre écoute pour échanger sur votre projet automobile",
-    btnTitle: "Contactez un conseiller",
-    path: "/",
-    backgroundImage: "/MKB-automobile-Trouvez-votre-voiture-600-400.webp",
+    alt: "Audi",
+    img: "/Audi.webp",
+  },
+  {
+    alt: "BMW",
+    img: "/BMW.webp",
+  },
+  {
+    alt: "Fiat",
+    img: "/Fiat.webp",
+  },
+  {
+    alt: "Ford",
+    img: "/Ford.webp",
+  },
+  {
+    alt: "Mercedes-Benz",
+    img: "/Mercedes-Benz.webp",
+  },
+  {
+    alt: "Opel",
+    img: "/Opel.webp",
+  },
+  {
+    alt: "VW",
+    img: "/VW.webp",
+  },
+];
+
+const carsModel = [
+  {
+    title: "Citadine",
+    path: "/citadine.webp",
+  },
+  {
+    title: "SUV / 4x4",
+    path: "/suv.webp",
+  },
+  {
+    title: "Berline",
+    path: "/jon-koop-khYVyHiNZo0-unsplash.jpg",
+  },
+  {
+    title: "Utilitaire",
+    path: "/leo-OnHZTmU7WKQ-unsplash.jpg",
   },
 ];
 
@@ -45,7 +77,7 @@ export default function Home({}) {
         </h2>
       </div>
       <section className="flex w-full" style={styles.section}>
-        <div className="max-w-[1440px] mx-auto flex justify-between">
+        <div className="max-w-[1440px] mx-auto flex justify-between max-sm:grid grid-cols-1">
           {sectionHome.map((section, index) => (
             <div key={index} className="flex flex-col items-center p-4">
               <Image
@@ -63,8 +95,8 @@ export default function Home({}) {
       </section>
       <section className="flex  items-center w-full">
         <div className="flex flex-col items-center w-full py-20">
-          <div className="font-semibold text-3xl">
-            <h2>
+          <div>
+            <h2 className="font-semibold text-3xl">
               <span style={{ color: "#ff9f1c" }}>Recommandé</span> par nos
               clients - 4,8/5
             </h2>
@@ -81,16 +113,10 @@ export default function Home({}) {
           </div>
         </div>
       </section>
-      <section className="flex justify-center" style={styles.section}>
-        <div className="flex justify-center items-center gap-3 max-w-screen-xl">
-          <div className="relative flex flex-col w-1/3 pr-28">
-            <div
-              style={{
-                position: "relative",
-                minHeight: "1px",
-                display: "flex",
-              }}
-            >
+      <section className="" style={styles.section}>
+        <div className="flex gap-4 max-md:grid grid-cols-1 max-sm:p-4">
+          <div className="w-1/3 flex justify-center max-md:w-full max-sm:flex flex-col  pb-5 px-20">
+            <div>
               <div className="font-semibold text-3xl">
                 <h2>
                   Ne ratez pas
@@ -100,7 +126,7 @@ export default function Home({}) {
               </div>
             </div>
             <div>
-              <p style={styles.occasion}>
+              <p>
                 La meilleure façon d’acheter votre voiture à proximité de chez
                 vous et cela partout en France
               </p>
@@ -119,84 +145,42 @@ export default function Home({}) {
               </div>
             </div>
           </div>
-          <div>
-            <div
-              className="flex flex-col justify-center items-center"
-              style={styles.cardsImag}
-            >
-              <Image
-                src="/citadine.webp"
-                width={429}
-                height={200}
-                alt=""
-                style={styles.cardsImag}
-              />
-              <h2 style={styles.cartTitle}>Citadine</h2>
-            </div>
-            <div
-              className="flex flex-col justify-center items-center"
-              style={styles.cardsImag}
-            >
-              <Image
-                src="/jon-koop-khYVyHiNZo0-unsplash.jpg"
-                width={429}
-                height={200}
-                alt=""
-                style={styles.cardsImag}
-              />
-              <h2 style={styles.cartTitle}>Berline</h2>
-            </div>
-          </div>
-          <div>
-            <div
-              className="flex flex-col justify-center items-center"
-              style={styles.cardsImag}
-            >
-              <Image
-                src="/suv.webp"
-                width={429}
-                height={200}
-                alt=""
-                style={styles.cardsImag}
-              />
-              <h2 style={styles.cartTitle}>SUV / 4x4</h2>
-            </div>
-            <div
-              className="flex flex-col justify-center items-center"
-              style={styles.cardsImag}
-            >
-              <Image
-                src="/leo-OnHZTmU7WKQ-unsplash.jpg"
-                width={429}
-                height={200}
-                alt=""
-                style={styles.cardsImag}
-              />
-              <h2 style={styles.cartTitle}>Utilitaire</h2>
-            </div>
+          <div className="grid grid-cols-2 max-sm:flex flex-col items-center gap-4">
+            {carsModel.map((car) => (
+              <div className="rounded-t-lg w-fit">
+                <Image
+                  src={car.path}
+                  width={429}
+                  height={200}
+                  alt={car.title}
+                  className="rounded-t-lg"
+                />
+                <h2 className="mb-2 p-7 bg-white rounded-b-lg">{car.title}</h2>
+              </div>
+            ))}
           </div>
         </div>
       </section>
       <section className="flex w-full">
-        <div className="flex justify-around items-center w-full py-20">
-          <div className="flex justify-center w-3/6">
+        <div className="flex justify-around items-center max-sm:flex-col w-full py-20">
+          <div className="flex justify-center w-3/6 pb-5">
             <Image
               src="/MKB-automobile-Trouvez-votre-voiture-600-400.webp"
               width={300}
               height={201}
               alt="service-personnsalise"
-              className=" rounded-3xl"
+              className="rounded-3xl"
             />
           </div>
           <div className="w-3/6">
-            <div className="font-semibold text-3xl pb-5">
+            <h2 className="font-semibold text-3xl pb-5">
               Bénéficier d'un accompagnement
               <br />
               adapté à vos besoins{" "}
               <span style={{ color: "#ff9f1c" }}>
                 via la recherche personnalisée
-              </span>{" "}
-            </div>
+              </span>
+            </h2>
 
             <div>
               Nos experts vous accompagnent
@@ -221,7 +205,7 @@ export default function Home({}) {
           {supportCards.map((card, index) => (
             <div
               key={index}
-              className="flex flex-col  justify-center items-center bg-cover bg-center rounded h-48"
+              className="flex flex-col  justify-center items-center bg-cover bg-center rounded-3xl h-48"
               style={{ backgroundImage: `url(${card.backgroundImage})` }}
             >
               <div className="font-semibold text-center text-3xl ">
@@ -243,6 +227,40 @@ export default function Home({}) {
           ))}
         </div>
       </section>
+      <section className="flex w-full justify-center">
+        <div>
+          <div className="flex justify-center items-center pb-10">
+            <h2 className="font-semibold text-3xl">
+              <span style={{ color: "#ff9f1c" }}>Nos marques et modèles</span>
+              <br />
+              les plus populaires
+            </h2>
+          </div>
+          <div className="flex  flex-col items-center">
+            <div className="grid grid-cols-10 gap-4 py-20 max-md:grid-cols-5  max-sm:p-4">
+              {manifactureLogo.map((link) => (
+                <div className="">
+                  <Image
+                    src={link.img}
+                    width={100}
+                    height={100}
+                    alt={link.alt}
+                  />
+                </div>
+              ))}
+            </div>
+            <div>
+              <CustomButton
+                title="Venez decouvir"
+                containerStyles="bg-primary-orange text-white rounded-full mt-10"
+                handleClick={() => {
+                  router.push("/catalog");
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
@@ -251,20 +269,5 @@ const styles = {
   section: {
     backgroundColor: "#fff7f0",
     padding: "2% 0% 2% 0%",
-  },
-  cardsImag: {
-    borderRadius: "30px 30px 0 0 ",
-  },
-  cartTitle: {
-    marginBottom: "1rem",
-    color: "black",
-    padding: "35px",
-    width: "100%",
-    backgroundColor: "white",
-    borderRadius: "0 0 30px 30px",
-  },
-  occasion: {
-    margin: "",
-    padding: "",
   },
 };
