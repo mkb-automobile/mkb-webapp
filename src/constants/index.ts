@@ -16,6 +16,35 @@ export const sectionHome = [
   },
 ];
 
+export const supportCards = [
+  {
+    title: "Comment ça marche",
+    btnTitle: "On vous explique tout",
+    path: "/howworks",
+    backgroundImage: "/MKB-Automobile-service-personnalise-1.webp",
+  },
+  {
+    title: "Financement",
+    btnTitle: "Je me renseigne",
+    path: "/financing",
+    backgroundImage: "/MKB-Automobile-financement.webp",
+  },
+  {
+    title: "Reprise auto",
+    text: `Vous souhaitez vendre votre voiture ? Aucun problème - On est là pour vous`,
+    btnTitle: "Je demande une estimation",
+    path: "/taking",
+    backgroundImage: "/MKB-automobile-Trouvez-votre-voiture-600-400.webp",
+  },
+  {
+    title: "Contactez-nous",
+    text: "Vous avez des question ? Nous sommes à votre écoute pour échanger sur votre projet automobile",
+    btnTitle: "Contactez un conseiller",
+    path: "/",
+    backgroundImage: "/MKB-automobile-Trouvez-votre-voiture-600-400.webp",
+  },
+];
+
 export const manufacturers = [
   "Abarth",
   "Alfa Romeo",
