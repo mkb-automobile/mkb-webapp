@@ -23,7 +23,7 @@ const Hero = () => {
           title="Trouver votre véhicule"
           containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[14rem]"
           handleClick={() => {
-            router.push("/catalog");
+            router.push("/purchase");
           }}
         />
       </div>

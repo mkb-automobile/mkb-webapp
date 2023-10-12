@@ -107,7 +107,7 @@ export default function Home({}) {
               title="Découvrire tous les avis clients"
               containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[20rem]"
               handleClick={() => {
-                router.push("/catalog");
+                router.push("/purchase");
               }}
             />
           </div>
@@ -138,7 +138,7 @@ export default function Home({}) {
                     title="Trouver votre voiture"
                     containerStyles="bg-primary-orange text-white rounded-full mt-10"
                     handleClick={() => {
-                      router.push("/catalog");
+                      router.push("/purchase");
                     }}
                   />
                 </div>
@@ -193,7 +193,7 @@ export default function Home({}) {
                 title="En savoir plus"
                 containerStyles="bg-primary-orange text-white rounded-full mt-10"
                 handleClick={() => {
-                  router.push("/catalog");
+                  router.push("/purchase");
                 }}
               />
             </div>
@@ -227,7 +227,7 @@ export default function Home({}) {
           ))}
         </div>
       </section>
-      <section className="flex w-full justify-center">
+      <section className="flex w-full justify-center" style={styles.section}>
         <div>
           <div className="flex justify-center items-center pb-10">
             <h2 className="font-semibold text-3xl">
@@ -254,7 +254,7 @@ export default function Home({}) {
                 title="Venez decouvir"
                 containerStyles="bg-primary-orange text-white rounded-full mt-10"
                 handleClick={() => {
-                  router.push("/catalog");
+                  router.push("/purchase");
                 }}
               />
             </div>
