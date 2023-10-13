@@ -1,75 +1,15 @@
 "use client";
 import { CustomButton, CustomFilter, Hero, SearchBar } from "@/src/components";
 import {
+  carsModel,
   fuels,
+  manifactureLogo,
   sectionHome,
   supportCards,
   yearsOfProduction,
 } from "@/src/constants";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
-const manifactureLogo = [
-  {
-    alt: "Peugeot",
-    img: "/Peugeot.png",
-  },
-  {
-    alt: "Renault",
-    img: "/Renault.webp",
-  },
-  {
-    alt: "Citroen",
-    img: "/Citroen.webp",
-  },
-  {
-    alt: "Audi",
-    img: "/Audi.webp",
-  },
-  {
-    alt: "BMW",
-    img: "/BMW.webp",
-  },
-  {
-    alt: "Fiat",
-    img: "/Fiat.webp",
-  },
-  {
-    alt: "Ford",
-    img: "/Ford.webp",
-  },
-  {
-    alt: "Mercedes-Benz",
-    img: "/Mercedes-Benz.webp",
-  },
-  {
-    alt: "Opel",
-    img: "/Opel.webp",
-  },
-  {
-    alt: "VW",
-    img: "/VW.webp",
-  },
-];
-
-const carsModel = [
-  {
-    title: "Citadine",
-    path: "/citadine.webp",
-  },
-  {
-    title: "SUV / 4x4",
-    path: "/suv.webp",
-  },
-  {
-    title: "Berline",
-    path: "/jon-koop-khYVyHiNZo0-unsplash.jpg",
-  },
-  {
-    title: "Utilitaire",
-    path: "/leo-OnHZTmU7WKQ-unsplash.jpg",
-  },
-];
 
 export default function Home({}) {
   const router = useRouter();
