@@ -38,6 +38,20 @@ function Navbar() {
           </button>
         </div>
       </nav>
+      {isMobileNavOpen && (
+        <div className="flex flex-col items-center justify-center w-full fixed top-0 left-0 z-50">
+          <button onClick={toggleMobileNav}>
+            <Image src={"/icon-close.svg"} width={40} height={40} alt="" />
+          </button>
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            {navLinks.map((link) => (
+              <Link href={link.path} className="font-semibold text-2xl">
+                {link.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 }

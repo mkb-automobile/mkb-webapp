@@ -1,6 +1,11 @@
 "use client";
-import { CustomButton, Hero } from "@/src/components";
-import { sectionHome, supportCards } from "@/src/constants";
+import { CustomButton, CustomFilter, Hero, SearchBar } from "@/src/components";
+import {
+  fuels,
+  sectionHome,
+  supportCards,
+  yearsOfProduction,
+} from "@/src/constants";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -71,12 +76,24 @@ export default function Home({}) {
   return (
     <main className="overflow-hidden">
       <Hero />
-      <div className="w-full py-10">
-        <h2 className="font-semibold text-center text-3xl">
-          <span style={{ color: "#ff9f1c" }}>MKB</span> - Un gage de qualité
+      <div className="w-full flex flex-col justify-center items-center pb-20">
+        <h2 className="font-semibold text-3xl">
+          <span style={{ color: "#ff9f1c" }}>Recherche</span> rapide
         </h2>
+        <div className="mt-12 w-full flex justify-evenly">
+          <SearchBar />
+          <div className="home__filter-container">
+            <CustomFilter title="Carburant" options={fuels} />
+            <CustomFilter title="Année" options={yearsOfProduction} />
+          </div>
+        </div>
       </div>
-      <section className="flex w-full" style={styles.section}>
+      <section className="w-full" style={styles.section}>
+        <div className="w-full py-10">
+          <h2 className="font-semibold text-center text-3xl">
+            <span style={{ color: "#ff9f1c" }}>MKB</span> - Un gage de qualité
+          </h2>
+        </div>
         <div className="max-w-[1440px] mx-auto flex justify-between max-sm:grid grid-cols-1">
           {sectionHome.map((section, index) => (
             <div key={index} className="flex flex-col items-center p-4">
