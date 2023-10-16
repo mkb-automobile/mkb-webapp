@@ -15,7 +15,7 @@ function CustomFilter({ title, options }: CustomFiltersProps) {
   };
 
   return (
-    <div className="w-fit">
+    <div className="w-fit z-0">
       <Listbox value={seleted} onChange={(e) => setSeleted(e)}>
         <div className="relative w-fit z-10">
           <Listbox.Button className="custom-filter__btn">

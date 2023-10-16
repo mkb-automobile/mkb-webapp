@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { navLinks } from "@/src/constants";
 import { useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
 
 function Navbar() {
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
@@ -11,7 +12,7 @@ function Navbar() {
     setMobileNavOpen(!isMobileNavOpen);
   };
   return (
-    <header className="w-full absolute z-10">
+    <header className="w-full fixed z-10 bg-white">
       <nav className="max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4">
         <Link href={"/"} className="flex justify-center items-center">
           <Image
@@ -34,18 +35,25 @@ function Navbar() {
         </div>
         <div className="md:hidden">
           <button onClick={toggleMobileNav}>
-            <Image src={"/icon-menu.svg"} width={40} height={40} alt="" />
+            {!isMobileNavOpen ? (
+              <Image src={"/icon-menu.svg"} width={40} height={40} alt="" />
+            ) : (
+              ""
+            )}
           </button>
         </div>
       </nav>
       {isMobileNavOpen && (
-        <div className="flex flex-col items-center justify-center w-full fixed top-0 left-0 z-50">
-          <button onClick={toggleMobileNav}>
-            <Image src={"/icon-close.svg"} width={40} height={40} alt="" />
-          </button>
+        <div className="w-full h-full fixed top-0 left-0 z-10 bg-primary-orange-100">
+          <div className="flex justify-end pr-10 pt-5">
+            <button onClick={toggleMobileNav}>{<AiOutlineClose />}</button>
+          </div>
           <div className="flex flex-col items-center justify-center w-full h-full">
             {navLinks.map((link) => (
-              <Link href={link.path} className="font-semibold text-2xl">
+              <Link
+                href={link.path}
+                className="font-semibold  text-black text-2xl"
+              >
                 {link.title}
               </Link>
             ))}
