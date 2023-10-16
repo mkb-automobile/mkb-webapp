@@ -10,8 +10,8 @@ async function CatalogCars({ searchParams }) {
     limit: searchParams?.limit || 20,
     model: searchParams?.model || "",
   });
-
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
+
   return (
     <>
       <div className="padding-x padding-y max-width" id="discover">

@@ -1,82 +1,35 @@
 "use client";
-import { CustomButton, Hero } from "@/src/components";
-import { sectionHome, supportCards } from "@/src/constants";
+import { CustomButton, CustomFilter, Hero, SearchBar } from "@/src/components";
+import {
+  carsModel,
+  fuels,
+  manifactureLogo,
+  sectionHome,
+  supportCards,
+  yearsOfProduction,
+} from "@/src/constants";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
-const manifactureLogo = [
-  {
-    alt: "Peugeot",
-    img: "/Peugeot.png",
-  },
-  {
-    alt: "Renault",
-    img: "/Renault.webp",
-  },
-  {
-    alt: "Citroen",
-    img: "/Citroen.webp",
-  },
-  {
-    alt: "Audi",
-    img: "/Audi.webp",
-  },
-  {
-    alt: "BMW",
-    img: "/BMW.webp",
-  },
-  {
-    alt: "Fiat",
-    img: "/Fiat.webp",
-  },
-  {
-    alt: "Ford",
-    img: "/Ford.webp",
-  },
-  {
-    alt: "Mercedes-Benz",
-    img: "/Mercedes-Benz.webp",
-  },
-  {
-    alt: "Opel",
-    img: "/Opel.webp",
-  },
-  {
-    alt: "VW",
-    img: "/VW.webp",
-  },
-];
-
-const carsModel = [
-  {
-    title: "Citadine",
-    path: "/citadine.webp",
-  },
-  {
-    title: "SUV / 4x4",
-    path: "/suv.webp",
-  },
-  {
-    title: "Berline",
-    path: "/jon-koop-khYVyHiNZo0-unsplash.jpg",
-  },
-  {
-    title: "Utilitaire",
-    path: "/leo-OnHZTmU7WKQ-unsplash.jpg",
-  },
-];
 
 export default function Home({}) {
   const router = useRouter();
   return (
     <main className="overflow-hidden">
       <Hero />
-      <div className="w-full py-10">
-        <h2 className="font-semibold text-center text-3xl">
-          <span style={{ color: "#ff9f1c" }}>MKB</span> - Un gage de qualité
+      <div className="w-full flex flex-col justify-center items-center py-15">
+        <h2 className="font-semibold text-3xl">
+          <span style={{ color: "#ff9f1c" }}>Recherche</span> rapide
         </h2>
+        <div className="mt-12 w-full flex justify-evenly pb-20">
+          <SearchBar />
+        </div>
       </div>
-      <section className="flex w-full" style={styles.section}>
+      <section className="w-full py-10" style={styles.section}>
+        <div className="w-full pb-10">
+          <h2 className="font-semibold text-center text-3xl">
+            <span style={{ color: "#ff9f1c" }}>MKB</span> - Un gage de qualité
+          </h2>
+        </div>
         <div className="max-w-[1440px] mx-auto flex justify-between max-sm:grid grid-cols-1">
           {sectionHome.map((section, index) => (
             <div key={index} className="flex flex-col items-center p-4">
@@ -93,9 +46,9 @@ export default function Home({}) {
           ))}
         </div>
       </section>
-      <section className="flex  items-center w-full">
-        <div className="flex flex-col items-center w-full py-20">
-          <div>
+      <section className="flex  items-center w-full py-10">
+        <div className="flex flex-col items-center w-full">
+          <div className="pb-5 px-20">
             <h2 className="font-semibold text-3xl">
               <span style={{ color: "#ff9f1c" }}>Recommandé</span> par nos
               clients - 4,8/5
@@ -113,8 +66,8 @@ export default function Home({}) {
           </div>
         </div>
       </section>
-      <section className="" style={styles.section}>
-        <div className="flex gap-4 max-md:grid grid-cols-1 max-sm:p-4">
+      <section className="py-10" style={styles.section}>
+        <div className="flex gap-4 max-md:grid grid-cols-1 max-sm:p-4 ">
           <div className="w-1/3 flex justify-center max-md:w-full max-sm:flex flex-col  pb-5 px-20">
             <div>
               <div className="font-semibold text-3xl">
@@ -161,8 +114,8 @@ export default function Home({}) {
           </div>
         </div>
       </section>
-      <section className="flex w-full">
-        <div className="flex justify-around items-center max-sm:flex-col w-full py-20">
+      <section className="flex w-full py-10">
+        <div className="flex justify-around items-center max-sm:flex-col w-full ">
           <div className="flex justify-center w-3/6 pb-5">
             <Image
               src="/MKB-automobile-Trouvez-votre-voiture-600-400.webp"
@@ -200,8 +153,11 @@ export default function Home({}) {
           </div>
         </div>
       </section>
-      <section className="flex w-full justify-center">
-        <div className="grid grid-cols-2 gap-4 py-20 max-md:grid-cols-1  max-sm:p-4">
+      <section
+        className="flex w-full justify-center py-10"
+        style={styles.section}
+      >
+        <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1  max-sm:p-4">
           {supportCards.map((card, index) => (
             <div
               key={index}
@@ -227,9 +183,9 @@ export default function Home({}) {
           ))}
         </div>
       </section>
-      <section className="flex w-full justify-center" style={styles.section}>
+      <section className="flex w-full justify-center py-10">
         <div>
-          <div className="flex justify-center items-center pb-10">
+          <div className="flex justify-center items-center">
             <h2 className="font-semibold text-3xl">
               <span style={{ color: "#ff9f1c" }}>Nos marques et modèles</span>
               <br />
@@ -237,7 +193,7 @@ export default function Home({}) {
             </h2>
           </div>
           <div className="flex  flex-col items-center">
-            <div className="grid grid-cols-10 gap-4 py-20 max-md:grid-cols-5  max-sm:p-4">
+            <div className="grid grid-cols-10 gap-4 py-10 max-md:grid-cols-5  max-sm:p-4">
               {manifactureLogo.map((link) => (
                 <div className="">
                   <Image
@@ -268,6 +224,6 @@ export default function Home({}) {
 const styles = {
   section: {
     backgroundColor: "#fff7f0",
-    padding: "2% 0% 2% 0%",
+    // padding: "2% 0% 2% 0%",
   },
 };
