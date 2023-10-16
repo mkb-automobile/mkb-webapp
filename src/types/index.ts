@@ -39,12 +39,12 @@ export interface FilterProps {
   model: string;
 }
 
-export interface OptionProps {
+export interface OptionsProps {
   title: string;
   value: string;
 }
 
 export interface CustomFiltersProps {
   title: string;
-  options?: OptionProps[];
+  options?: OptionsProps[];
 }

@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 function CustomFilter({ title, options }: CustomFiltersProps) {
-  const [seleted, setSeleted] = useState(options[0]);
+  const [selected, setSelected] = useState(options ? options[0] : null);
   const router = useRouter();
 
   const handleUpdateParams = () => {
@@ -16,10 +16,10 @@ function CustomFilter({ title, options }: CustomFiltersProps) {
 
   return (
     <div className="w-fit z-0">
-      <Listbox value={seleted} onChange={(e) => setSeleted(e)}>
+      <Listbox value={selected} onChange={(e) => setSelected(e)}>
         <div className="relative w-fit z-10">
           <Listbox.Button className="custom-filter__btn">
-            <span className="block truncate">{seleted.title}</span>
+            <span className="block truncate">{selected?.title || title}</span>
             <Image
               src="/chevron-up-down.svg"
               width={20}
@@ -35,7 +35,7 @@ function CustomFilter({ title, options }: CustomFiltersProps) {
             leaveTo="opacity-0"
           >
             <Listbox.Options className="custom-filter__options">
-              {options.map((option) => (
+                {options && options.map((option) => (
                 <Listbox.Option
                   key={option.title}
                   value={option}
@@ -47,7 +47,7 @@ function CustomFilter({ title, options }: CustomFiltersProps) {
                 >
                   <span
                     className={`block truncate ${
-                      seleted ? "font-medium" : "font-normal"
+                      selected ? "font-medium" : "font-normal"
                     }`}
                   >
                     {option.title}
