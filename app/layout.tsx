@@ -1,6 +1,7 @@
 import { Footer, Navbar } from "@/src/components";
 import "./globals.css";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "MKB-Automobile",
@@ -18,6 +19,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
