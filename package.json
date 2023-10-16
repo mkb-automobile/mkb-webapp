@@ -13,7 +13,7 @@
     "@headlessui/react": "^1.7.17",
     "axios": "^1.5.1",
     "debug": "^4.3.4",
-    "firebase": "^10.4.0",
+    "firebase": "^10.5.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",

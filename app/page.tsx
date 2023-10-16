@@ -194,8 +194,8 @@ export default function Home({}) {
           </div>
           <div className="flex  flex-col items-center">
             <div className="grid grid-cols-10 gap-4 py-10 max-md:grid-cols-5  max-sm:p-4">
-              {manifactureLogo.map((link) => (
-                <div className="">
+              {manifactureLogo.map((link, index) => (
+                <div key={index} className="">
                   <Image
                     src={link.img}
                     width={100}

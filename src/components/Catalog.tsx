@@ -2,7 +2,7 @@ import { CarCard, CustomFilter, SearchBar } from "@/src/components";
 import { fuels, yearsOfProduction } from "@/src/constants";
 import { fetchCars } from "@/src/utils";
 
-async function CatalogCars({ searchParams }) {
+async function CatalogCars({ searchParams }: { searchParams: any }) {
   const allCars = await fetchCars({
     manufacturer: searchParams?.manufacturer || "",
     year: searchParams?.year || 2022,

@@ -15,7 +15,7 @@ dependencies:
     specifier: ^4.3.4
     version: 4.3.4
   firebase:
-    specifier: ^10.4.0
+    specifier: ^10.5.0
     version: 10.5.0
   next:
     specifier: latest

@@ -26,6 +26,7 @@ function Navbar() {
         <div className="flex flex-between w-[75%] max-md:hidden">
           {navLinks.map((link) => (
             <Link
+              key={link.title}
               href={link.path}
               className="font-semibold text-base leading-8"
             >
@@ -51,6 +52,7 @@ function Navbar() {
           <div className="flex flex-col items-center justify-center w-full h-full">
             {navLinks.map((link) => (
               <Link
+                key={link.title}
                 href={link.path}
                 className="font-semibold  text-black text-2xl"
               >
