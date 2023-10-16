@@ -10,10 +10,10 @@ async function CatalogCars({ searchParams }) {
     limit: searchParams?.limit || 20,
     model: searchParams?.model || "",
   });
-
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
+
   return (
-    <main className="pt-36">
+    <>
       <div className="padding-x padding-y max-width" id="discover">
         <div className="home__text-container">
           <h1 className="text-4xl font-extrabold">Nos Véhicules</h1>
@@ -40,7 +40,7 @@ async function CatalogCars({ searchParams }) {
           </div>
         )}
       </div>
-    </main>
+    </>
   );
 }
 

@@ -3,6 +3,7 @@ import React from "react";
 import CustomButton from "./CustomButton";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { CustomFilter } from ".";
 
 const Hero = () => {
   const router = useRouter();
@@ -23,7 +24,7 @@ const Hero = () => {
           title="Trouver votre véhicule"
           containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[14rem]"
           handleClick={() => {
-            router.push("/catalog");
+            router.push("/purchase");
           }}
         />
       </div>

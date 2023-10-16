@@ -1,21 +1,4 @@
-export const sectionHome = [
-  {
-    img: "/simplicite.svg",
-    title: "Simplicité",
-    text: "Nous vous aidons à trouver la voiture de vos rêves parmi un large choix de véhicules en France et en Europe. Du financement à l’immatriculation, achetez en toute simplicité.",
-  },
-  {
-    img: "/fiabilite.svg",
-    title: "Fiabilité",
-    text: "La meilleure façon d’acheter votre voiture à proximité de chez vous et cela partout en France.",
-  },
-  {
-    img: "/securite.svg",
-    title: "Sécurité",
-    text: "Nos équipes vérifient l’état de votre nouvelle voiture, la révisent et la préparent. Vous bénéficiez de l’expertise MKB Automobile et d’une garantie extensible pour votre véhicule.",
-  },
-];
-
+// Manufacturers
 export const manufacturers = [
   "Abarth",
   "Alfa Romeo",
@@ -118,7 +101,7 @@ export const manufacturers = [
   "Rezvani Motors",
   "Zenvo Automotive",
 ];
-
+// Years of production
 export const yearsOfProduction = [
   { title: "Année", value: "" },
   { title: "1992", value: "1992" },
@@ -154,7 +137,7 @@ export const yearsOfProduction = [
   { title: "2022", value: "2022" },
   { title: "2023", value: "2023" },
 ];
-
+// Type of fuels
 export const fuels = [
   {
     title: "Carburant",
@@ -181,6 +164,116 @@ export const navLinks = [
   { title: "Recherche personnalisé", path: "/personalized" },
   { title: "Financement", path: "/financing" },
   { title: "Comment ça marche", path: "/howworks" },
+];
+
+// Home page
+export const sectionHome = [
+  {
+    img: "/simplicite.svg",
+    title: "Simplicité",
+    text: "Nous vous aidons à trouver la voiture de vos rêves parmi un large choix de véhicules en France et en Europe. Du financement à l’immatriculation, achetez en toute simplicité.",
+  },
+  {
+    img: "/fiabilite.svg",
+    title: "Fiabilité",
+    text: "La meilleure façon d’acheter votre voiture à proximité de chez vous et cela partout en France.",
+  },
+  {
+    img: "/securite.svg",
+    title: "Sécurité",
+    text: "Nos équipes vérifient l’état de votre nouvelle voiture, la révisent et la préparent. Vous bénéficiez de l’expertise MKB Automobile et d’une garantie extensible pour votre véhicule.",
+  },
+];
+
+export const supportCards = [
+  {
+    title: "Comment ça marche",
+    btnTitle: "On vous explique tout",
+    path: "/howworks",
+    backgroundImage: "/MKB-Automobile-service-personnalise-1.webp",
+  },
+  {
+    title: "Financement",
+    btnTitle: "Je me renseigne",
+    path: "/financing",
+    backgroundImage: "/MKB-Automobile-financement.webp",
+  },
+  {
+    title: "Reprise auto",
+    text: `Vous souhaitez vendre votre voiture ? Aucun problème - On est là pour vous`,
+    btnTitle: "Je demande une estimation",
+    path: "/taking",
+    backgroundImage: "/MKB-automobile-Trouvez-votre-voiture-600-400.webp",
+  },
+  {
+    title: "Contactez-nous",
+    text: "Vous avez des question ? Nous sommes à votre écoute pour échanger sur votre projet automobile",
+    btnTitle: "Contactez un conseiller",
+    path: "/",
+    backgroundImage: "/MKB-automobile-Trouvez-votre-voiture-600-400.webp",
+  },
+];
+
+export const manifactureLogo = [
+  {
+    alt: "Peugeot",
+    img: "/Peugeot.png",
+  },
+  {
+    alt: "Renault",
+    img: "/Renault.webp",
+  },
+  {
+    alt: "Citroen",
+    img: "/Citroen.webp",
+  },
+  {
+    alt: "Audi",
+    img: "/Audi.webp",
+  },
+  {
+    alt: "BMW",
+    img: "/BMW.webp",
+  },
+  {
+    alt: "Fiat",
+    img: "/Fiat.webp",
+  },
+  {
+    alt: "Ford",
+    img: "/Ford.webp",
+  },
+  {
+    alt: "Mercedes-Benz",
+    img: "/Mercedes-Benz.webp",
+  },
+  {
+    alt: "Opel",
+    img: "/Opel.webp",
+  },
+  {
+    alt: "VW",
+    img: "/VW.webp",
+  },
+];
+
+export const carsModel = [
+  {
+    title: "Citadine",
+    path: "/citadine.webp",
+  },
+  {
+    title: "SUV / 4x4",
+    path: "/suv.webp",
+  },
+  {
+    title: "Berline",
+    path: "/jon-koop-khYVyHiNZo0-unsplash.jpg",
+  },
+  {
+    title: "Utilitaire",
+    path: "/leo-OnHZTmU7WKQ-unsplash.jpg",
+  },
 ];
 
 // Footer
