@@ -9,13 +9,13 @@ const Contact = () => {
         <div className="flex justify-center">
           <h1 className="text-center font-semibold text-3xl pb-5">
             <span style={{ color: "#ff9f1c" }}>
-              Une question, une demande de renseignement ?
+              Une question, une demande de renseignements ?
             </span>
             <br /> Contactez-nous
           </h1>
         </div>
-        <div className="flex">
-          <div className="flex  w-full max-md:flex-col ">
+        <div className="flex items-center max-md:flex-col-reverse">
+          <div className="flex justify-center w-full max-md:flex-col ">
             <div className="pt-10 flex flex-col  w-3/5">
               <div className="flex justify-center">
                 <h2 className="text-base font-semibold leading-7 text-gray-900">
@@ -25,15 +25,15 @@ const Contact = () => {
               <FormContact />
             </div>
           </div>
-          <div className="flex w-full max-md:flex-col ">
+          <div className="flex  justify-center w-full max-md:flex-col ">
             <div className="pt-10 flex flex-col w-3/5">
               <div className="flex justify-center">
                 <h2 className="text-base font-semibold leading-7 text-gray-900">
                   Par téléphone
                 </h2>
               </div>
-              <div>
-                <div className="flex">
+              <div className="flex-col justify-center">
+                <div className="flex justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -46,13 +46,13 @@ const Contact = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <Link href="tel:+33 1 88 83 09 17" className="pl-3">
+                  <Link href="tel:+33 1 88 83 09 17" className="pl-4 text-xl">
                     {" "}
                     +33 1 88 83 09 17{" "}
                   </Link>
                 </div>
-                <span>ou</span>
-                <div className="flex">
+                <span className="flex justify-center">ou</span>
+                <div className="flex justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -65,7 +65,7 @@ const Contact = () => {
 
                   <Link
                     href={"mailto:contact@mkbautomobile.fr"}
-                    className="pl-3"
+                    className="pl-4 text-xl"
                   >
                     contact@mkbautomobile.fr
                   </Link>

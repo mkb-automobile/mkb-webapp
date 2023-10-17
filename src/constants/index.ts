@@ -148,8 +148,8 @@ export const fuels = [
     value: "Diesel",
   },
   {
-    title: "Essance",
-    value: "Essance",
+    title: "Essence",
+    value: "Essence",
   },
   {
     title: "Éléctrique",
@@ -163,7 +163,7 @@ export const navLinks = [
   { title: "Reprise", path: "/taking" },
   { title: "Recherche personnalisé", path: "/personalized" },
   { title: "Financement", path: "/financing" },
-  { title: "Comment ça marche", path: "/howworks" },
+  { title: "Comment ça marche ?", path: "/howworks" },
 ];
 
 // Home page
@@ -187,7 +187,7 @@ export const sectionHome = [
 
 export const supportCards = [
   {
-    title: "Comment ça marche",
+    title: "Comment ça marche ?",
     btnTitle: "On vous explique tout",
     path: "/howworks",
     backgroundImage: "/MKB-Automobile-service-personnalise-1.webp",
@@ -284,7 +284,7 @@ export const footerLinks = [
       { title: "MKB Automobile", url: "/about" },
       { title: "Contact", url: "/contact" },
       { title: "FAQ", url: "/faq" },
-      { title: "Comment ça marche", url: "/howworks" },
+      { title: "Comment ça marche ?", url: "/howworks" },
     ],
   },
   {

@@ -4,10 +4,10 @@ import { CustomButton } from ".";
 
 const FormContact = () => {
   return (
-    <form>
+    <form className=" bg-primary-orange-100 p-10 rounded-lg">
       <div className="space-y-12">
         <div className="pb-12">
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-3">
               <label
                 htmlFor="last-name"
@@ -17,11 +17,10 @@ const FormContact = () => {
               </label>
               <div className="mt-2">
                 <input
-                  type="text"
-                  name="last-name"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="last-name"
-                  autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  type="text"
+                  placeholder="Doe"
                   required
                 />
               </div>
@@ -36,16 +35,15 @@ const FormContact = () => {
               </label>
               <div className="mt-2">
                 <input
-                  type="text"
-                  name="first-name"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="first-name"
-                  autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  type="text"
+                  placeholder="John"
                 />
               </div>
             </div>
 
-            <div className="sm:col-span-4">
+            <div className="sm:col-span-5">
               <label
                 htmlFor="email"
                 className="block text-sm font-medium leading-6 text-gray-900"
@@ -54,11 +52,27 @@ const FormContact = () => {
               </label>
               <div className="mt-2">
                 <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="email"
-                  name="email"
                   type="email"
-                  autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder="votremail@ ..."
+                  required
+                />
+              </div>
+            </div>
+            <div className="sm:col-span-4">
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Téléphone
+              </label>
+              <div className="mt-2">
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="phone"
+                  type="phone"
+                  placeholder="060707..."
                   required
                 />
               </div>
@@ -68,14 +82,14 @@ const FormContact = () => {
                 htmlFor="about"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                About
+                Votre message
               </label>
               <div className="mt-2">
                 <textarea
                   id="about"
                   name="about"
                   rows={3}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   defaultValue={""}
                   required
                 />
