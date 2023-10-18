@@ -283,7 +283,7 @@ export const footerLinks = [
     links: [
       { title: "MKB Automobile", url: "/about" },
       { title: "Contact", url: "/contact" },
-      { title: "FAQ", url: "/faq" },
+      // { title: "FAQ", url: "/faq" },
       { title: "Comment ça marche ?", url: "/howworks" },
     ],
   },
