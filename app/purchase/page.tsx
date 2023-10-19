@@ -1,5 +1,4 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React, { use } from "react";
 import CatalogCars from "@/src/components/Catalog";
 
 const Purchase = () => {

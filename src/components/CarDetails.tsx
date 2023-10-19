@@ -5,7 +5,6 @@ import { Dialog, Transition } from "@headlessui/react";
 import { CarDetailsProps } from "../types";
 
 const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
-  console.log(car);
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
