@@ -68,7 +68,7 @@ function CarCard({ car }: CarCardProps) {
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src={"/gas.svg"} alt="gas" width={20} height={20} />
-            <p className="text-[14px]">{fuel_type.toLocaleUpperCase()}</p>
+            <p className="text-[14px]">{}</p>
           </div>
         </div>
 
