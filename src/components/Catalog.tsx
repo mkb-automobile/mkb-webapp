@@ -1,22 +1,15 @@
 import { CarCard, CustomFilter, SearchBar } from "@/src/components";
 import { fuels, yearsOfProduction } from "@/src/constants";
+import { useEffect, useState } from "react";
+import { fetchXmlData } from "../services";
+import { CarDataProps } from "../types";
 
-interface CarData {
-  // Define the shape of the car object
-  name: string;
-  marque: string;
-  modele: string;
-  prix_achat: string;
-  photo: string;
+function CatalogCars() {
+  const [data, setData] = useState<CarDataProps[]>([]);
 
-  // Add any other properties you need
-}
-
-interface CatalogCarsProps {
-  data: CarData[];
-}
-
-function CatalogCars({ data }: CatalogCarsProps) {
+  useEffect(() => {
+    fetchXmlData().then((result) => setData(result as CarDataProps[]));
+  }, []);
   const isDataEmpty = data?.length === 0;
 
   return (
@@ -37,7 +30,7 @@ function CatalogCars({ data }: CatalogCarsProps) {
         {!isDataEmpty ? (
           <section>
             <div className="home__cars-wrapper">
-              {data?.map((car, index) => <CarCard car={car} key={index} />)}
+              {data?.map((car, index) => <CarCard carData={car} key={index} />)}
             </div>
           </section>
         ) : (

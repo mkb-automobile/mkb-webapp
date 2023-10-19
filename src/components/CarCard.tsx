@@ -1,33 +1,16 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { CarProps } from "@/src/types";
 import { CarDetails, CustomButton } from ".";
+import { CarCardProps } from "../types";
 
-interface CarCardProps {
-  car: CarProps;
-}
-
-function CarCard({ car }: CarCardProps) {
-  const {
-    city_mpg,
-    combination_mpg,
-    cylinders,
-    drive,
-    fuel_type,
-    highway_mpg,
-    make,
-    model,
-    transmission,
-    year,
-  } = car;
-
+function CarCard({ carData }: CarCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="car-card group">
       <div className="car-card__content">
         <h2 className="car-card_content-title">
-          {make} {model}
+          {"make"} {"model"}
         </h2>
       </div>
       <p className="flex mt-6 text-[32px] font-extrabold">
@@ -53,18 +36,19 @@ function CarCard({ car }: CarCardProps) {
               height={20}
             />
             <p className="text-[14px]">
-              {transmission === "a" ? "Auto" : "Manu"}
+              {/* {"transmission" === "a" ? "Auto" : "Manu"} */}
             </p>
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src={"/tire.svg"} alt="tire" width={20} height={20} />
-            <p className="text-[14px]">
+            {/* <p className="text-[14px]">
+            // Kilométrage
               {drive === "fwd"
                 ? "Traction Avant"
                 : drive === "rwd"
                 ? "Traction Arrière"
                 : "Traction Intégral"}
-            </p>
+            </p> */}
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src={"/gas.svg"} alt="gas" width={20} height={20} />
@@ -86,7 +70,7 @@ function CarCard({ car }: CarCardProps) {
       <CarDetails
         isOpen={isOpen}
         closeModal={() => setIsOpen(false)}
-        car={car}
+        car={carData}
       />
     </div>
   );
