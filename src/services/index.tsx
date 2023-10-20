@@ -18,6 +18,21 @@ export const fetchXmlData = () => {
         const modele = element.getElementsByTagName("modele")[0].textContent;
         const prixAchat =
           element.getElementsByTagName("prix_achat")[0].textContent;
+        const prixFormatte = prixAchat
+          ? parseFloat(prixAchat.replace(",", "."))
+          : null;
+        const prix = prixFormatte?.toLocaleString("fr-FR", {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        });
+        const kilometrage =
+          element.getElementsByTagName("kilometrage")[0].textContent;
+        const annee = element.getElementsByTagName("annee")[0].textContent;
+        const energie = element.getElementsByTagName("energie")[0].textContent;
+        const carrosserie =
+          element.getElementsByTagName("carrosserie")[0].textContent;
+        const typeboite =
+          element.getElementsByTagName("typeboite")[0].textContent;
 
         const photosElement = element.getElementsByTagName("photos")[0];
         const photoElements = photosElement.getElementsByTagName("photo");
@@ -28,8 +43,13 @@ export const fetchXmlData = () => {
         return {
           marque,
           modele,
-          prixAchat,
+          prix,
           photoUrls,
+          kilometrage,
+          annee,
+          energie,
+          carrosserie,
+          typeboite,
         };
       });
 

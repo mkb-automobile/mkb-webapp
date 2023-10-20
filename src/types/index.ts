@@ -19,14 +19,15 @@ export interface SearchManufacturerProps {
 export interface CarDataProps {
   marque: string;
   modele: string;
-  prix_achat?: string;
+  prix?: string;
   prix_vente?: string;
   kilometrage?: string;
   annee?: string;
   energie?: string;
   carrosserie?: string;
-  photos?: [];
-  photo?: string;
+  photoUrls?: string[];
+  categorie?: string;
+  typeboite?: string;
 }
 
 export interface CarCardProps {
