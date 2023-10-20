@@ -13,8 +13,11 @@ import { CarDataProps } from "../types";
 function CatalogCars() {
   const [data, setData] = useState<CarDataProps[]>([]);
   const [page, setPage] = useState(() => {
-    const savedPage = localStorage.getItem("currentPage");
-    return savedPage ? parseInt(savedPage, 10) : 1;
+    if (typeof window !== "undefined") {
+      const savedPage = localStorage.getItem("currentPage");
+      return savedPage ? parseInt(savedPage, 10) : 1;
+    }
+    return 1;
   });
   const elementPerPage = 10;
 
@@ -27,7 +30,9 @@ function CatalogCars() {
 
   const handlePageChange = (page: number) => {
     setPage(page);
-    localStorage.setItem("currentPage", page.toString());
+    if (typeof window !== "undefined") {
+      localStorage.setItem("currentPage", page.toString());
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
