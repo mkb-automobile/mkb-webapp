@@ -1,16 +1,17 @@
+"use client";
 import { CarCard, CustomFilter, SearchBar } from "@/src/components";
 import { fuels, yearsOfProduction } from "@/src/constants";
-import { fetchCars } from "@/src/utils";
+import { useEffect, useState } from "react";
+import { fetchXmlData } from "../services";
+import { CarDataProps } from "../types";
 
-async function CatalogCars({ searchParams }: { searchParams: any }) {
-  const allCars = await fetchCars({
-    manufacturer: searchParams?.manufacturer || "",
-    year: searchParams?.year || 2022,
-    fuel: searchParams?.fuel || "",
-    limit: searchParams?.limit || 20,
-    model: searchParams?.model || "",
-  });
-  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
+function CatalogCars() {
+  const [data, setData] = useState<CarDataProps[]>([]);
+
+  useEffect(() => {
+    fetchXmlData().then((result) => setData(result as CarDataProps[]));
+  }, []);
+  const isDataEmpty = data?.length === 0;
 
   return (
     <>
@@ -30,13 +31,12 @@ async function CatalogCars({ searchParams }: { searchParams: any }) {
         {!isDataEmpty ? (
           <section>
             <div className="home__cars-wrapper">
-              {allCars?.map((car, index) => <CarCard car={car} key={index} />)}
+              {data?.map((car, index) => <CarCard carData={car} key={index} />)}
             </div>
           </section>
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl">Oops, no results</h2>
-            <p>{allCars?.message}</p>
           </div>
         )}
       </div>

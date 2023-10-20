@@ -1,12 +1,8 @@
+import React, { use } from "react";
 import CatalogCars from "@/src/components/Catalog";
-import React from "react";
 
-function Purchase() {
-  return (
-    <main className="pt-36">
-      <CatalogCars searchParams />
-    </main>
-  );
-}
+const Purchase = () => {
+  return <main className="pt-36">{<CatalogCars />}</main>;
+};
 
 export default Purchase;

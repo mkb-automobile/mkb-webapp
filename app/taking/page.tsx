@@ -1,4 +1,15 @@
-import React from "react";
+"use client";
+import { useEffect, useState } from "react";
+import { fetchXmlData } from "@/src/services";
+import Image from "next/image";
+
+interface Data {
+  name: string;
+  marque: string;
+  modele: string;
+  prix_achat: string;
+  photo: string;
+}
 
 function Taking() {
   return (
