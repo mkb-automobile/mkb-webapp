@@ -28,15 +28,15 @@ function CarCard({ carData }: CarCardProps) {
             {marque} {modele}
           </h2>
         </div>
-        <p className="flex mt-6 text-[32px] font-extrabold">
+        <p className="flex text-[32px] font-extrabold">
           {prix}
           <span className="self-start text-[14px] font-medium">€</span>
         </p>
         <div className="relative w-full h-40 my-3 object-contain">
           <Image
-            src={photoUrls?.[0] ?? "/car-placeholder.png"}
+            src={photoUrls?.[0] ?? "/no-img.png"}
             alt="car model"
-            fill
+            layout="fill"
             priority
             className="rounded-xl"
           />
