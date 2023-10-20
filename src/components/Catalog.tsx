@@ -1,12 +1,31 @@
 "use client";
-import { CarCard, CustomFilter, SearchBar } from "@/src/components";
+import {
+  CarCard,
+  CustomButton,
+  CustomFilter,
+  SearchBar,
+} from "@/src/components";
 import { fuels, yearsOfProduction } from "@/src/constants";
 import { useEffect, useState } from "react";
 import { fetchXmlData } from "../services";
 import { CarDataProps } from "../types";
 
 function CatalogCars() {
+  const [page, setPage] = useState(1); // [1, 2, 3, 4, 5]
   const [data, setData] = useState<CarDataProps[]>([]);
+  const elementPerPage = 10;
+
+  const startPage = (page - 1) * elementPerPage;
+  const endPAge = startPage + elementPerPage;
+  const dataCurrentPage = data?.slice(startPage, endPAge);
+  const nbPages = Math.ceil(data?.length / elementPerPage);
+  const pagesNumbers = Array.from({ length: nbPages }, (_, i) => i + 1);
+  console.log(nbPages);
+
+  const handlePageChange = (page: number) => {
+    setPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     fetchXmlData().then((result) => setData(result as CarDataProps[]));
@@ -30,8 +49,40 @@ function CatalogCars() {
         </div>
         {!isDataEmpty ? (
           <section>
-            <div className="home__cars-wrapper">
-              {data?.map((car, index) => <CarCard carData={car} key={index} />)}
+            <div className="home__cars-wrapper pb-10">
+              {dataCurrentPage?.map((car, index) => (
+                <CarCard carData={car} key={index} />
+              ))}
+            </div>
+            <div className="flex justify-evenly">
+              <button
+                className="custom-filter__btn"
+                onClick={() => handlePageChange(page - 1)}
+                disabled={page === 1}
+              >
+                Précédent
+              </button>
+              <div className="flex max-sm:hidden">
+                {pagesNumbers.map((pageNumber) => (
+                  <CustomButton
+                    key={pageNumber}
+                    title={`${pageNumber}`}
+                    containerStyles={`${
+                      page === pageNumber
+                        ? "bg-primary-orange text-white rounded-full"
+                        : ""
+                    }`}
+                    handleClick={() => handlePageChange(pageNumber)}
+                  />
+                ))}
+              </div>
+              <button
+                className="custom-filter__btn"
+                onClick={() => handlePageChange(page + 1)}
+                disabled={page === nbPages}
+              >
+                Suivant
+              </button>
             </div>
           </section>
         ) : (
