@@ -1,5 +1,7 @@
 export const fetchXmlData = () => {
-  return fetch("/data.xml")
+  return fetch(
+    "https://www.spider-vo.net/api/42446d400a5100522450215d225e07590b56104a307217363d25042409020578013f13590b",
+  )
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -9,7 +11,7 @@ export const fetchXmlData = () => {
     .then((xmlString) => {
       const parser = new DOMParser();
       const xmlDoc = parser.parseFromString(xmlString, "application/xml");
-      console.log(xmlDoc);
+      console.log("xmlDoc", xmlDoc);
 
       const elements = xmlDoc.getElementsByTagName("vehicule");
 
