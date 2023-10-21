@@ -18,8 +18,6 @@ function CarCard({ carData }: CarCardProps) {
     typeboite,
   } = carData;
 
-  console.log(photoUrls && photoUrls[0]);
-
   return (
     <div>
       <div className="car-card group">

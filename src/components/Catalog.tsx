@@ -26,7 +26,6 @@ function CatalogCars() {
   const dataCurrentPage = data?.slice(startPage, endPAge);
   const nbPages = Math.ceil(data?.length / elementPerPage);
   const pagesNumbers = Array.from({ length: nbPages }, (_, i) => i + 1);
-  console.log(nbPages);
 
   const handlePageChange = (page: number) => {
     setPage(page);
