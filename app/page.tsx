@@ -1,5 +1,11 @@
 "use client";
-import { CustomButton, CustomFilter, Hero, SearchBar } from "@/src/components";
+import {
+  AvisGoogle,
+  CustomButton,
+  CustomFilter,
+  Hero,
+  SearchBar,
+} from "@/src/components";
 import {
   carsModel,
   fuels,
@@ -54,7 +60,9 @@ export default function Home({}) {
               clients - 4,8/5
             </h2>
           </div>
-          <div>Intégration de l'api </div>
+          <div>
+            <AvisGoogle />
+          </div>
           <div>
             <CustomButton
               title="Découvrire tous les avis clients"

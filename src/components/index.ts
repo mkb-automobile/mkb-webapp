@@ -8,6 +8,7 @@ import SearchManufacturer from "./SearchManufacturer";
 import CarCard from "./CarCard";
 import CarDetails from "./CarDetails";
 import FormContact from "./FormContact";
+import AvisGoogle from "./AvisGoogle";
 
 export {
   Hero,
@@ -20,4 +21,5 @@ export {
   CarCard,
   CarDetails,
   FormContact,
+  AvisGoogle,
 };
