@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { CustomButton } from ".";
+import { CustomButton } from "./ui";
 
 const FormContact = () => {
   return (

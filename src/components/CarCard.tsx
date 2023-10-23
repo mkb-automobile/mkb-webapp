@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { CarDetails, CustomButton } from ".";
+import { CarDetails } from ".";
 import { CarCardProps } from "../types";
+import { CustomButton } from "./ui";
 
 function CarCard({ carData }: CarCardProps) {
   const [isOpen, setIsOpen] = useState(false);
