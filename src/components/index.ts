@@ -1,25 +1,8 @@
 import Hero from "./Hero";
-import CustomButton from "./CustomButton";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import SearchBar from "./SearchBar";
 import CustomFilter from "./CustomFilter";
-import SearchManufacturer from "./SearchManufacturer";
 import CarCard from "./CarCard";
 import CarDetails from "./CarDetails";
 import FormContact from "./FormContact";
 import AvisGoogle from "./AvisGoogle";
 
-export {
-  Hero,
-  CustomButton,
-  Navbar,
-  Footer,
-  SearchBar,
-  CustomFilter,
-  SearchManufacturer,
-  CarCard,
-  CarDetails,
-  FormContact,
-  AvisGoogle,
-};
+export { Hero, CustomFilter, CarCard, CarDetails, FormContact, AvisGoogle };

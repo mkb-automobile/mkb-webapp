@@ -1,11 +1,6 @@
 "use client";
-import {
-  AvisGoogle,
-  CustomButton,
-  CustomFilter,
-  Hero,
-  SearchBar,
-} from "@/src/components";
+import { AvisGoogle, Hero } from "@/src/components";
+import { CustomButton, SearchBar } from "@/src/components/ui";
 import {
   carsModel,
   fuels,

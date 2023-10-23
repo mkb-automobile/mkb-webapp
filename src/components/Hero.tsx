@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import CustomButton from "./CustomButton";
+import CustomButton from "./ui/buttons/CustomButton";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { CustomFilter } from ".";
