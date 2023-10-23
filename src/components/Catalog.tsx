@@ -95,7 +95,7 @@ function CatalogCars() {
           </section>
         ) : (
           <div className="home__error-container">
-            <h2 className="text-black text-xl">Oops, no results</h2>
+            <h2 className="text-black text-xl">Oups, pas de résultats</h2>
           </div>
         )}
       </div>
