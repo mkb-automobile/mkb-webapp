@@ -1,7 +1,5 @@
 export const fetchXmlData = () => {
-  return fetch(
-    "https://www.spider-vo.net/api/42446d400a5100522450215d225e07590b56104a307217363d25042409020578013f13590b",
-  )
+  return fetch("/data.xml")
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
