@@ -1,7 +1,7 @@
-import { Footer, Navbar } from "@/src/components";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import { Footer, Navbar } from "@/src/components/layouts";
 
 export const metadata: Metadata = {
   title: "MKB-Automobile",
