@@ -26,9 +26,17 @@
 
 2. **Installez les dépendances**
 
-   ```bash
-   pnpm install
-   ```
+Assurez-vous d'avoir PNPM installé. Si ce n'est pas le cas, installez-le globalement avec:
+
+```bash
+npm install -g pnpm
+```
+
+Ensuite, installez les dépendances du projet:
+
+```bash
+pnpm install
+```
 
 3. **Lancez le serveur de développement**
 
