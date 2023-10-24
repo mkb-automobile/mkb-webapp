@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MKB-Automobile
 
-## Getting Started
+## Technologies Utilisées
 
-First, run the development server:
+- [Next.js](https://nextjs.org/): Framework React pour le rendu côté serveur.
+- [Tailwind CSS](https://tailwindcss.com/): Utilisé pour la conception et la mise en page.
+- [Axios](https://axios-http.com/): Bibliothèque HTTP pour effectuer des requêtes.
+- [SWR](https://swr.vercel.app/): Gestionnaire d'état de données pour React.
+- Autres technologies à venir.
+
+## Configuration du Projet
+
+1. **Clonez le dépôt**
+   Via SSH:
+
+   ```bash
+   git clone git@github.com:mkb-automobile/mkb-webapp.git
+   cd MKB-Automobile
+   ```
+
+   Via HTTPS:
+
+   ```bash
+   https://github.com/mkb-automobile/mkb-webapp.git
+   ```
+
+2. **Installez les dépendances**
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Lancez le serveur de développement**
+
+   ```bash
+   pnpm run dev
+   ```
+
+   Le serveur de développement est accessible à l'adresse [http://localhost:3000](http://localhost:3000).
+
+4. **Lancez le serveur de production**
+
+   ```bash
+   pnpm run build
+   pnpm run start
+   ```
+
+5. **Lancez les tests**
+
+   ```bash
+   pnpm run test
+   ```
+
+6. **Générez la documentation**
+
+   ```bash
+   pnpm run docs
+   ```
+
+   ## Déploiement avec Vercel
+
+   Le déploiement de l'application est effectué via [Vercel](https://vercel.com/).
+
+   Pour déployer l'application, il suffit de push sur la branche `main` du dépôt. Vercel se chargera de déployer l'application automatiquement.
+
+   Le déploiement de l'application est accessible à l'adresse [https://mkb-webapp.vercel.app/](https://mkb-webapp.vercel.app/).
+
+## Structure du Projet
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+. # racine du projet
+├── app
+    ├── page.tsx # page d'accueil
+    ├── about
+        ├── page.tsx # page à propos
+    ├── contact
+        ├── page.tsx # page de contact
+    ├── financing
+        ├── page.tsx # page de financement
+    ├── howwoks
+        ├── page.tsx # page de fonctionnement
+    ├── personalized
+        ├── page.tsx # page de personnalisation
+    ├── purchase
+        ├── page.tsx # page d'achat de véhicule
+    ├── taking
+        ├── page.tsx # page de reprise de véhicule
+├── public # fichiers publics
+├── src # fichiers sources
+    ├── components # composants
+        ├── layout
+            ├── footer
+                ├── Footer.tsx # composant footer
+            ├── header
+                ├── Header.tsx # composant header
+            ├── index.tsx # composant de mise en page
+        ├── ui
+            ├── buttons # composant bouton
+
+            ├── inputs # composant input
+            ├── index.tsx # composant ui
+    ├── config # configuration
+    ├── constants # constantes
+    ├── contexts # contextes
+    ├── hooks # hooks
+        ├── useSWR.ts # hook SWR
+    ├── services # services
+    ├── index.tsx # Api externe
+    ├── types # types
+        ├── index.tsx # types
+    ├── utils # utilitaires
+        ├── index.tsx
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contribution
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Pour contribuer au projet, il suffit de créer une branche à partir de la branche `main` et de créer une pull request. La pull request sera ensuite revue par un membre de l'équipe et sera validée si elle respecte les critères de qualité.
