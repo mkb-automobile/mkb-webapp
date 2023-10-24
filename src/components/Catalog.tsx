@@ -15,7 +15,7 @@ function CatalogCars() {
     }
     return 1;
   });
-  const elementPerPage = 10;
+  const elementPerPage = 12;
 
   const startPage = (page - 1) * elementPerPage;
   const endPAge = startPage + elementPerPage;
