@@ -1,27 +1,37 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
-    "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "module": "commonjs",
+    "moduleResolution": "node", // Modifiez de "bundler" à "node"
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "preserve", // Modifiez de "preserve" à "react"
     "incremental": true,
     "plugins": [
+      {
+        "name": "typescript-tslint-plugin"
+      },
       {
         "name": "next"
       }
     ],
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "noEmit": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/server/**/*.tsx", // Modifiez pour inclure tous les fichiers .tsx sous src/server
+    "src/server/server."
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,70 +1,45 @@
-export const fetchXmlData = () => {
-  // const apiUrl = process.env.NEXT_PUBLIC_SPIDERVO_API_URL;
-  // if (!apiUrl) {
-  //   throw new Error("API URL is not defined");
-  // }
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
-  return fetch(
-    "https://www.spider-vo.net/api/42446d400a51005224542150225b07590b56104a3072172e3d3a042b090a05760158135e0b",
-  )
+export const fetchData = () => {
+  return fetch(API_URL)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      return response.text();
+      return response.json();
     })
-    .then((xmlString) => {
-      const parser = new DOMParser();
-      const xmlDoc = parser.parseFromString(xmlString, "application/xml");
-      console.log("xmlDoc", xmlDoc);
+    .then((data) => {
+      // Le format JSON est déjà parsé, pas besoin de le traiter
+      const jsonDataArray = data.vehicules.vehicule;
+      if (!Array.isArray(data.vehicules.vehicule)) {
+        throw new Error("Les données ne sont pas au format JSON");
+      }
 
-      const elements = xmlDoc.getElementsByTagName("vehicule");
-
-      const data = Array.from(elements).map((element) => {
-        const marque = element.getElementsByTagName("marque")[0].textContent;
-        const modele = element.getElementsByTagName("modele")[0].textContent;
-        const prixAchat =
-          element.getElementsByTagName("prix_achat")[0].textContent;
-        const prixFormatte = prixAchat
-          ? parseFloat(prixAchat.replace(",", "."))
-          : null;
-        const prix = prixFormatte?.toLocaleString("fr-FR", {
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0,
-        });
-        const kilometrage =
-          element.getElementsByTagName("kilometrage")[0].textContent;
-        const annee = element.getElementsByTagName("annee")[0].textContent;
-        const energie = element.getElementsByTagName("energie")[0].textContent;
-        const carrosserie =
-          element.getElementsByTagName("carrosserie")[0].textContent;
-        const typeboite =
-          element.getElementsByTagName("typeboite")[0].textContent;
-
-        const photosElement = element.getElementsByTagName("photos")[0];
-        const photoElements = photosElement.getElementsByTagName("photo");
-        const photoUrls = Array.from(photoElements).map(
-          (photoElement) => photoElement.textContent,
-        );
-
+      // Adaptation de la structure des données selon votre besoin
+      const formattedData = jsonDataArray.map((item: any, index: number) => {
         return {
-          marque,
-          modele,
-          prix,
-          photoUrls,
-          kilometrage,
-          annee,
-          energie,
-          carrosserie,
-          typeboite,
+          marque: item.marque,
+          modele: item.modele,
+          prix: item.prixttcaffiche?.toLocaleString("fr-FR", {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          }),
+          photoUrls: item.photos[0]?.photo || [],
+          kilometrage: item.kilometrage,
+          annee: item.anneemodele,
+          energie: item.energie,
+          carrosserie: item.carrosserie,
+          typeboite: item.typeboite,
         };
       });
 
-      return data;
+      console.log("formattedData", formattedData);
+
+      return formattedData;
     })
     .catch((error) => {
       console.error(
-        "Une erreur s'est produite lors de la récupération du fichier XML:",
+        "Une erreur s'est produite lors de la récupération des données JSON:",
         error,
       );
       throw error;

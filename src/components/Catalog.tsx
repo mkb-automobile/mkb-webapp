@@ -2,7 +2,7 @@
 import { CarCard, CustomFilter } from "@/src/components";
 import { fuels, yearsOfProduction } from "@/src/constants";
 import { useEffect, useState } from "react";
-import { fetchXmlData } from "../services";
+import { fetchData } from "../services";
 import { CarDataProps } from "../types";
 import { CustomButton, SearchBar } from "./ui";
 
@@ -32,7 +32,7 @@ function CatalogCars() {
   };
 
   useEffect(() => {
-    fetchXmlData().then((result) => setData(result as CarDataProps[]));
+    fetchData().then((result) => setData(result as CarDataProps[]));
   }, []);
   const isDataEmpty = data?.length === 0;
 
