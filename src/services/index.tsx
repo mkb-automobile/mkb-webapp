@@ -1,10 +1,12 @@
 export const fetchXmlData = () => {
-  const apiUrl = process.env.NEXT_PUBLIC_SPIDERVO_API_URL;
-  if (!apiUrl) {
-    throw new Error("API URL is not defined");
-  }
+  // const apiUrl = process.env.NEXT_PUBLIC_SPIDERVO_API_URL;
+  // if (!apiUrl) {
+  //   throw new Error("API URL is not defined");
+  // }
 
-  return fetch(apiUrl)
+  return fetch(
+    "https://www.spider-vo.net/api/42446d400a51005224542150225b07590b56104a3072172e3d3a042b090a05760158135e0b",
+  )
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
