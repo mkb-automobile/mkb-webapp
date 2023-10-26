@@ -1,5 +1,5 @@
 export const fetchXmlData = () => {
-  const apiUrl = process.env.SPIDERVO_API_URL;
+  const apiUrl = process.env.NEXT_PUBLIC_SPIDERVO_API_URL;
   if (!apiUrl) {
     throw new Error("API URL is not defined");
   }
