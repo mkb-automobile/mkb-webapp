@@ -1,5 +1,10 @@
 export const fetchXmlData = () => {
-  return fetch("/data.xml")
+  const apiUrl = process.env.SPIDERVO_API_URL;
+  if (!apiUrl) {
+    throw new Error("API URL is not defined");
+  }
+
+  return fetch(apiUrl)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
