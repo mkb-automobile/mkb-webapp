@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { fetchXmlData } from "@/src/services";
 import Image from "next/image";
 
 interface Data {
