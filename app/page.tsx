@@ -1,5 +1,5 @@
 "use client";
-import { AvisGoogle, Hero } from "@/src/components";
+import { Hero } from "@/src/components";
 import { CustomButton, SearchBar } from "@/src/components/ui";
 import {
   carsModel,
@@ -55,9 +55,7 @@ export default function Home({}) {
               clients - 4,8/5
             </h2>
           </div>
-          <div>
-            <AvisGoogle />
-          </div>
+          <div>Ici les avis</div>
           <div>
             <CustomButton
               title="Découvrire tous les avis clients"
