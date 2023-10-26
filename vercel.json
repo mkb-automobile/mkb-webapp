@@ -1,8 +1,7 @@
 {
   "functions": {
-    "api/*.tsx": {
-      "runtime": "nodejs14.x",
-      "includeFiles": "api/*"
+    "api/**/*.ts": {
+      "runtime": "vercel-node@1.11.0"
     }
   }
 }
