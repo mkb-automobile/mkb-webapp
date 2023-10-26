@@ -68,20 +68,3 @@ export const fetchXmlData = () => {
       throw error;
     });
 };
-
-import axios, { AxiosResponse, AxiosError } from "axios";
-
-export function getGoogleReviews(apiKey: string, placeId: string) {
-  const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&key=${apiKey}`;
-
-  return axios
-    .get(url)
-    .then((response: AxiosResponse) => {
-      const reviews = response.data.result.reviews;
-      return reviews;
-    })
-    .catch((error: AxiosError) => {
-      console.error("Erreur lors de la récupération des avis", error);
-      throw error; // Vous pouvez gérer l'erreur de manière appropriée selon vos besoins
-    });
-}
