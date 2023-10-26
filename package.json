@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "prod": "next prod",
-    "dev": "next dev",
+    "dev": "concurrently \"npm run api\" \"next dev\"",
+    "api": "ts-node api/monapi.tsx",
     "build": "next build",
-    "start": "ts-node src/server/server.tsx",
-    "api": "next build && next export",
+    "start": "npm run build && npm run api",
     "lint": "next lint"
   },
   "dependencies": {
@@ -35,6 +35,7 @@
     "@types/react-dom": "latest",
     "@types/xml2js": "^0.4.13",
     "autoprefixer": "latest",
+    "concurrently": "^8.2.2",
     "postcss": "latest",
     "prettier": "3.0.3",
     "tailwindcss": "latest",
