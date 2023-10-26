@@ -1,7 +1,5 @@
 {
   "functions": {
-    "api/monapi.tsx": {
-      "runtime": "vercel-node@1.11.0"
-    }
+    "api/monapi.tsx": {}
   }
 }
