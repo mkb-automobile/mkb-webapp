@@ -1,8 +1,8 @@
 {
   "functions": {
-    "api/**/*.tsx": {
+    "api/*.tsx": {
       "runtime": "nodejs14.x",
-      "includeFiles": "api/**/*"
+      "includeFiles": "api/*"
     }
   }
 }
