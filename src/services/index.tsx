@@ -1,7 +1,12 @@
-// const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+import { BASE_API_URL } from "../constants";
+
+const API_URL = BASE_API_URL;
 
 export const fetchData = () => {
-  return fetch("/api/monapi")
+  if (!API_URL) {
+    throw new Error("API URL is not defined");
+  }
+  return fetch(`${API_URL}/api`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
