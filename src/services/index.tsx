@@ -1,7 +1,7 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+// const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 export const fetchData = () => {
-  return fetch(API_URL)
+  return fetch("/api/monapi")
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
