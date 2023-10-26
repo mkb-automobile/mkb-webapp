@@ -66,7 +66,7 @@ app.get("/api", async (req: Request, res: Response) => {
   }
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 console.log(`Port: ${PORT}`);
 app.listen(PORT, () => {
   console.log(`Serveur en cours d'exécution sur le port ${PORT}`);
