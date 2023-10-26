@@ -6,7 +6,7 @@
     "prod": "next prod",
     "dev": "concurrently \"npm run api\" \"next dev\"",
     "api": "ts-node api/monapi.tsx",
-    "build": "concurrently \"next build\" \"npm run api\"",
+    "build": "next build && npm run api",
     "start": "npm run build && npm run api",
     "lint": "next lint"
   },
