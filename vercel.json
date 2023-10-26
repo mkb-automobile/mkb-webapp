@@ -1,5 +1,7 @@
 {
   "functions": {
-    "api/monapi.tsx": {}
+    "api/monapi.tsx": {
+      "handler": "api/monapi.tsx"
+    }
   }
 }
