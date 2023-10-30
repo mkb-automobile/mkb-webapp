@@ -6,7 +6,7 @@
     "skipLibCheck": true,
     "strict": true,
     "esModuleInterop": true,
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node", // Modifiez de "bundler" à "node"
     "resolveJsonModule": true,
     "isolatedModules": true,
