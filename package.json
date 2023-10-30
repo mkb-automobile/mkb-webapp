@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prod": "next prod",
-    "dev": "concurrently \"npm run api\" \"next dev\"",
+    "dev": "next dev",
     "api": "ts-node api/monapi.tsx",
     "build": "next build",
     "start": "next start",
