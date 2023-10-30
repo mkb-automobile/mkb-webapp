@@ -1,4 +1,4 @@
-export const BASE_API_URL = process.env.NEXT_PUBLIC_API_URL;
+export const SPIDERVO_API_URL = process.env.NEXT_PUBLIC_API_URL;
 // Manufacturers
 export const manufacturers = [
   "Abarth",

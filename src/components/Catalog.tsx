@@ -8,6 +8,7 @@ import { CustomButton, SearchBar } from "./ui";
 
 function CatalogCars() {
   const [data, setData] = useState<CarDataProps[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(() => {
     if (typeof window !== "undefined") {
       const savedPage = localStorage.getItem("currentPage");
@@ -32,16 +33,21 @@ function CatalogCars() {
   };
 
   useEffect(() => {
-    fetchData().then((result) => setData(result as CarDataProps[]));
+    setIsLoading(true);
+    fetchData().then((result) => {
+      setData(result as CarDataProps[]);
+      setIsLoading(false);
+    });
   }, []);
-  const isDataEmpty = data?.length === 0;
+  if (!data) {
+    return null;
+  }
 
   return (
     <>
       <div className="padding-x padding-y max-width" id="discover">
         <div className="home__text-container">
           <h1 className="text-4xl font-extrabold">Nos Véhicules</h1>
-          <p> </p>
         </div>
         <div className="home__filters">
           <SearchBar />
@@ -51,49 +57,49 @@ function CatalogCars() {
             <CustomFilter title="Année" options={yearsOfProduction} />
           </div>
         </div>
-        {!isDataEmpty ? (
-          <section>
-            <div className="home__cars-wrapper pb-10">
-              {dataCurrentPage?.map((car, index) => (
-                <CarCard carData={car} key={index} />
+
+        <section>
+          {isLoading && (
+            <div className="home__error-container">
+              <h2 className="text-black text-xl">Chargement en cours...</h2>
+            </div>
+          )}
+          <div className="home__cars-wrapper pb-10">
+            {dataCurrentPage?.map((car, index) => (
+              <CarCard carData={car} key={index} />
+            ))}
+          </div>
+          <div className="flex justify-evenly">
+            <button
+              className="custom-filter__btn"
+              onClick={() => handlePageChange(page - 1)}
+              disabled={page === 1}
+            >
+              Précédent
+            </button>
+            <div className="flex max-sm:hidden">
+              {pagesNumbers.map((pageNumber) => (
+                <CustomButton
+                  key={pageNumber}
+                  title={`${pageNumber}`}
+                  containerStyles={`${
+                    page === pageNumber
+                      ? "bg-primary-orange text-white rounded-full"
+                      : ""
+                  }`}
+                  handleClick={() => handlePageChange(pageNumber)}
+                />
               ))}
             </div>
-            <div className="flex justify-evenly">
-              <button
-                className="custom-filter__btn"
-                onClick={() => handlePageChange(page - 1)}
-                disabled={page === 1}
-              >
-                Précédent
-              </button>
-              <div className="flex max-sm:hidden">
-                {pagesNumbers.map((pageNumber) => (
-                  <CustomButton
-                    key={pageNumber}
-                    title={`${pageNumber}`}
-                    containerStyles={`${
-                      page === pageNumber
-                        ? "bg-primary-orange text-white rounded-full"
-                        : ""
-                    }`}
-                    handleClick={() => handlePageChange(pageNumber)}
-                  />
-                ))}
-              </div>
-              <button
-                className="custom-filter__btn"
-                onClick={() => handlePageChange(page + 1)}
-                disabled={page === nbPages}
-              >
-                Suivant
-              </button>
-            </div>
-          </section>
-        ) : (
-          <div className="home__error-container">
-            <h2 className="text-black text-xl">Oups, pas de résultats</h2>
+            <button
+              className="custom-filter__btn"
+              onClick={() => handlePageChange(page + 1)}
+              disabled={page === nbPages}
+            >
+              Suivant
+            </button>
           </div>
-        )}
+        </section>
       </div>
     </>
   );
