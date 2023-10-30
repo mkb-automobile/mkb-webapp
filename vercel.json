@@ -1,8 +1,0 @@
-{
-  "functions": {
-    "api/monapi.tsx": {
-      "runtime": "nodejs14.x",
-      "includeFiles": "api/monapi.tsx"
-    }
-  }
-}
