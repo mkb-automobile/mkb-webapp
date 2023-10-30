@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { fetchData } from "../services";
 import { CarDataProps } from "../types";
 import { CustomButton, SearchBar } from "./ui";
+import { Loader } from "./ui/loading";
 
 function CatalogCars() {
   const [data, setData] = useState<CarDataProps[]>([]);
@@ -62,6 +63,7 @@ function CatalogCars() {
           {isLoading && (
             <div className="home__error-container">
               <h2 className="text-black text-xl">Chargement en cours...</h2>
+              <Loader />
             </div>
           )}
           <div className="home__cars-wrapper pb-10">
