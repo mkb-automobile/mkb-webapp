@@ -14,6 +14,9 @@ import { useRouter } from "next/navigation";
 
 export default function Home({}) {
   const router = useRouter();
+  console.info(
+    "Avertissement : En utilisant cette console, vous vous exposez au risque que des personnes malveillantes se fassent passer pour vous et volent vos informations grâce à une attaque appelée Self-XSS. Ne saisissez pas et ne copiez pas du code que vous ne comprenez pas.",
+  );
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -100,8 +103,8 @@ export default function Home({}) {
             </div>
           </div>
           <div className="grid grid-cols-2 max-sm:flex flex-col items-center gap-4">
-            {carsModel.map((car) => (
-              <div className="rounded-t-lg w-fit">
+            {carsModel.map((car, index) => (
+              <div key={index} className="rounded-t-lg w-fit">
                 <Image
                   src={car.path}
                   width={429}
