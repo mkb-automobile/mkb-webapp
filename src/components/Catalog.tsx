@@ -4,8 +4,7 @@ import { fuels, yearsOfProduction } from "@/src/constants";
 import { useEffect, useState } from "react";
 import { fetchData } from "../services";
 import { CarDataProps } from "../types";
-import { CustomButton, SearchBar } from "./ui";
-import { Loader } from "./ui/loading";
+import { CustomButton, Loader, SearchBar } from "./ui";
 
 function CatalogCars() {
   const [data, setData] = useState<CarDataProps[]>([]);
