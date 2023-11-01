@@ -17,6 +17,7 @@ export interface SearchManufacturerProps {
 }
 
 export interface CarDataProps {
+  id: string;
   marque: string;
   modele: string;
   prix?: string;

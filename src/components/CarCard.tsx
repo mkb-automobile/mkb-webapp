@@ -1,7 +1,5 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
-import { CarDetails } from ".";
 import { CarCardProps } from "../types";
 import { CustomButton } from "./ui";
 import { useRouter } from "next/navigation";
@@ -72,9 +70,8 @@ function CarCard({ carData }: CarCardProps) {
             rightIcon="/right-arrow.svg"
             handleClick={() => {
               router.push(
-                `/voitures-occasions/${carData.marque}-${carData.modele}-${carData.prix}`,
+                `/voitures-occasions/${carData.marque}-${carData.modele}-${carData.id}`,
               );
-              <CarDetails car={carData} />;
             }}
           />
         </div>

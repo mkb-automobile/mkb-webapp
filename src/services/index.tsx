@@ -20,6 +20,7 @@ export const fetchData = () => {
       // Adaptation de la structure des données selon votre besoin
       const formattedData = jsonDataArray.map((item: any) => {
         return {
+          id: item.reference,
           marque: item.marque,
           modele: item.modele,
           prix: item.prixttcaffiche?.toLocaleString("fr-FR", {
