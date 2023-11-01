@@ -16,8 +16,6 @@ export default function Page({ params }: PageProps) {
     return id === params["marque-model-id"];
   });
 
-  console.log(car);
-
   return (
     <div className="p-60">
       {car?.photoUrls?.map((url) => <img src={url} alt="" />)}{" "}
