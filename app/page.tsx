@@ -64,7 +64,7 @@ export default function Home({}) {
               title="Découvrire tous les avis clients"
               containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[20rem]"
               handleClick={() => {
-                router.push("/purchase");
+                router.push("/voitures-occasions");
               }}
             />
           </div>
@@ -95,7 +95,7 @@ export default function Home({}) {
                     title="Trouver votre voiture"
                     containerStyles="bg-primary-orange text-white rounded-full mt-10"
                     handleClick={() => {
-                      router.push("/purchase");
+                      router.push("/voitures-occasions");
                     }}
                   />
                 </div>
@@ -150,7 +150,7 @@ export default function Home({}) {
                 title="En savoir plus"
                 containerStyles="bg-primary-orange text-white rounded-full mt-10"
                 handleClick={() => {
-                  router.push("/purchase");
+                  router.push("/voitures-occasions");
                 }}
               />
             </div>
@@ -214,7 +214,7 @@ export default function Home({}) {
                 title="Venez decouvir"
                 containerStyles="bg-primary-orange text-white rounded-full mt-10"
                 handleClick={() => {
-                  router.push("/purchase");
+                  router.push("/voitures-occasions");
                 }}
               />
             </div>

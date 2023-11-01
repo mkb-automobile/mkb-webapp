@@ -2,13 +2,11 @@
 import { CarCard, CustomFilter } from "@/src/components";
 import { fuels, yearsOfProduction } from "@/src/constants";
 import { useEffect, useState } from "react";
-import { fetchData } from "../services";
-import { CarDataProps } from "../types";
 import { CustomButton, Loader, SearchBar } from "./ui";
+import { useCarContext } from "../hooks/CarContext";
 
 function CatalogCars() {
-  const [data, setData] = useState<CarDataProps[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { data, isLoading } = useCarContext();
   const [page, setPage] = useState(() => {
     if (typeof window !== "undefined") {
       const savedPage = localStorage.getItem("currentPage");
@@ -32,13 +30,6 @@ function CatalogCars() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  useEffect(() => {
-    setIsLoading(true);
-    fetchData().then((result) => {
-      setData(result as CarDataProps[]);
-      setIsLoading(false);
-    });
-  }, []);
   if (!data) {
     return null;
   }

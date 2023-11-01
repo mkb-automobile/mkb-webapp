@@ -4,9 +4,10 @@ import { useState } from "react";
 import { CarDetails } from ".";
 import { CarCardProps } from "../types";
 import { CustomButton } from "./ui";
+import { useRouter } from "next/navigation";
 
 function CarCard({ carData }: CarCardProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
   const {
     marque,
     modele,
@@ -20,7 +21,7 @@ function CarCard({ carData }: CarCardProps) {
   } = carData;
 
   return (
-    <div className="car-card">
+    <div className="car-card group">
       <div className="car-card__content">
         <h2 className="car-card_content-title">
           {marque} {modele}
@@ -69,16 +70,15 @@ function CarCard({ carData }: CarCardProps) {
             containerStyles="w-full py-[16px] rounded-full bg-primary-orange"
             textStyles="text-white text-[14px] leading-[17px] font-bold"
             rightIcon="/right-arrow.svg"
-            handleClick={() => setIsOpen(true)}
+            handleClick={() => {
+              router.push(
+                `/voitures-occasions/${carData.marque}-${carData.modele}-${carData.prix}`,
+              );
+              <CarDetails car={carData} />;
+            }}
           />
         </div>
       </div>
-
-      <CarDetails
-        isOpen={isOpen}
-        closeModal={() => setIsOpen(false)}
-        car={carData}
-      />
     </div>
   );
 }

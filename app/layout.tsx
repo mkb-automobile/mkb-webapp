@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { Footer, Navbar } from "@/src/components/layouts";
+import { CarContextProvider } from "@/src/hooks/CarContext";
 
 export const metadata: Metadata = {
   title: "MKB-Automobile",
@@ -17,7 +18,7 @@ export default function RootLayout({
     <html lang="fr">
       <body className="relative">
         <Navbar />
-        {children}
+        <CarContextProvider>{children}</CarContextProvider>
         <Footer />
         <Analytics />
       </body>

@@ -160,7 +160,7 @@ export const fuels = [
 
 // Header
 export const navLinks = [
-  { title: "Achat", path: "/purchase" },
+  { title: "Achat", path: "/voitures-occasions" },
   { title: "Reprise", path: "/taking" },
   { title: "Recherche personnalisé", path: "/personalized" },
   { title: "Financement", path: "/financing" },
@@ -291,7 +291,7 @@ export const footerLinks = [
   {
     title: "Nos Services",
     links: [
-      { title: "Achat", url: "/purchase" },
+      { title: "Achat", url: "/voitures-occasions" },
       { title: "Reprise", url: "/taking" },
       { title: "Financement", url: "/financing" },
       { title: "Recherche personnalisée", url: "/personalized" },
