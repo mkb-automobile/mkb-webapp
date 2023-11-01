@@ -89,7 +89,7 @@ pnpm install
         ├── page.tsx # page de fonctionnement
     ├── personalized
         ├── page.tsx # page de personnalisation
-    ├── purchase
+    ├── voitures-occasions
         ├── page.tsx # page d'achat de véhicule
     ├── taking
         ├── page.tsx # page de reprise de véhicule

@@ -18,7 +18,7 @@ export const fetchData = () => {
       }
 
       // Adaptation de la structure des données selon votre besoin
-      const formattedData = jsonDataArray.map((item: any, index: number) => {
+      const formattedData = jsonDataArray.map((item: any) => {
         return {
           marque: item.marque,
           modele: item.modele,
@@ -34,8 +34,6 @@ export const fetchData = () => {
           typeboite: item.typeboite,
         };
       });
-
-      console.log("formattedData", formattedData);
 
       return formattedData;
     })
