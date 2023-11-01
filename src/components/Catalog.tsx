@@ -1,7 +1,7 @@
 "use client";
 import { CarCard, CustomFilter } from "@/src/components";
 import { fuels, yearsOfProduction } from "@/src/constants";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CustomButton, Loader, SearchBar } from "./ui";
 import { useCarContext } from "../hooks/CarContext";
 

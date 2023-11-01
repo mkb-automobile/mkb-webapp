@@ -99,9 +99,7 @@ const FormContact = () => {
           <CustomButton
             title="Envoyer"
             containerStyles="bg-primary-orange text-white rounded-full mt-10"
-            handleClick={() => {
-              console.log("test");
-            }}
+            handleClick={() => {}}
           />
         </div>
       </div>
