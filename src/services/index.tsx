@@ -11,32 +11,11 @@ export const fetchData = () => {
       return response.json();
     })
     .then((data) => {
-      // Le format JSON est déjà parsé, pas besoin de le traiter
-      const jsonDataArray = data.vehicules.vehicule;
+      const carsData = data.vehicules.vehicule;
       if (!Array.isArray(data.vehicules.vehicule)) {
         throw new Error("Les données ne sont pas au format JSON");
       }
-
-      // Adaptation de la structure des données selon votre besoin
-      const formattedData = jsonDataArray.map((item: any) => {
-        return {
-          id: item.reference,
-          marque: item.marque,
-          modele: item.modele,
-          prix: item.prixttcaffiche?.toLocaleString("fr-FR", {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0,
-          }),
-          photoUrls: item.photos[0]?.photo || [],
-          kilometrage: item.kilometrage,
-          annee: item.anneemodele,
-          energie: item.energie,
-          carrosserie: item.carrosserie,
-          typeboite: item.typeboite,
-        };
-      });
-
-      return formattedData;
+      return carsData;
     })
     .catch((error) => {
       console.error(

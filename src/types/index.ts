@@ -17,18 +17,22 @@ export interface SearchManufacturerProps {
 }
 
 export interface CarDataProps {
-  id: string;
+  reference: string;
+  titre: string;
   marque: string;
   modele: string;
-  prix?: string;
-  prix_vente?: string;
-  kilometrage?: string;
-  annee?: string;
-  energie?: string;
-  carrosserie?: string;
-  photoUrls?: string[];
-  categorie?: string;
-  typeboite?: string;
+  prixttcaffiche: number;
+  kilometrage: number;
+  annee: string;
+  energie: string;
+  carrosserie: string;
+  categorie: string;
+  typeboite: string;
+  description: string;
+  photos: {
+    photo: string[];
+  }[];
+  ville?: string;
 }
 
 export interface CarCardProps {
@@ -36,9 +40,7 @@ export interface CarCardProps {
 }
 
 export interface CarDetailsProps {
-  isOpen?: boolean;
-  closeModal?: () => void;
-  car: CarDataProps;
+  car?: CarDataProps;
 }
 
 export interface FilterProps {
