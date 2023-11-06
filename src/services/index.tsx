@@ -1,8 +1,8 @@
 import { SPIDERVO_API_URL } from "../constants";
 export const fetchData = () => {
-  // if (!SPIDERVO_API_URL) {
-  //   throw new Error("API URL is not defined");
-  // }
+  if (!SPIDERVO_API_URL) {
+    throw new Error("SPIDERVO_API_URL n'est pas définie");
+  }
   return fetch(`${SPIDERVO_API_URL}/api`)
     .then((response) => {
       if (!response.ok) {

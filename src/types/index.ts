@@ -11,16 +11,23 @@ export interface CustomButtonProps {
   isDisabled?: boolean;
 }
 
+export interface CustomLinkProps {
+  title: string;
+  href: string;
+  containerStyles?: string;
+}
+
 export interface SearchManufacturerProps {
   manufacturer: string;
   setManufacturer: (manufacturer: string) => void;
 }
 
 export interface CarDataProps {
-  reference: string;
-  titre: string;
+  title: string;
   marque: string;
   modele: string;
+  reference: string;
+  version?: string;
   prixttcaffiche: number;
   kilometrage: number;
   annee: string;
@@ -29,6 +36,7 @@ export interface CarDataProps {
   categorie: string;
   typeboite: string;
   description: string;
+  datemes?: string;
   photos: {
     photo: string[];
   }[];
