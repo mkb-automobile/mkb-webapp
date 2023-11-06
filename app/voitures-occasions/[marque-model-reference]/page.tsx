@@ -58,7 +58,7 @@ export default function Page({ params }: PageProps) {
               </div>
             </div>
             <div className="w-1/3 pl-6">
-              <div className=" flex flex-col justify-evenly h-2/5">
+              <div className=" flex flex-col justify-evenly">
                 <div className="py-5 border-b-2 border-b-black">
                   <h2 className="text-2xl font-bold">
                     {car?.marque} {car?.modele}
@@ -85,13 +85,13 @@ export default function Page({ params }: PageProps) {
                     {car?.energie == "DIESEL" ? "Diesel" : "Essence"}
                   </p>
                   {/* <p>Lieu pour voir le vehicule: {car?.ville}</p> */}
-                  <div>
+                  <div className="py-5">
                     <p>
                       <span className="italic">Référance du véhicule: </span>
                       {car?.reference}
                     </p>
                   </div>
-                  <div className="flex justify-center bg-primary-orange-100 p-10 rounded-full">
+                  <div className="flex justify-center bg-primary-orange-100 p-5 rounded-full">
                     {car?.prixttcaffiche !== undefined && (
                       <div className="flex justify-between py-5">
                         <p>
@@ -103,7 +103,7 @@ export default function Page({ params }: PageProps) {
                     )}
                   </div>
                 </div>
-                <div className="flex justify-evenly border-b-2 border-b-black pb-5">
+                <div className="flex justify-evenly border-b-2 border-b-black p-5">
                   <div className="flex items-center justify-center bg-primary-orange p-5 rounded-full gap-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
