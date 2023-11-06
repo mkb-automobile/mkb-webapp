@@ -21,8 +21,6 @@ function CarCard({ carData }: CarCardProps) {
   const newModel = modele[0].replace(/\s/g, "-").toLocaleLowerCase();
   const newMarque = marque[0].replace(/\s/g, "-").toLocaleLowerCase();
 
-  console.log("typeboite", typeboite[0]);
-
   return (
     <div className="car-card group">
       <div className="car-card__content">

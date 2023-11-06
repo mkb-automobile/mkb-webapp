@@ -18,8 +18,6 @@ const PhotoSlider = ({ car }: CarDetailsProps) => {
   };
   const photos = car?.photos?.[0]?.photo ?? [];
 
-  console.log("car", car);
-
   return (
     <>
       {photos && photos.length > 0 && (
@@ -30,7 +28,7 @@ const PhotoSlider = ({ car }: CarDetailsProps) => {
                 src={photo}
                 alt={`Photo ${index}-${car?.marque}-${car?.modele}`}
                 width={1000}
-                height={500}
+                height={100}
                 objectFit=""
                 objectPosition="center"
                 className="rounded-lg"
