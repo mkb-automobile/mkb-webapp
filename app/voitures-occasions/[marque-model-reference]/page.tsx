@@ -1,14 +1,14 @@
 "use client";
 
+import React from "react";
+import { PhotoCard } from "@/src/components/cards";
 import { Main } from "@/src/components/layouts";
 import { CustomButton } from "@/src/components/ui";
-import PhotoCard from "@/src/components/ui/Cards/PhotoCard";
 import CustomLink from "@/src/components/ui/links/CustomLink";
 import PhotoSlider from "@/src/components/ui/slider/PhotoSlider";
 import { formatNumber } from "@/src/constants";
 import { useCarContext } from "@/src/hooks/CarContext";
 import { useRouter } from "next/navigation";
-import React from "react";
 
 interface PageProps {
   params: {

@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
-import { CarCardProps } from "../types";
-import { CustomButton } from "./ui";
+import { CarCardProps } from "../../../types";
+import { CustomButton } from "../../ui";
 import { useRouter } from "next/navigation";
-import { formatNumber } from "../constants";
+import { formatNumber } from "../../../constants";
 
 function CarCard({ carData }: CarCardProps) {
   const router = useRouter();
