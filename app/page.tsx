@@ -62,7 +62,7 @@ export default function Home({}) {
           <div>
             <CustomButton
               title="Découvrire tous les avis clients"
-              containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[20rem]"
+              containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[20rem] shadow-xl"
               handleClick={() => {
                 router.push("/voitures-occasions");
               }}
@@ -93,7 +93,7 @@ export default function Home({}) {
                 <div className="flex justify-center w-full">
                   <CustomButton
                     title="Trouver votre voiture"
-                    containerStyles="bg-primary-orange text-white rounded-full mt-10"
+                    containerStyles="bg-primary-orange text-white rounded-full mt-10 shadow-xl"
                     handleClick={() => {
                       router.push("/voitures-occasions");
                     }}
@@ -148,7 +148,7 @@ export default function Home({}) {
             <div>
               <CustomButton
                 title="En savoir plus"
-                containerStyles="bg-primary-orange text-white rounded-full mt-10"
+                containerStyles="bg-primary-orange text-white rounded-full mt-10 shadow-xl"
                 handleClick={() => {
                   router.push("/voitures-occasions");
                 }}
@@ -177,7 +177,7 @@ export default function Home({}) {
               <div>
                 <CustomButton
                   title={card.btnTitle}
-                  containerStyles="bg-primary-orange text-white rounded-full mt-5"
+                  containerStyles="bg-primary-orange text-white rounded-full mt-5 shadow-xl"
                   handleClick={() => {
                     router.push(card.path);
                   }}
@@ -205,14 +205,15 @@ export default function Home({}) {
                     width={100}
                     height={100}
                     alt={link.alt}
+                    className="shadow-xl rounded"
                   />
                 </div>
               ))}
             </div>
             <div>
               <CustomButton
-                title="Venez decouvir"
-                containerStyles="bg-primary-orange text-white rounded-full mt-10"
+                title="Venez découvir"
+                containerStyles="bg-primary-orange text-white rounded-full mt-10 shadow-xl"
                 handleClick={() => {
                   router.push("/voitures-occasions");
                 }}

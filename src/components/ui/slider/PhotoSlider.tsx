@@ -29,7 +29,7 @@ const PhotoSlider = ({ car }: CarDetailsProps) => {
                 height={100}
                 objectFit=""
                 objectPosition="center"
-                className="rounded-lg"
+                className="rounded-lg border-orange-400 border-2 hover:cursor-pointer"
               />
             </div>
           ))}

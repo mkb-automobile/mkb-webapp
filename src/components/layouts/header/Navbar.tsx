@@ -12,7 +12,7 @@ function Navbar() {
     setMobileNavOpen(!isMobileNavOpen);
   };
   return (
-    <header className="w-full fixed z-10 bg-white">
+    <header className="w-full fixed z-10 bg-white border-b shadow-xl">
       <nav className="max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4">
         <Link href={"/"} className="flex justify-center items-center">
           <Image

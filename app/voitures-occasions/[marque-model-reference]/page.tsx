@@ -3,12 +3,22 @@
 import React from "react";
 import { PhotoCard } from "@/src/components/cards";
 import { Main } from "@/src/components/layouts";
-import { CustomButton } from "@/src/components/ui";
 import CustomLink from "@/src/components/ui/links/CustomLink";
 import PhotoSlider from "@/src/components/ui/slider/PhotoSlider";
 import { formatNumber } from "@/src/constants";
 import { useCarContext } from "@/src/hooks/CarContext";
-import { useRouter } from "next/navigation";
+import { FaRegCreditCard } from "react-icons/fa";
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import { FaAward } from "react-icons/fa";
+import { BsCarFront } from "react-icons/bs";
+import { MdLocalGasStation } from "react-icons/md";
+import { GoMilestone } from "react-icons/go";
+import { TbManualGearbox } from "react-icons/tb";
+import { IoColorPaletteOutline } from "react-icons/io5";
+import { GiCarSeat } from "react-icons/gi";
+import { PiEngineThin } from "react-icons/pi";
+import { GiCarDoor } from "react-icons/gi";
+import { FormContact } from "@/src/components";
 
 interface PageProps {
   params: {
@@ -17,7 +27,6 @@ interface PageProps {
 }
 
 export default function Page({ params }: PageProps) {
-  const router = useRouter();
   const { data, isLoading } = useCarContext();
 
   const car = data?.find((item) => {
@@ -34,7 +43,83 @@ export default function Page({ params }: PageProps) {
     .map((item, index) => <li key={index}>{item}</li>);
   const date = car?.datemes ? new Date(car.datemes) : undefined;
 
-  console.log(car?.photos);
+  const cardDetailsServicesMkb = [
+    {
+      title: "Voiture contrôlée",
+      logo: AiOutlineCheckCircle,
+    },
+    {
+      title: "Garantie et prêt à partir",
+      logo: FaAward,
+    },
+    {
+      title: "Paiement en plusieurs fois ou à crédit",
+      logo: FaRegCreditCard,
+    },
+  ];
+
+  const cardDetailsCritere = [
+    {
+      logo: BsCarFront,
+      titre: "Marque",
+      value: car?.marque,
+    },
+    {
+      logo: BsCarFront,
+      titre: "Finition",
+      value: car?.modele,
+    },
+    {
+      logo: BsCarFront,
+      titre: "Mise en circulation",
+      value: date?.toLocaleDateString(),
+    },
+    {
+      logo: GoMilestone,
+      titre: "Kilométrage",
+      value: car?.kilometrage,
+    },
+    {
+      logo: MdLocalGasStation,
+      titre: "Carburant",
+      value: car?.energie,
+    },
+    {
+      logo: TbManualGearbox,
+      titre: "Boîte de vitesse",
+      value: car?.typeboite,
+    },
+    {
+      logo: BsCarFront,
+      titre: "Type de véhicule",
+      value: car?.carrosserie,
+    },
+    {
+      logo: IoColorPaletteOutline,
+      titre: "Couleur",
+      value: car?.couleurexterieur,
+    },
+    {
+      logo: PiEngineThin,
+      titre: "Puissance fiscale",
+      value: car?.puissancefiscale,
+    },
+    {
+      logo: PiEngineThin,
+      titre: "Puissance din",
+      value: car?.puissancedyn,
+    },
+    {
+      logo: GiCarDoor,
+      titre: "Nombre de portes",
+      value: car?.nbrporte,
+    },
+    {
+      logo: GiCarSeat,
+      titre: "Nombre de places",
+      value: car?.nbrplace,
+    },
+  ];
 
   return (
     <Main>
@@ -45,16 +130,35 @@ export default function Page({ params }: PageProps) {
           <div className="flex px-5 w-full">
             <div className="w-3/5 p-2">
               <PhotoSlider car={car} />
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-3 gap-2 pb-10">
                 {car?.photos[0]?.photo?.map((url, index) => (
                   <PhotoCard key={index} url={url} alt={car.title} />
                 ))}
               </div>
               <div>
-                <h2 className="text-2xl font-bold">
+                <div className="text-3xl font-light w-full pb-10">
+                  <h2>Critéres</h2>
+                </div>
+                <div className="bg-primary-orange-100 p-10  grid grid-cols-3  gap-5 justify-evenly rounded-xl shadow-2xl">
+                  {cardDetailsCritere.map((item, index) => {
+                    const Icon = item.logo;
+                    return (
+                      <div key={index} className="text-xl">
+                        <div className="flex items-center gap-2 ">
+                          <Icon />
+                          <span> {item.titre}</span>
+                        </div>
+                        <div className="text-orange-900">{item.value}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="py-10">
+                <h2 className="text-3xl font-light pb-5">
                   Description & Équipements
                 </h2>
-                <ul className="">{elements}</ul>
+                <ul className="text-md">{elements}</ul>
               </div>
             </div>
             <div className="w-1/3 pl-6">
@@ -91,7 +195,7 @@ export default function Page({ params }: PageProps) {
                       {car?.reference}
                     </p>
                   </div>
-                  <div className="flex justify-center bg-primary-orange-100 p-5 rounded-full">
+                  <div className="flex justify-center bg-primary-orange-100 p-5 rounded-full shadow-xl">
                     {car?.prixttcaffiche !== undefined && (
                       <div className="flex justify-between py-5">
                         <p>
@@ -104,7 +208,7 @@ export default function Page({ params }: PageProps) {
                   </div>
                 </div>
                 <div className="flex justify-evenly border-b-2 border-b-black p-5">
-                  <div className="flex items-center justify-center bg-primary-orange p-5 rounded-full gap-2">
+                  <div className="flex items-center justify-center bg-primary-orange p-5 rounded-full gap-2 shadow-xl">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -122,7 +226,7 @@ export default function Page({ params }: PageProps) {
                       href={"tel:+33188830917"}
                     />
                   </div>
-                  <div className="flex items-center justify-center bg-primary-orange p-5 rounded-full gap-2">
+                  <div className="flex items-center justify-center bg-primary-orange p-5 rounded-full gap-2 shadow-xl">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -139,10 +243,12 @@ export default function Page({ params }: PageProps) {
                   </div>
                 </div>
               </div>
-              <div>
-                <div>
-                  <h3>
-                    Nos Solution de finacement{" "}
+              <div className="py-10">
+                <div className="py-10">
+                  <h3 className="text-2xl">
+                    <span className="font-bold">
+                      Nos Solution de finacement{" "}
+                    </span>
                     <CustomLink
                       title="Cliquez ici pour en savoir plus"
                       href="/financement"
@@ -151,15 +257,55 @@ export default function Page({ params }: PageProps) {
                   </h3>
                 </div>
                 <div>
-                  <h3>Les services compris de MKB Automobiles</h3>
-                  <ul>
-                    <li>Garantie 6 mois</li>
-                    <li>Contrôle technique</li>
-                    <li>Nettoyage intérieur et extérieur</li>
-                    <li>Carte grise</li>
-                  </ul>
+                  <div>
+                    <span className="font-bold text-2xl">
+                      <h3>Les services compris de MKB Automobiles</h3>
+                    </span>
+                  </div>
+                  <div className="py-3">
+                    {cardDetailsServicesMkb.map((item, index) => {
+                      const Icon = item.logo;
+                      return (
+                        <div
+                          key={index}
+                          className="flex items-center gap-2 text-xl"
+                        >
+                          <Icon className="text-orange-500" />
+                          <p>{item.title}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="w-full flex flex-col items-center py-10 bg-primary-orange-100 gap-6 shadow-xl">
+            <div>
+              <h1 className="text-center font-semibold text-3xl pb-5">
+                Ce modèle vous intéresse ?
+                <span style={{ color: "#ff9f1c" }}> Contactez-nous</span>
+              </h1>
+              <p>
+                Nos experts vous accompagnenent pour votre projet d'achat
+                automobile.
+                <br />
+                Nous somme à cotre écoute pour vous conseiller et vous aider à
+                trouver le véhicule qui vous correspond.
+              </p>
+              <p className="text-blod">
+                Écrivez-nous, nous vous répondrons dans les plus brefs délais.
+              </p>
+            </div>
+            <div className="">
+              <FormContact />
+            </div>
+            <div>
+              <p>Vous preferez nous contacter par téléphone ? </p>
+              <CustomLink
+                title="Appeler notre équipe"
+                href="tel:+33188830917"
+              />
             </div>
           </div>
         </>
