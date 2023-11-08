@@ -4,7 +4,7 @@ import React from "react";
 import { PhotoCard } from "@/src/components/cards";
 import { Main } from "@/src/components/layouts";
 import CustomLink from "@/src/components/ui/links/CustomLink";
-import PhotoSlider from "@/src/components/ui/slider/PhotoSlider";
+import ImageSlider from "@/src/components/ui/slider/ImageSlider";
 import { formatNumber } from "@/src/constants";
 import { useCarContext } from "@/src/hooks/CarContext";
 import { FaRegCreditCard } from "react-icons/fa";
@@ -144,7 +144,7 @@ export default function Page({ params }: PageProps) {
         <>
           <div className="flex px-5 w-full max-md:flex-col">
             <div className="w-3/5 p-2 max-md:w-full">
-              <PhotoSlider car={car} />
+              <ImageSlider car={car} />
               <div className="grid grid-cols-3 gap-2 pb-10">
                 {car?.photos[0]?.photo?.map((url, index) => (
                   <PhotoCard key={index} url={url} alt={car.title} />
