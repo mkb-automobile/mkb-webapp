@@ -13,8 +13,6 @@ const PhotoSlider = ({ car }: CarDetailsProps) => {
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplaySpeed: 5000,
-    autoplay: true,
   };
   const photos = car?.photos?.[0]?.photo ?? [];
 
@@ -27,11 +25,11 @@ const PhotoSlider = ({ car }: CarDetailsProps) => {
               <Image
                 src={photo}
                 alt={`Photo ${index}-${car?.marque}-${car?.modele}`}
-                width={1000}
+                width={1200}
                 height={100}
                 objectFit=""
                 objectPosition="center"
-                className="rounded-lg"
+                className="rounded-lg border-orange-400 border-2 hover:cursor-pointer"
               />
             </div>
           ))}

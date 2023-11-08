@@ -1,9 +1,11 @@
 "use client";
-import { CarCard, CustomFilter } from "@/src/components";
+
 import { fuels, yearsOfProduction } from "@/src/constants";
 import { useState } from "react";
 import { CustomButton, Loader, SearchBar } from "./ui";
 import { useCarContext } from "../hooks/CarContext";
+import { CarCard } from "./cards";
+import CustomFilter from "./CustomFilter";
 
 function CatalogCars() {
   const { data, isLoading } = useCarContext();

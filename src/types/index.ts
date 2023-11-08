@@ -12,7 +12,7 @@ export interface CustomButtonProps {
 }
 
 export interface CustomLinkProps {
-  title: string;
+  title?: string;
   href: string;
   containerStyles?: string;
 }
@@ -27,12 +27,18 @@ export interface CarDataProps {
   marque: string;
   modele: string;
   reference: string;
+
   version?: string;
   prixttcaffiche: number;
   kilometrage: number;
   annee: string;
   energie: string;
   carrosserie: string;
+  nbrplace: number;
+  nbrporte: number;
+  couleurexterieur: string;
+  puissancefiscale: number;
+  puissancedyn: number;
   categorie: string;
   typeboite: string;
   description: string;

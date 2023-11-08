@@ -20,12 +20,18 @@ const PhotoCard = ({ url, alt }: PhotoCardPros) => {
         alt={alt}
         width={300}
         height={300}
-        className="thumbnail"
+        className="thumbnail rounded-xl border-2 border-orange-400 hover:opacity-80 shadow-xl"
         onClick={handleModal}
       />
       {isModalOpen && (
         <div className="modal-overlay" onClick={handleModal}>
-          <Image src={url} alt={alt} height={1200} width={1200} />
+          <Image
+            src={url}
+            alt={alt}
+            height={1200}
+            width={1200}
+            className="rounded-xl shadow-xl"
+          />
         </div>
       )}
     </>
