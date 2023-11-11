@@ -20,7 +20,7 @@ const PhotoCard = ({ url, alt }: PhotoCardPros) => {
         alt={alt}
         width={300}
         height={300}
-        className="thumbnail rounded-xl border-2 border-orange-400 hover:opacity-80 shadow-xl"
+        className="thumbnail rounded-xl border-2 hover:opacity-80 shadow-xl"
         onClick={handleModal}
       />
       {isModalOpen && (

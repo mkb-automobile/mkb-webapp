@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className="relative">
+      <body className="">
         <Navbar />
         <CarContextProvider>{children}</CarContextProvider>
         <Footer />
