@@ -1,18 +1,19 @@
 "use client";
 
-import "./productPage.css";
 import React from "react";
-import { PhotoCard } from "@/src/components/cards";
+import "./productPage.css";
 import { Main } from "@/src/components/layouts";
+import {
+  CardDescription,
+  CardDetailsCritere,
+  PhotoCard,
+  ProductInfo,
+} from "@/src/components/cards";
 import CustomLink from "@/src/components/ui/links/CustomLink";
-import ImageSlider from "@/src/components/ui/slider/ImageSlider";
+import { CustomButton, ImageSlider } from "@/src/components/ui";
 import { useCarContext } from "@/src/hooks/CarContext";
 import { FormContact } from "@/src/components";
-import ProductInfo from "@/src/components/producCard/ProductInfo";
 import SocialNetwork from "@/src/components/socialNetwork/SocialNetwork";
-import CardDetailsCritere from "@/src/components/cards/cardDetailCritere/CardDetailsCritere";
-import CardDescription from "@/src/components/cards/cardDescription/CardDescription";
-import { CustomButton } from "@/src/components/ui";
 
 interface PageProps {
   params: {

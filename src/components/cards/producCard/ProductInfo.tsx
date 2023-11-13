@@ -1,6 +1,6 @@
 import { cardDetailsServicesMkb, formatNumber } from "@/src/constants";
 import React from "react";
-import CustomLink from "../ui/links/CustomLink";
+import CustomLink from "../../ui/links/CustomLink";
 
 const ProductInfo = ({ car, date }: any) => {
   return (
