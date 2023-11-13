@@ -1,10 +1,11 @@
 import { FormContact } from "@/src/components";
+import { Main } from "@/src/components/layouts";
 import Link from "next/link";
 import React from "react";
 
 const Contact = () => {
   return (
-    <main className="pt-36">
+    <Main>
       <div className="flex flex-col justify-center max-w-[1440px] mx-auto">
         <div className="flex justify-center">
           <h1 className="text-center font-semibold text-3xl pb-5">
@@ -74,7 +75,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </main>
+    </Main>
   );
 };
 

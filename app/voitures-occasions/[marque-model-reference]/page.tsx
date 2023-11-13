@@ -112,7 +112,7 @@ export default function Page({ params }: PageProps) {
               <ProductInfo car={car} date={date} />
             </aside>
           </div>
-          <div className="w-full flex flex-col items-center py-10 bg-primary-orange-100 gap-6 shadow-xl">
+          <div className="w-full flex flex-col items-center py-10 bg-primary-orange-100 gap-6 shadow-xl rounded-2xl">
             <div>
               <h1 className="text-center font-semibold text-3xl pb-5">
                 Ce modèle vous intéresse ?
@@ -128,11 +128,11 @@ export default function Page({ params }: PageProps) {
                 Écrivez-nous, nous vous répondrons dans les plus brefs délais.
               </p>
             </div>
-            <div className="w-full flex justify-evenly max-md:flex-col">
-              <div className="">
+            <div className="w-full flex max-md:flex-col">
+              <div className="w-1/2">
                 <FormContact />
               </div>
-              <div className="flex flex-col  items-center justify-center">
+              <div className="w-1/2 flex flex-col  items-center justify-center">
                 <p>Vous preferez nous contacter par téléphone ? </p>
                 <div className="py-5 border-b-2 border-b-black">
                   <div className="flex justify-center bg-primary-orange p-5 rounded-full gap-2 shadow-xl">
