@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import "./productPage.css";
 import { Main } from "@/src/components/layouts";
 import {
@@ -14,6 +14,7 @@ import { CustomButton, ImageSlider } from "@/src/components/ui";
 import { useCarContext } from "@/src/hooks/CarContext";
 import { FormContact } from "@/src/components";
 import SocialNetwork from "@/src/components/socialNetwork/SocialNetwork";
+import { cardDetailsServicesMkb } from "@/src/constants";
 
 interface PageProps {
   params: {
@@ -21,8 +22,11 @@ interface PageProps {
   };
 }
 
+type ElementId = "critere" | "description";
+
 export default function Page({ params }: PageProps) {
   const { data, isLoading } = useCarContext();
+  const [activeElement, setActiveElement] = useState<ElementId>("critere");
 
   const car = data?.find((item) => {
     const { marque, modele, reference } = item;
@@ -33,7 +37,9 @@ export default function Page({ params }: PageProps) {
 
   const date = car?.datemes ? new Date(car.datemes) : undefined;
 
-  const handlShow = () => {};
+  const handleShowElement = (element: ElementId) => {
+    setActiveElement((prev) => (element === prev ? prev : element));
+  };
 
   return (
     <Main>
@@ -41,7 +47,7 @@ export default function Page({ params }: PageProps) {
         <p>Loading...</p>
       ) : (
         <>
-          <div className="flex px-5 w-full max-md:flex-col">
+          <div className="flex px-5 pb-10 w-full max-md:flex-col">
             <div className="content w-[910px] max-md:w-full">
               <ImageSlider car={car} />
               <div className="grid grid-cols-3 gap-2 pb-10">
@@ -52,19 +58,54 @@ export default function Page({ params }: PageProps) {
               <div className="flex w-full gap-2">
                 <CustomButton
                   title="Critère"
-                  containerStyles="rounded-xl shadow-xl"
-                  handleClick={handlShow}
+                  containerStyles={`rounded-xl shadow-xl border border-primary-orange ${
+                    activeElement === "critere"
+                      ? "bg-primary-orange text-white"
+                      : ""
+                  }`}
+                  handleClick={() => {
+                    handleShowElement("critere");
+                  }}
                 />
                 <CustomButton
                   title="Description"
-                  containerStyles="rounded-xl shadow-xl"
+                  containerStyles={`rounded-xl shadow-xl border border-primary-orange ${
+                    activeElement === "description"
+                      ? "bg-primary-orange text-white"
+                      : ""
+                  }`}
+                  handleClick={() => {
+                    handleShowElement("description");
+                  }}
                 />
               </div>
-              <div className="max-md:w-full py-5">
-                <CardDetailsCritere car={car} date={date} />
+              <div className="max-md:w-full pt-5">
+                {activeElement === "critere" ? (
+                  <CardDetailsCritere car={car} date={date} />
+                ) : (
+                  <CardDescription car={car} />
+                )}
               </div>
-              <div className="max-md:w-full py-5">
-                <CardDescription car={car} />
+              <div className="w-full flex flex-col items-center pt-20">
+                <div>
+                  <span className="font-bold text-2xl">
+                    <h3>Les services compris de MKB Automobiles</h3>
+                  </span>
+                </div>
+                <div className="w-full pt-10 flex justify-evenly">
+                  {cardDetailsServicesMkb.map((item, index) => {
+                    const Icon = item.logo;
+                    return (
+                      <div
+                        key={index}
+                        className="flex flex-col items-center gap-2 text-xl border p-4 rounded-xl border-primary-orange shadow-xl"
+                      >
+                        <Icon className="text-orange-500" />
+                        <p>{item.title}</p>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
             <aside className="relative block pl-10">

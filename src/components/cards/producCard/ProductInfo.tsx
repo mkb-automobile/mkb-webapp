@@ -31,14 +31,13 @@ const ProductInfo = ({ car, date }: any) => {
             <span className="font-bold">Carburant: </span>
             {car?.energie == "DIESEL" ? "Diesel" : "Essence"}
           </p>
-          {/* <p>Lieu pour voir le vehicule: {car?.ville}</p> */}
           <div className="py-5">
             <p>
               <span className="italic">Référance du véhicule: </span>
               {car?.reference}
             </p>
           </div>
-          <div className="flex justify-center bg-primary-orange-100 p-5 rounded-full shadow-xl">
+          <div className="flex justify-center bg-primary-orange-100 p-2 rounded-full shadow-xl">
             {car?.prixttcaffiche !== undefined && (
               <div className="flex justify-between py-5">
                 <p>
@@ -50,8 +49,8 @@ const ProductInfo = ({ car, date }: any) => {
             )}
           </div>
         </div>
-        <div className="flex justify-evenly border-b-2 border-b-black p-5 max-sm:flex-col max-sm:gap-3 max-sm:p-10">
-          <div className="flex items-center justify-center bg-primary-orange p-5 rounded-full gap-2 shadow-xl max-sm:p-3">
+        <div className="flex flex-col gap-2 border-b-2 border-b-black p-5 max-sm:flex-col max-sm:gap-3 max-sm:p-10">
+          <div className="flex items-center justify-center bg-primary-orange p-5 rounded-xl gap-2 shadow-xl max-sm:p-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -64,9 +63,9 @@ const ProductInfo = ({ car, date }: any) => {
                 clipRule="evenodd"
               />
             </svg>
-            <CustomLink title="" href={"tel:+33188830917"} />
+            <CustomLink title="Nous contacter" href={"tel:+33188830917"} />
           </div>
-          <div className="flex items-center justify-center bg-primary-orange p-5 rounded-full gap-2 shadow-xl max-sm:p-3">
+          <div className="flex items-center justify-center bg-primary-orange p-5 rounded-xl gap-2 shadow-xl max-sm:p-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -76,7 +75,10 @@ const ProductInfo = ({ car, date }: any) => {
               <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
               <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
             </svg>
-            <CustomLink title="" href={"mailto:contact@mkbautomobile.fr"} />
+            <CustomLink
+              title="Nous écrire"
+              href={"mailto:contact@mkbautomobile.fr"}
+            />
           </div>
         </div>
       </div>
@@ -90,24 +92,6 @@ const ProductInfo = ({ car, date }: any) => {
               containerStyles="text-primary-orange"
             />
           </h3>
-        </div>
-        <div>
-          <div>
-            <span className="font-bold text-2xl">
-              <h3>Les services compris de MKB Automobiles</h3>
-            </span>
-          </div>
-          <div className="py-3">
-            {cardDetailsServicesMkb.map((item, index) => {
-              const Icon = item.logo;
-              return (
-                <div key={index} className="flex items-center gap-2 text-xl">
-                  <Icon className="text-orange-500" />
-                  <p>{item.title}</p>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </div>
     </div>
