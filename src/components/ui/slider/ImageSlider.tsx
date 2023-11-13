@@ -24,27 +24,31 @@ const ImageSlider = ({ car }: CarDetailsProps) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplaySpeed: 5000,
-    autoplay: true,
   };
 
   return (
     <>
       {imageArray && imageArray.length > 0 && (
-        <Slider {...settings} className="relative">
-          {imageArray.map((photo: string, index: number) => (
-            <div key={index} className="">
-              <Image
-                src={photo}
-                alt={`Photo ${index}-${car?.marque}-${car?.modele}`}
-                width={1200}
-                height={100}
-                objectFit=""
-                objectPosition="center"
-                className="rounded-lg border-2 hover:cursor-pointer"
-              />
-            </div>
-          ))}
-        </Slider>
+        <figure className="relative">
+          <Slider {...settings}>
+            {imageArray.map((photo: string, index: number) => (
+              <div key={index} className="">
+                <Image
+                  src={photo}
+                  alt={`Photo ${index}-${car?.marque}-${car?.modele}`}
+                  width={1200}
+                  height={100}
+                  objectFit=""
+                  objectPosition="center"
+                  className="rounded-lg border-2 hover:cursor-pointer"
+                />
+              </div>
+            ))}
+          </Slider>
+          <figcaption className="absolute bottom-4 left-2 p-2 text-white bg-primary-orange bg-opacity-50 rounded-lg">
+            {imageArray.length} photos
+          </figcaption>
+        </figure>
       )}
     </>
   );

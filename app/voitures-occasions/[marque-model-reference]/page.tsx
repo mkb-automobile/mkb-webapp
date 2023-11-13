@@ -1,5 +1,6 @@
 "use client";
 
+import "./productPage.css";
 import React from "react";
 import { PhotoCard } from "@/src/components/cards";
 import { Main } from "@/src/components/layouts";
@@ -11,6 +12,7 @@ import ProductInfo from "@/src/components/producCard/ProductInfo";
 import SocialNetwork from "@/src/components/socialNetwork/SocialNetwork";
 import CardDetailsCritere from "@/src/components/cards/cardDetailCritere/CardDetailsCritere";
 import CardDescription from "@/src/components/cards/cardDescription/CardDescription";
+import { CustomButton } from "@/src/components/ui";
 
 interface PageProps {
   params: {
@@ -30,19 +32,32 @@ export default function Page({ params }: PageProps) {
 
   const date = car?.datemes ? new Date(car.datemes) : undefined;
 
+  const handlShow = () => {};
+
   return (
     <Main>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         <>
-          <div className="flex justify-evenly px-5 w-full max-md:flex-col">
-            <div className="w-[910px] max-md:w-full">
+          <div className="flex px-5 w-full max-md:flex-col">
+            <div className="content w-[910px] max-md:w-full">
               <ImageSlider car={car} />
               <div className="grid grid-cols-3 gap-2 pb-10">
                 {car?.photos[0]?.photo?.map((url, index) => (
                   <PhotoCard key={index} url={url} alt={car.title} />
                 ))}
+              </div>
+              <div className="flex w-full gap-2">
+                <CustomButton
+                  title="Critère"
+                  containerStyles="rounded-xl shadow-xl"
+                  handleClick={handlShow}
+                />
+                <CustomButton
+                  title="Description"
+                  containerStyles="rounded-xl shadow-xl"
+                />
               </div>
               <div className="max-md:w-full py-5">
                 <CardDetailsCritere car={car} date={date} />
@@ -51,7 +66,7 @@ export default function Page({ params }: PageProps) {
                 <CardDescription car={car} />
               </div>
             </div>
-            <aside className="relative block">
+            <aside className="relative block pl-10">
               <ProductInfo car={car} date={date} />
             </aside>
           </div>

@@ -58,7 +58,7 @@ function CatalogCars() {
               <Loader />
             </div>
           )}
-          <div className="home__cars-wrapper pb-10">
+          <div className="home__cars-wrapper">
             {dataCurrentPage?.map((car, index) => (
               <CarCard carData={car} key={index} />
             ))}
