@@ -68,7 +68,7 @@ export default function Page({ params }: PageProps) {
                   }}
                 />
                 <CustomButton
-                  title="Description"
+                  title="Déscription"
                   containerStyles={`rounded-xl shadow-xl border border-primary-orange ${
                     activeElement === "description"
                       ? "bg-primary-orange text-white"
