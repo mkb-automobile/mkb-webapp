@@ -5,7 +5,7 @@ import CustomLink from "../ui/links/CustomLink";
 const ProductInfo = ({ car, date }: any) => {
   return (
     <div
-      className={`w-96 p-6 max-md:w-full border border-primary-orange sticky rounded-2xl shadow-2xl`}
+      className={`w-96 p-6 max-md:w-full border border-primary-orange top-28 sticky rounded-2xl shadow-2xl`}
     >
       <div className=" flex flex-col justify-evenly">
         <div className="py-5 border-b-2 border-b-black">
