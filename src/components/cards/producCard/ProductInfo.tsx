@@ -37,7 +37,7 @@ const ProductInfo = ({ car, date }: any) => {
               {car?.reference}
             </p>
           </div>
-          <div className="flex justify-center bg-primary-orange-100 p-2 rounded-full shadow-xl">
+          <div className="flex justify-center bg-primary-orange-50 p-2 rounded-full shadow-xl">
             {car?.prixttcaffiche !== undefined && (
               <div className="flex justify-between py-5">
                 <p>

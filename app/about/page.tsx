@@ -5,7 +5,7 @@ function About() {
   return (
     <main className="pt-36">
       <div>
-        <div className="flex flex-col items-center w-full py-5 bg-primary-orange-100">
+        <div className="flex flex-col items-center w-full py-5 bg-primary-orange-50">
           <div className="text-center">
             <h2 className="font-semibold text-3xl py-5">
               <span style={{ color: "#ff9f1c" }}>MKB Automobile - </span> La
