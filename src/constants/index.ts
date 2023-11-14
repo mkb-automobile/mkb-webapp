@@ -199,9 +199,9 @@ export const fuels = [
 // Header
 export const navLinks = [
   { title: "Achat", path: "/voitures-occasions" },
-  { title: "Reprise", path: "/taking" },
-  { title: "Recherche personnalisé", path: "/personalized" },
-  { title: "Financement", path: "/financing" },
+  { title: "Reprise", path: "/reprise-automobile" },
+  { title: "Recherche personnalisé", path: "/recherche-personnalisee" },
+  { title: "Financement", path: "/financement" },
   { title: "Comment ça marche ?", path: "/howworks" },
 ];
 
@@ -234,14 +234,14 @@ export const supportCards = [
   {
     title: "Financement",
     btnTitle: "Je me renseigne",
-    path: "/financing",
+    path: "/financement",
     backgroundImage: "/MKB-Automobile-financement.webp",
   },
   {
     title: "Reprise auto",
     text: `Vous souhaitez vendre votre voiture ? Aucun problème - On est là pour vous`,
     btnTitle: "Je demande une estimation",
-    path: "/taking",
+    path: "/reprise-automobile",
     backgroundImage: "/MKB-automobile-Trouvez-votre-voiture-600-400.webp",
   },
   {
@@ -330,9 +330,9 @@ export const footerLinks = [
     title: "Nos Services",
     links: [
       { title: "Achat", url: "/voitures-occasions" },
-      { title: "Reprise", url: "/taking" },
-      { title: "Financement", url: "/financing" },
-      { title: "Recherche personnalisée", url: "/personalized" },
+      { title: "Reprise", url: "/reprise-automobile" },
+      { title: "Financement", url: "/financement" },
+      { title: "Recherche personnalisée", url: "/recherche-personnalisee" },
     ],
   },
   {
