@@ -15,7 +15,7 @@ function Footer() {
             height={130}
             className="object-contain"
           />
-          <p className="text-base text-gray-700">
+          <p className="text-sm text-gray-700">
             MKB-Automobile 2023 <br />
             Tous Droits Réservés &copy;
           </p>

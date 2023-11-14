@@ -24,11 +24,11 @@ function CarCard({ carData }: CarCardProps) {
   return (
     <div className="car-card group">
       <div className="car-card__content">
-        <h2 className="car-card_content-title">
+        <h3 className="car-card_content-title">
           {marque} {modele}
-        </h2>
+        </h3>
       </div>
-      <p className="flex text-[32px] font-extrabold">
+      <p className="flex text-[32px] font-medium">
         {formatNumber(prixttcaffiche)}
         <span className="self-start text-[14px] font-medium">€</span>
       </p>

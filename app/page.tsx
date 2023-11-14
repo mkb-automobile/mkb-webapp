@@ -46,7 +46,7 @@ export default function Home({}) {
                     className="pb-5"
                   />
                   <h1 className="text-3xl">{section.title}</h1>
-                  <p className="text-center text-base">{section.text}</p>
+                  <p className="text-center text-sm">{section.text}</p>
                 </div>
               ))}
             </div>

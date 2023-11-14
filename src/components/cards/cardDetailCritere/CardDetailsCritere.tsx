@@ -75,7 +75,7 @@ const CardDetailsCritere = ({ car, date }: any) => {
       {cardDetailsCritere.map((item, index) => {
         const Icon = item.logo;
         return (
-          <div key={index} className="flex flex-col items-center text-xl">
+          <div key={index} className="flex flex-col items-center text-base">
             <div className="flex items-center gap-2 ">
               <Icon />
               <span> {item.titre}</span>
