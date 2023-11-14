@@ -17,7 +17,7 @@ function About() {
           <div className="rounded-lg">
             <Image
               src="/MKB-Automobile-A-propos.jpg"
-              alt="about"
+              alt="a-propos"
               width={800}
               height={450}
               className="rounded-3xl max-md:px-3"

@@ -79,15 +79,15 @@ const FormContact = () => {
             </div>
             <div className="col-span-full">
               <label
-                htmlFor="about"
+                htmlFor="a-propos"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Votre message
               </label>
               <div className="mt-2">
                 <textarea
-                  id="about"
-                  name="about"
+                  id="a-propos"
+                  name="a-propos"
                   rows={3}
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   defaultValue={""}

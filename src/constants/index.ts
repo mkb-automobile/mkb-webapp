@@ -202,7 +202,7 @@ export const navLinks = [
   { title: "Reprise", path: "/reprise-automobile" },
   { title: "Recherche personnalisé", path: "/recherche-personnalisee" },
   { title: "Financement", path: "/financement" },
-  { title: "Comment ça marche ?", path: "/howworks" },
+  { title: "Comment ça marche ?", path: "/comment-ca-marche" },
 ];
 
 // Home page
@@ -228,7 +228,7 @@ export const supportCards = [
   {
     title: "Comment ça marche ?",
     btnTitle: "On vous explique tout",
-    path: "/howworks",
+    path: "/comment-ca-marche",
     backgroundImage: "/MKB-Automobile-service-personnalise-1.webp",
   },
   {
@@ -320,10 +320,10 @@ export const footerLinks = [
   {
     title: "A Propos de",
     links: [
-      { title: "MKB Automobile", url: "/about" },
+      { title: "MKB Automobile", url: "/a-propos" },
       { title: "Contact", url: "/contact" },
       // { title: "FAQ", url: "/faq" },
-      { title: "Comment ça marche ?", url: "/howworks" },
+      { title: "Comment ça marche ?", url: "/comment-ca-marche" },
     ],
   },
   {

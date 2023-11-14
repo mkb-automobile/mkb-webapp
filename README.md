@@ -79,7 +79,7 @@ pnpm install
 . # racine du projet
 ├── app
     ├── page.tsx # page d'accueil
-    ├── about
+    ├── a-propos
         ├── page.tsx # page à propos
     ├── contact
         ├── page.tsx # page de contact
