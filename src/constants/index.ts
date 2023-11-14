@@ -2,6 +2,7 @@ import { AiOutlineCheckCircle } from "react-icons/ai";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
 import { FaAward, FaRegCreditCard } from "react-icons/fa";
 
+// API
 export const SPIDERVO_API_URL: string = process.env.NEXT_PUBLIC_API_URL || "";
 
 // Function to format number with space every 3 digits
