@@ -71,7 +71,7 @@ const CardDetailsCritere = ({ car, date }: any) => {
     },
   ];
   return (
-    <div className="bg-primary-orange-100 p-10  grid grid-cols-3  lg:grid-cols-2 max-sm:flex flex-col items-center gap-5 justify-evenly rounded-xl shadow-2xl">
+    <div className="bg-primary-orange-50 p-10  grid grid-cols-3  lg:grid-cols-2 max-sm:flex flex-col items-center gap-5 justify-evenly rounded-xl shadow-2xl">
       {cardDetailsCritere.map((item, index) => {
         const Icon = item.logo;
         return (

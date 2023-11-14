@@ -45,7 +45,7 @@ function Navbar() {
         </div>
       </nav>
       {isMobileNavOpen && (
-        <div className="w-full h-full fixed top-0 left-0 z-10 bg-primary-orange-100">
+        <div className="w-full h-full fixed top-0 left-0 z-10 bg-primary-orange-50">
           <div className="flex justify-end pr-10 pt-5">
             <button onClick={toggleMobileNav}>{<AiOutlineClose />}</button>
           </div>

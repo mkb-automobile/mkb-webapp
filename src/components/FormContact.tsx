@@ -4,7 +4,7 @@ import { CustomButton } from "./ui";
 
 const FormContact = () => {
   return (
-    <form className=" bg-primary-orange-100 p-10 rounded-lg">
+    <form className=" bg-primary-orange-50 p-10 rounded-lg">
       <div className="space-y-12">
         <div className="pb-12">
           <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">

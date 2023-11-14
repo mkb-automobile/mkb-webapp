@@ -1,6 +1,5 @@
 "use client";
 import { Hero } from "@/src/components";
-import { Main } from "@/src/components/layouts";
 import { CustomButton, SearchBar } from "@/src/components/ui";
 import {
   carsModel,
@@ -29,10 +28,7 @@ export default function Home({}) {
               <SearchBar />
             </div>
           </div>
-          <section
-            className="w-full py-10 rounded-xl border shadow-xl"
-            style={styles.section}
-          >
+          <section className="w-full py-10 rounded-xl border shadow-xl bg-primary-orange-50">
             <div className="w-full pb-10">
               <h2 className="font-semibold text-center text-3xl">
                 <span style={{ color: "#ff9f1c" }}>MKB</span> - Un gage de
@@ -75,10 +71,7 @@ export default function Home({}) {
               </div>
             </div>
           </section>
-          <section
-            className="py-10 rounded-xl border shadow-xl"
-            style={styles.section}
-          >
+          <section className="py-10 rounded-xl border shadow-xl bg-primary-orange-50">
             <div className="flex gap-4 max-md:grid grid-cols-1 max-sm:p-4 ">
               <div className="w-1/3 flex justify-center max-md:w-full max-sm:flex flex-col  pb-5 px-20">
                 <div>
@@ -169,10 +162,7 @@ export default function Home({}) {
               </div>
             </div>
           </section>
-          <section
-            className="flex w-full justify-center p-10 rounded-xl border shadow-xl"
-            style={styles.section}
-          >
+          <section className="flex w-full justify-center p-10 rounded-xl border shadow-xl bg-primary-orange-50">
             <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1  max-sm:p-4">
               {supportCards.map((card, index) => (
                 <div
@@ -243,10 +233,3 @@ export default function Home({}) {
     </>
   );
 }
-
-const styles = {
-  section: {
-    backgroundColor: "#fff7f0",
-    // padding: "2% 0% 2% 0%",
-  },
-};

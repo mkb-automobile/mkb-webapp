@@ -115,7 +115,7 @@ export default function Page({ params }: PageProps) {
               <ProductInfo car={car} date={date} />
             </aside>
           </div>
-          <div className="w-full flex flex-col items-center py-10 bg-primary-orange-100 gap-6 shadow-xl rounded-2xl">
+          <div className="w-full flex flex-col items-center py-10 bg-primary-orange-50 gap-6 shadow-xl rounded-2xl">
             <div>
               <h1 className="text-center font-semibold text-3xl pb-5">
                 Ce modèle vous intéresse ?

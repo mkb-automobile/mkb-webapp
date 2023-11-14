@@ -6,7 +6,7 @@ import React from "react";
 const Works = () => {
   return (
     <Main>
-      <div className="flex flex-col justify-center w-full bg-primary-orange-100">
+      <div className="flex flex-col justify-center w-full bg-primary-orange-50">
         <div>
           <h1 className="text-center font-semibold text-3xl py-10">
             Comment acheter une voiture{" "}
