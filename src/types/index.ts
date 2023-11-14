@@ -11,24 +11,42 @@ export interface CustomButtonProps {
   isDisabled?: boolean;
 }
 
+export interface CustomLinkProps {
+  title?: string;
+  href: string;
+  containerStyles?: string;
+}
+
 export interface SearchManufacturerProps {
   manufacturer: string;
   setManufacturer: (manufacturer: string) => void;
 }
 
 export interface CarDataProps {
-  id: string;
+  title: string;
   marque: string;
   modele: string;
-  prix?: string;
-  prix_vente?: string;
-  kilometrage?: string;
-  annee?: string;
-  energie?: string;
-  carrosserie?: string;
-  photoUrls?: string[];
-  categorie?: string;
-  typeboite?: string;
+  reference: string;
+
+  version?: string;
+  prixttcaffiche: number;
+  kilometrage: number;
+  annee: string;
+  energie: string;
+  carrosserie: string;
+  nbrplace: number;
+  nbrporte: number;
+  couleurexterieur: string;
+  puissancefiscale: number;
+  puissancedyn: number;
+  categorie: string;
+  typeboite: string;
+  description: string;
+  datemes?: string;
+  photos: {
+    photo: string[];
+  }[];
+  ville?: string;
 }
 
 export interface CarCardProps {
@@ -36,9 +54,7 @@ export interface CarCardProps {
 }
 
 export interface CarDetailsProps {
-  isOpen?: boolean;
-  closeModal?: () => void;
-  car: CarDataProps;
+  car?: CarDataProps;
 }
 
 export interface FilterProps {

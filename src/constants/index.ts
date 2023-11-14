@@ -1,4 +1,42 @@
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import { BsFacebook, BsInstagram } from "react-icons/bs";
+import { FaAward, FaRegCreditCard } from "react-icons/fa";
+
+// API
 export const SPIDERVO_API_URL: string = process.env.NEXT_PUBLIC_API_URL || "";
+
+// Function to format number with space every 3 digits
+export const formatNumber = (number: number) => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+};
+
+export const cardDetailsServicesMkb = [
+  {
+    title: "Voiture contrôlée",
+    logo: AiOutlineCheckCircle,
+  },
+  {
+    title: "Garantie et prêt à partir",
+    logo: FaAward,
+  },
+  {
+    title: "Paiement en plusieurs fois ou à crédit",
+    logo: FaRegCreditCard,
+  },
+];
+
+export const reseauSocial = [
+  {
+    logo: BsFacebook,
+    titre: "Facebook",
+    href: "https://www.facebook.com/mkb.automobile",
+  },
+  {
+    logo: BsInstagram,
+    titre: "Instagram",
+    href: "https://www.instagram.com/mkbautomobile/?igshid=MWs0bTB4YW11a2JkZQ%3D%3D",
+  },
+];
 // Manufacturers
 export const manufacturers = [
   "Abarth",

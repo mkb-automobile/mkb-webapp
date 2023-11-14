@@ -22,7 +22,7 @@ const Hero = () => {
 
         <CustomButton
           title="Trouver votre véhicule"
-          containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[14rem]"
+          containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[14rem] shadow-xl"
           handleClick={() => {
             router.push("/voitures-occasions");
           }}

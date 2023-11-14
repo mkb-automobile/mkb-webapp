@@ -1,10 +1,11 @@
+import { Main } from "@/src/components/layouts";
 import React from "react";
 
 const Financing = () => {
   return (
-    <main className="pt-36">
+    <Main>
       <div>Ceci est la page de financement</div>
-    </main>
+    </Main>
   );
 };
 

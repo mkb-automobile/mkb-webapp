@@ -1,10 +1,11 @@
 import { FormContact } from "@/src/components";
+import { Main } from "@/src/components/layouts";
 import Link from "next/link";
 import React from "react";
 
 const Contact = () => {
   return (
-    <main className="pt-36">
+    <Main>
       <div className="flex flex-col justify-center max-w-[1440px] mx-auto">
         <div className="flex justify-center">
           <h1 className="text-center font-semibold text-3xl pb-5">
@@ -62,7 +63,6 @@ const Contact = () => {
                     <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
                     <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                   </svg>
-
                   <Link
                     href={"mailto:contact@mkbautomobile.fr"}
                     className="pl-4 text-xl"
@@ -75,7 +75,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </main>
+    </Main>
   );
 };
 

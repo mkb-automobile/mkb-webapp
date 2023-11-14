@@ -1,20 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-
-interface Data {
-  name: string;
-  marque: string;
-  modele: string;
-  prix_achat: string;
-  photo: string;
-}
+import { Main } from "@/src/components/layouts";
 
 function Taking() {
   return (
-    <main className="pt-36">
+    <Main>
       <div>Ceci est la page Reprise</div>
-    </main>
+    </Main>
   );
 }
 
