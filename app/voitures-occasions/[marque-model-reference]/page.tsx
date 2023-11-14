@@ -47,13 +47,16 @@ export default function Page({ params }: PageProps) {
         <p>Loading...</p>
       ) : (
         <>
-          <div className="flex px-5 pb-10 w-full max-md:flex-col">
-            <div className="content w-[910px] max-md:w-full">
+          <div className="flex px-5 pb-10 w-full max-xl:flex-col max-md:flex-col">
+            <div className="content w-[910px] max-xl:w-full">
               <ImageSlider car={car} />
               <div className="grid grid-cols-3 gap-2 pb-10">
                 {car?.photos[0]?.photo?.map((url, index) => (
                   <PhotoCard key={index} url={url} alt={car.title} />
                 ))}
+              </div>
+              <div className="xl:hidden pb-5">
+                <ProductInfo car={car} date={date} />
               </div>
               <div className="flex w-full gap-2">
                 <CustomButton
@@ -92,7 +95,7 @@ export default function Page({ params }: PageProps) {
                     <h3>Les services compris de MKB Automobiles</h3>
                   </span>
                 </div>
-                <div className="w-full pt-10 flex justify-evenly">
+                <div className="w-full pt-10 grid grid-cols-3 gap-10 max-sm:grid-cols-1">
                   {cardDetailsServicesMkb.map((item, index) => {
                     const Icon = item.logo;
                     return (
@@ -101,14 +104,14 @@ export default function Page({ params }: PageProps) {
                         className="flex flex-col items-center gap-2 text-xl border p-4 rounded-xl border-primary-orange shadow-xl"
                       >
                         <Icon className="text-orange-500" />
-                        <p>{item.title}</p>
+                        <p className="text-center">{item.title}</p>
                       </div>
                     );
                   })}
                 </div>
               </div>
             </div>
-            <aside className="relative block pl-10">
+            <aside className="relative block pl-10 max-xl:hidden">
               <ProductInfo car={car} date={date} />
             </aside>
           </div>
