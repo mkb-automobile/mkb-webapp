@@ -63,22 +63,21 @@ const Financing = () => {
             <div className="">
               <ul className="flex flex-col ">
                 <li className="flex gap-2 items-center">
-                  <p className="text-2xl">{<CiCreditCard1 />}</p>
+                  <span className="text-2xl">{<CiCreditCard1 />}</span>
                   <p>Financez votre voiture</p>
                 </li>
                 <li className="flex gap-2 items-center">
-                  <p className="text-2xl">{<LuPenSquare />}</p>
+                  <span className="text-2xl">{<LuPenSquare />}</span>
                   <p>Simple et rapide</p>
                 </li>
                 <li className="flex gap-2 items-center">
-                  <p className="text-2xl">{<SlLike />}</p>
+                  <span className="text-2xl">{<SlLike />}</span>
                   <p>Réponse instantanée</p>
                 </li>
               </ul>
+
               <p className="p-2">
-                <p>
-                  Simplifions et sécurisons votre paiement par carte bancaire
-                </p>
+                Simplifions et sécurisons votre paiement par carte bancaire
               </p>
             </div>
             <div className="py-10">
@@ -186,18 +185,16 @@ const Financing = () => {
             </h2>
           </div>
 
-          <div className="w-full flex max-md:flex-col-reverse py-5 ">
+          <div className="w-full flex max-md:flex-col py-5 ">
             <div className="w-1/2 p-20 max-md:w-full">
               <div className="pb-5">
                 <p>
-                  <span>
-                    <strong>
-                      La solution la plus adaptée à vos besoin.{" "}
-                      <span style={{ color: "#ff9f1c" }}>
-                        Avec ou sans apport
-                      </span>
-                    </strong>
-                  </span>
+                  <strong>
+                    La solution la plus adaptée à vos besoin.{" "}
+                    <span style={{ color: "#ff9f1c" }}>
+                      Avec ou sans apport
+                    </span>
+                  </strong>
                 </p>
                 <p>
                   Nous vous proposons la solution financement avec des
@@ -219,7 +216,7 @@ const Financing = () => {
                 containerStyles="bg-primary-orange text-black px-4 py-2 rounded-full border shadow-xl"
               />
             </div>
-            <div className="w-1/2 pl-10">
+            <div className="w-1/2 max-md:w-full">
               <CreditWidget />
             </div>
           </div>

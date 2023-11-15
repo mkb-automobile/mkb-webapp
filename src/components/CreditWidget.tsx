@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { CustomButton } from "./ui";
 import { submitLoanApplication } from "../services";
+import MensualiteCard from "./cards/mensualiteCard/MensualiteCard";
 
 interface LoanResponse {
   affecte: boolean;
@@ -19,6 +20,11 @@ const CreditWidget = () => {
   const [loanDuration, setLoanDuration] = useState<number>(4);
   const [response, setResponse] = useState<LoanResponse | null>(null);
 
+  const mensualites = [
+    { mois: 12, mensualite: response?.mensualite_12 ?? "Non défini" },
+    { mois: 24, mensualite: response?.mensualite_24 ?? "Non défini" },
+    { mois: 36, mensualite: response?.mensualite_36 ?? "Non défini" },
+  ];
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -54,12 +60,13 @@ const CreditWidget = () => {
       >
         <div className="flex flex-col px-10">
           <div className="w-full flex justify-between">
-            <label>Montant à financer:</label>
+            <label htmlFor="loanAmount">Montant à financer:</label>
             <input
+              id="loanAmount"
               type="text"
               value={loanAmount}
               onChange={(e) => setLoanAmount(parseInt(e.target.value, 10))}
-              className="border rounded-xl w-1/4  pl-14"
+              className="border rounded-xl w-1/4  pl-2 sm:pl-10 xl:pl-14"
             />
           </div>
           <div className="w-full flex justify-center pt-1">
@@ -76,12 +83,13 @@ const CreditWidget = () => {
         </div>
         <div className="flex flex-col px-10">
           <div className="w-full flex justify-between">
-            <label>Votre apport :</label>
+            <label htmlFor="apport">Votre apport :</label>
             <input
+              id="apport"
               type="text"
               value={apport}
               onChange={(e) => setApport(parseInt(e.target.value, 10))}
-              className="border rounded-xl w-1/4  pl-14"
+              className="border rounded-xl w-1/4 pl-2 sm:pl-10 xl:pl-14"
             />
           </div>
           <div className="w-full flex justify-center pt-2">
@@ -98,11 +106,12 @@ const CreditWidget = () => {
         </div>
         <div>
           <div className="flex justify-between px-10">
-            <label>Durée du prêt:</label>
+            <label htmlFor="loanDuration">Durée du prêt:</label>
             {loanDuration} mois
           </div>
           <div className="px-10">
             <input
+              id="loanDuration"
               type="range"
               min={0}
               max={12}
@@ -117,20 +126,24 @@ const CreditWidget = () => {
           <div className="flex flex-col">
             {response !== null && (
               <div>
-                <p>Montant total du crédit:</p>
+                <p>Choisisez votre formule</p>
                 <p>
-                  {response?.affecte === true
-                    ? "Crédit affecté"
-                    : "Crédit conso"}
+                  Type de crédit:{" "}
+                  <span className=" font-semibold">
+                    {response?.affecte === true
+                      ? "Crédit affecté"
+                      : "Crédit conso"}
+                  </span>
                 </p>
-                <p>
-                  Mensualité 12 mois:{" "}
-                  {response?.mensualite_12?.toString() ?? "Non défini"}
-                </p>
-                <p>
-                  Mensualité 24 mois:{" "}
-                  {response?.mensualite_24?.toString() ?? "Non défini"}
-                </p>
+                <div className="grid grid-cols-1 gap-2 pt-5">
+                  {mensualites.map((mois, mensualite) => (
+                    <MensualiteCard
+                      key={mois}
+                      mensualite={mensualite}
+                      mois={mois}
+                    />
+                  ))}
+                </div>
               </div>
             )}
           </div>
@@ -140,7 +153,7 @@ const CreditWidget = () => {
           <CustomButton
             title="Faire ma sumulation"
             btnType="submit"
-            containerStyles="bg-orange-500 text-white rounded-xl shadow-2xl w-1/2"
+            containerStyles="bg-secondary-red text-white rounded-xl shadow-2xl w-1/2"
           />
         </div>
       </form>
