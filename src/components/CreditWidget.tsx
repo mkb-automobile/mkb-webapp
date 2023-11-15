@@ -3,46 +3,47 @@ import React, { useState } from "react";
 import { CustomButton } from "./ui";
 import { submitLoanApplication } from "../services";
 import MensualiteCard from "./cards/mensualiteCard/MensualiteCard";
+import CustomLink from "./ui/links/CustomLink";
 
 interface LoanResponse {
   affecte: boolean;
-  mensualite_12: number;
-  mensualite_24: number;
-  mensualite_36: number;
-  mensualite_48: number;
-  mensualite_60: number;
-  mensualite_72: number;
+  mensualite_12?: number;
+  mensualite_24?: number;
+  mensualite_36?: number;
+  mensualite_48?: number;
+  mensualite_60?: number;
+  mensualite_72?: number;
+  url: string;
 }
 
 const CreditWidget = () => {
   const [loanAmount, setLoanAmount] = useState<number>(15000);
   const [apport, setApport] = useState<number>(3000);
-  const [loanDuration, setLoanDuration] = useState<number>(4);
+  const [loanDuration, setLoanDuration] = useState<number>(12);
   const [response, setResponse] = useState<LoanResponse | null>(null);
 
   const mensualites = [
     { mois: 12, mensualite: response?.mensualite_12 ?? "Non défini" },
     { mois: 24, mensualite: response?.mensualite_24 ?? "Non défini" },
     { mois: 36, mensualite: response?.mensualite_36 ?? "Non défini" },
+    { mois: 48, mensualite: response?.mensualite_48 ?? "Non défini" },
+    { mois: 60, mensualite: response?.mensualite_60 ?? "Non défini" },
+    { mois: 72, mensualite: response?.mensualite_72 ?? "Non défini" },
   ];
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const data = {
-      authkey: "1575548537269x551789111684887000",
-      vd: "1575548961850x942705562301413600",
+      authkey: process.env.NEXT_PUBLIC_LENBOX_AUTH_KEY,
+      vd: process.env.NEXT_PUBLIC_LENBOX_VD,
       montant: loanAmount,
       apport: apport,
       duree: loanDuration,
-      marque: "Simulateur",
+      marque: "Test",
     };
 
     try {
       const responseData = await submitLoanApplication(data);
-      console.log("Réponse de Finnocar:", responseData);
-      console.log("Statut de la requête:", responseData?.status);
-
-      // Ajoutez ces console.log pour déboguer davantage
 
       setResponse(responseData);
     } catch (error) {
@@ -114,7 +115,8 @@ const CreditWidget = () => {
               id="loanDuration"
               type="range"
               min={0}
-              max={12}
+              step={12}
+              max={72}
               value={loanDuration}
               onChange={(e) => setLoanDuration(parseInt(e.target.value, 10))}
               className="w-full"
@@ -125,7 +127,7 @@ const CreditWidget = () => {
         <div className="px-10">
           <div className="flex flex-col">
             {response !== null && (
-              <div>
+              <div className="w-full">
                 <p>Choisisez votre formule</p>
                 <p>
                   Type de crédit:{" "}
@@ -136,13 +138,16 @@ const CreditWidget = () => {
                   </span>
                 </p>
                 <div className="grid grid-cols-1 gap-2 pt-5">
-                  {mensualites.map((mois, mensualite) => (
-                    <MensualiteCard
-                      key={mois}
-                      mensualite={mensualite}
-                      mois={mois}
-                    />
+                  {mensualites.map((mois) => (
+                    <MensualiteCard mois={mois} />
                   ))}
+                </div>
+                <div className="flex justify-center pt-5">
+                  <CustomLink
+                    title="Continuer le processus de financement"
+                    href={response?.url}
+                    containerStyles="text-primary-orange-500 font-semibold"
+                  />
                 </div>
               </div>
             )}

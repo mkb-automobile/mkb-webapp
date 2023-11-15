@@ -1,10 +1,9 @@
 import React from "react";
 
-const MensualiteCard = ({ key, mois }: any) => {
-  console.log({ mois });
+const MensualiteCard = ({ mois }: any) => {
   return (
     <div
-      key={key}
+      key={mois.mois}
       className="flex justify-between bg-primary-orange border shadow-lg rounded-lg p-5 gap-2"
     >
       <h3>{`Mensualité ${mois.mois} mois`} </h3>
