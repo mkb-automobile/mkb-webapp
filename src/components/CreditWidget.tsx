@@ -41,9 +41,11 @@ const CreditWidget = () => {
       duree: loanDuration,
       marque: "Test",
     };
+    console.log("data", data);
 
     try {
       const responseData = await submitLoanApplication(data);
+      console.log("responseData", responseData);
 
       setResponse(responseData);
     } catch (error) {

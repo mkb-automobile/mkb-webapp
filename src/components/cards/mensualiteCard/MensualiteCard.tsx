@@ -6,7 +6,7 @@ const MensualiteCard = ({ mois }: any) => {
       key={mois.mois}
       className="flex justify-between bg-primary-orange border shadow-lg rounded-lg p-5 gap-2"
     >
-      <h3>{`Mensualité ${mois.mois} mois`} </h3>
+      <h4>{`Mensualité ${mois.mois} mois:`} </h4>
       <p>{mois.mensualite} €</p>
     </div>
   );

@@ -110,7 +110,7 @@ const Financing = () => {
                   </p>
                   <p className="">
                     Personnalisez vos mensualités <br /> Remboursement jusqu'à
-                    84 mois
+                    72 mois
                   </p>
                 </li>
               </ul>
@@ -127,7 +127,7 @@ const Financing = () => {
       </section>
 
       <section className="w-full py-10">
-        <div className="w-full flex flex-col justify-center items-center">
+        <div className="w-full flex flex-col justify-center items-center border-b-black">
           <div>
             <h2 className="w-full justify-center items-center pb-5">
               <span style={{ color: "#ff9f1c" }}>Paiement</span> par carte
@@ -186,35 +186,37 @@ const Financing = () => {
           </div>
 
           <div className="w-full flex max-md:flex-col py-5 ">
-            <div className="w-1/2 p-20 max-md:w-full">
-              <div className="pb-5">
-                <p>
-                  <strong>
-                    La solution la plus adaptée à vos besoin.{" "}
-                    <span style={{ color: "#ff9f1c" }}>
-                      Avec ou sans apport
-                    </span>
-                  </strong>
-                </p>
-                <p>
-                  Nous vous proposons la solution financement avec des
-                  mensualités adaptées à votre budget, sur des durées variées,
-                  avec ou sans apport personnel, avec ou sans garantie.
-                </p>
-                <p>
-                  Votre conseiller commercial s’occupera de tout, de la vente
-                  jusqu’à l’acceptation de votre dossier de crédit.
-                </p>
-                <p>
-                  N’hésitez pas à nous contacter pour étudier ensemble votre
-                  projet automobile.
-                </p>
+            <div className="w-1/2 p-20  relative max-md:w-full">
+              <div className="pb-5 sticky top-48">
+                <div className="pb-5">
+                  <p>
+                    <strong>
+                      La solution la plus adaptée à vos besoin.{" "}
+                      <span style={{ color: "#ff9f1c" }}>
+                        Avec ou sans apport
+                      </span>
+                    </strong>
+                  </p>
+                  <p>
+                    Nous vous proposons la solution financement avec des
+                    mensualités adaptées à votre budget, sur des durées variées,
+                    avec ou sans apport personnel, avec ou sans garantie.
+                  </p>
+                  <p>
+                    Votre conseiller commercial s’occupera de tout, de la vente
+                    jusqu’à l’acceptation de votre dossier de crédit.
+                  </p>
+                  <p>
+                    N’hésitez pas à nous contacter pour étudier ensemble votre
+                    projet automobile.
+                  </p>
+                </div>
+                <CustomLink
+                  title="Nous Appeler"
+                  href="tel:+33644699999"
+                  containerStyles="bg-primary-orange text-black px-4 py-2 rounded-full border shadow-xl"
+                />
               </div>
-              <CustomLink
-                title="Nous Appeler"
-                href="tel:+33644699999"
-                containerStyles="bg-primary-orange text-black px-4 py-2 rounded-full border shadow-xl"
-              />
             </div>
             <div className="w-1/2 max-md:w-full">
               <CreditWidget />

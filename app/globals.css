@@ -15,6 +15,10 @@ h2 {
   @apply font-semibold text-3xl  max-sm:text-lg;
 }
 
+h3 {
+  @apply font-semibold text-xl max-sm:text-sm;
+}
+
 p {
   @apply text-base max-sm:text-sm;
 }
