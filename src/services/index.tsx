@@ -1,3 +1,4 @@
+import { METHODS } from "http";
 import { SPIDERVO_API_URL } from "../constants";
 export const fetchData = () => {
   if (!SPIDERVO_API_URL) {
@@ -24,4 +25,26 @@ export const fetchData = () => {
       );
       throw error;
     });
+};
+
+const apiUrl = process.env.NEXT_PUBLIC_LENBOX_API_URL;
+
+export const submitLoanApplication = async (data: any) => {
+  try {
+    const response = await fetch(apiUrl!, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Échec de la requête POST vers Finnocar");
+    }
+    const responseData = await response.json();
+    return responseData.response;
+  } catch (error) {
+    console.log(error);
+  }
 };

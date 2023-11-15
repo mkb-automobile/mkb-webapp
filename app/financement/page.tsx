@@ -8,6 +8,7 @@ import { SlLike } from "react-icons/sl";
 import { MdOutlineTimer } from "react-icons/md";
 import { FaRegHandshake } from "react-icons/fa";
 import { PiCardholderLight } from "react-icons/pi";
+import { CreditWidget } from "@/src/components";
 
 const Financing = () => {
   const optionsPaiement = [
@@ -218,7 +219,9 @@ const Financing = () => {
                 containerStyles="bg-primary-orange text-black px-4 py-2 rounded-full border shadow-xl"
               />
             </div>
-            <div className="w-1/2 pl-10">Component credit</div>
+            <div className="w-1/2 pl-10">
+              <CreditWidget />
+            </div>
           </div>
         </div>
       </section>
