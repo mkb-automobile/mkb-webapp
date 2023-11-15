@@ -20,7 +20,7 @@ const Works = () => {
         <div className="flex flex-col items-center justify-center">
           <div className="flex w-full max-md:flex-col justify-center items-center">
             <div className="flex flex-col justify-center w-2/4 pl-5 max-md:w-full p-5">
-              <h2 className="pb-10 font-semibold text-xl">
+              <h2 className="pb-10 font-semibold text-base">
                 1. Trouvez votre véhicule au meilleur prix
               </h2>
               <p>
@@ -51,7 +51,7 @@ const Works = () => {
           </div>
           <div className="flex  flex-row-reverse w-full max-md:flex-col justify-center items-center">
             <div className="flex flex-col justify-center w-2/4 pl-5 max-md:w-full p-5">
-              <h2 className="pb-10 font-semibold text-xl">
+              <h2 className="pb-10 font-semibold text-base">
                 2. Payez en plusieurs fois, si vous le souhaitez
               </h2>
               <p>
@@ -73,7 +73,7 @@ const Works = () => {
           </div>
           <div className="flex w-full max-md:flex-col justify-center items-center">
             <div className="flex flex-col justify-center w-2/4 pl-5 max-md:w-full p-5">
-              <h2 className="pb-10 font-semibold text-xl">
+              <h2 className="pb-10 font-semibold text-base">
                 3. Remise des clés
               </h2>
               <p>
@@ -100,7 +100,7 @@ const Works = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center p-5">
-        <h3 className="pb-10 font-semibold text-xl">
+        <h3 className="pb-10 font-semibold text-base">
           Un modèle vous intéresse ? Contactez-nous
         </h3>
         <p>
@@ -122,7 +122,7 @@ const Works = () => {
               clipRule="evenodd"
             />
           </svg>
-          <Link href="tel:+33 1 88 83 09 17" className="pl-4 text-xl">
+          <Link href="tel:+33 1 88 83 09 17" className="pl-4 text-base">
             {" "}
             +33 1 88 83 09 17{" "}
           </Link>
@@ -140,7 +140,7 @@ const Works = () => {
 
           <Link
             href={"mailto:contact@mkbautomobile.fr"}
-            className="pl-4 text-xl"
+            className="pl-4 text-base"
           >
             contact@mkbautomobile.fr
           </Link>

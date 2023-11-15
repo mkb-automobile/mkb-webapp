@@ -19,7 +19,7 @@ const Contact = () => {
           <div className="flex justify-center w-full max-md:flex-col ">
             <div className="pt-10 flex flex-col  w-3/5">
               <div className="flex justify-center">
-                <h2 className="text-base font-semibold leading-7 text-gray-900">
+                <h2 className="text-sm font-semibold leading-7 text-gray-900">
                   Par formulaire
                 </h2>
               </div>
@@ -29,7 +29,7 @@ const Contact = () => {
           <div className="flex  justify-center w-full max-md:flex-col ">
             <div className="pt-10 flex flex-col w-3/5">
               <div className="flex justify-center">
-                <h2 className="text-base font-semibold leading-7 text-gray-900">
+                <h2 className="text-sm font-semibold leading-7 text-gray-900">
                   Par téléphone
                 </h2>
               </div>
@@ -47,7 +47,7 @@ const Contact = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <Link href="tel:+33 1 88 83 09 17" className="pl-4 text-xl">
+                  <Link href="tel:+33 1 88 83 09 17" className="pl-4 text-base">
                     {" "}
                     +33 1 88 83 09 17{" "}
                   </Link>
@@ -65,7 +65,7 @@ const Contact = () => {
                   </svg>
                   <Link
                     href={"mailto:contact@mkbautomobile.fr"}
-                    className="pl-4 text-xl"
+                    className="pl-4 text-base"
                   >
                     contact@mkbautomobile.fr
                   </Link>

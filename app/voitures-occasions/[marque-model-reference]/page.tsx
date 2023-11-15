@@ -101,7 +101,7 @@ export default function Page({ params }: PageProps) {
                     return (
                       <div
                         key={index}
-                        className="flex flex-col items-center gap-2 text-xl border p-4 rounded-xl border-primary-orange shadow-xl"
+                        className="flex flex-col items-center gap-2 text-base border p-4 rounded-xl border-primary-orange shadow-xl"
                       >
                         <Icon className="text-orange-500" />
                         <p className="text-center">{item.title}</p>
@@ -117,10 +117,10 @@ export default function Page({ params }: PageProps) {
           </div>
           <div className="w-full flex flex-col items-center py-10 bg-primary-orange-50 gap-6 shadow-xl rounded-2xl">
             <div>
-              <h1 className="text-center font-semibold text-3xl pb-5">
+              <h2 className="text-center pb-5">
                 Ce modèle vous intéresse ?
                 <span style={{ color: "#ff9f1c" }}> Contactez-nous</span>
-              </h1>
+              </h2>
               <p className="text-center pb-5">
                 Nos experts vous accompagnenent pour votre projet d'achat
                 automobile.

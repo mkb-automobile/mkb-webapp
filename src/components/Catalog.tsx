@@ -54,7 +54,7 @@ function CatalogCars() {
         <section>
           {isLoading && (
             <div className="home__error-container">
-              <h2 className="text-black text-xl">Chargement en cours...</h2>
+              <h2 className="text-black text-base">Chargement en cours...</h2>
               <Loader />
             </div>
           )}
