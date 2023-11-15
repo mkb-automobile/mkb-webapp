@@ -20,7 +20,7 @@ h3 {
 }
 
 p {
-  @apply text-base max-sm:text-sm;
+  @apply text-sm max-sm:text-xs;
 }
 
 /* START: General styles */
