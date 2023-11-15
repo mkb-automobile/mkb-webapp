@@ -16,25 +16,21 @@ const Contact = () => {
           </h1>
         </div>
         <div className="flex items-center max-md:flex-col-reverse">
-          <div className="flex justify-center w-full max-md:flex-col ">
-            <div className="pt-10 flex flex-col  w-3/5">
+          <div className="flex justify-center w-1/2 max-md:flex-col ">
+            <div className="w-full pt-10 flex flex-col ">
               <div className="flex justify-center">
-                <h2 className="text-sm font-semibold leading-7 text-gray-900">
-                  Par formulaire
-                </h2>
+                <h2 className="py-5">Par formulaire</h2>
               </div>
               <FormContact />
             </div>
           </div>
-          <div className="flex  justify-center w-full max-md:flex-col ">
+          <div className="flex  justify-center w-1/2 max-md:flex-col ">
             <div className="pt-10 flex flex-col w-3/5">
               <div className="flex justify-center">
-                <h2 className="text-sm font-semibold leading-7 text-gray-900">
-                  Par téléphone
-                </h2>
+                <h2 className="py-5">Par téléphone</h2>
               </div>
               <div className="flex-col justify-center">
-                <div className="flex justify-center">
+                <div className="flex justify-center border">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
