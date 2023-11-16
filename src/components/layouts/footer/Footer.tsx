@@ -41,11 +41,11 @@ function Footer() {
         <p>@2023 MKB-Automobile. Tous Droits Réservés</p>
 
         <div className="footer__copyrights-link">
-          <Link href="/" className="text-gray-500">
+          <Link href="/politique-de-confidentialite" className="text-gray-500">
             Politique de confidentialité
           </Link>
 
-          <Link href="/" className="text-gray-500">
+          <Link href="/mentions-legales" className="text-gray-500">
             Mentions légales
           </Link>
         </div>
