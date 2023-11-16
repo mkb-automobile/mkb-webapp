@@ -1,10 +1,64 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { CustomButton } from "./ui";
+import { SPIDERVO_API_URL } from "../constants";
 
-const FormContact = () => {
+const FormContact = ({ car }: any) => {
+  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+
+  // const router = useRouter();
+  const marque = car?.marque[0];
+  const modele = car?.modele[0];
+  const refCar = car?.reference[0];
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = {
+      name: name,
+      firstName: firstName,
+      email: email,
+      phone: phone,
+      message: message,
+      marque: marque,
+      modele: modele,
+      refCar: refCar,
+    };
+
+    console.log(formData);
+
+    const response = await fetch(`${SPIDERVO_API_URL}/api/sendcontactform`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    console.log(response);
+
+    if (response.ok) {
+      console.log("Email sent successfully");
+    } else {
+      console.log("Email sent failed");
+    }
+
+    setName("");
+    setFirstName("");
+    setEmail("");
+    setPhone("");
+    setMessage("");
+  };
+
   return (
-    <form className=" bg-primary-orange-50 p-10 rounded-2xl border shadow-2xl w-full">
+    <form
+      className="bg-primary-orange-50 p-10 rounded-2xl border shadow-2xl w-full"
+      onSubmit={handleSubmit}
+    >
       <div className="space-y-12">
         <div className="pb-12">
           <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -20,6 +74,8 @@ const FormContact = () => {
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="last-name"
                   type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   placeholder="Doe"
                   required
                 />
@@ -38,6 +94,8 @@ const FormContact = () => {
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="first-name"
                   type="text"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                   placeholder="John"
                 />
               </div>
@@ -55,6 +113,8 @@ const FormContact = () => {
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="email"
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="votremail@ ..."
                   required
                 />
@@ -72,6 +132,8 @@ const FormContact = () => {
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="phone"
                   type="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   placeholder="060707..."
                   required
                 />
@@ -79,18 +141,19 @@ const FormContact = () => {
             </div>
             <div className="col-span-full">
               <label
-                htmlFor="a-propos"
+                htmlFor="message"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
                 Votre message
               </label>
               <div className="mt-2">
                 <textarea
-                  id="a-propos"
-                  name="a-propos"
-                  rows={3}
+                  id="message"
+                  name="message"
+                  rows={10}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  defaultValue={""}
                   required
                 />
               </div>
@@ -98,8 +161,8 @@ const FormContact = () => {
           </div>
           <CustomButton
             title="Envoyer"
+            btnType="submit"
             containerStyles="bg-primary-orange text-white rounded-full mt-10 shadow-xl"
-            handleClick={() => {}}
           />
         </div>
       </div>

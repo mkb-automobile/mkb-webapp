@@ -1,5 +1,7 @@
 import { FormContact } from "@/src/components";
 import { Main } from "@/src/components/layouts";
+import SocialNetwork from "@/src/components/socialNetwork/SocialNetwork";
+import CustomLink from "@/src/components/ui/links/CustomLink";
 import Link from "next/link";
 import React from "react";
 
@@ -15,22 +17,27 @@ const Contact = () => {
             <br /> Contactez-nous
           </h1>
         </div>
-        <div className="flex items-center max-md:flex-col-reverse">
-          <div className="flex justify-center w-1/2 max-md:flex-col ">
+        <div className="flex justify-around max-md:hidden ">
+          <h2 className="py-5">Par formulaire</h2>
+          <h2 className="py-5">Par téléphone</h2>
+        </div>
+        <div className="flex items-center bg-secondary-red p-10 rounded-2xl border shadow-2xl w-full max-md:flex-col-reverse text-white">
+          <div className="flex justify-center w-1/2 flex-col max-md:w-full ">
+            <div className="flex justify-center md:hidden">
+              <h2 className="py-5">Par formulaire</h2>
+            </div>
             <div className="w-full pt-10 flex flex-col ">
-              <div className="flex justify-center">
-                <h2 className="py-5">Par formulaire</h2>
-              </div>
               <FormContact />
             </div>
           </div>
-          <div className="flex  justify-center w-1/2 max-md:flex-col ">
-            <div className="pt-10 flex flex-col w-3/5">
-              <div className="flex justify-center">
-                <h2 className="py-5">Par téléphone</h2>
-              </div>
-              <div className="flex-col justify-center">
-                <div className="flex justify-center border">
+          <div className="flex flex-col justify-center items-center w-1/2 max-md:w-full">
+            <div className="flex justify-center md:hidden">
+              <h2 className="py-5">Par téléphone</h2>
+            </div>
+            <div className="w-1/2 flex flex-col  items-center justify-center">
+              <p>Vous preferez nous contacter par téléphone ? </p>
+              <div className="py-5 border-b-2 border-b-black">
+                <div className="flex justify-center bg-primary-orange p-5 rounded-full gap-2 shadow-xl">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -43,30 +50,13 @@ const Contact = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <Link href="tel:+33 1 88 83 09 17" className="pl-4 text-base">
-                    {" "}
-                    +33 1 88 83 09 17{" "}
-                  </Link>
-                </div>
-                <span className="flex justify-center">ou</span>
-                <div className="flex justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
-                    <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
-                  </svg>
-                  <Link
-                    href={"mailto:contact@mkbautomobile.fr"}
-                    className="pl-4 text-base"
-                  >
-                    contact@mkbautomobile.fr
-                  </Link>
+                  <CustomLink
+                    title="Parler a notre équipe"
+                    href={"tel:+33188830917"}
+                  />
                 </div>
               </div>
+              <SocialNetwork />
             </div>
           </div>
         </div>

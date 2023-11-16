@@ -214,7 +214,7 @@ const Financing = () => {
                 <CustomLink
                   title="Nous Appeler"
                   href="tel:+33644699999"
-                  containerStyles="bg-primary-orange text-black px-4 py-2 rounded-full border shadow-xl"
+                  containerStyles="bg-secondary-red text-white px-4 py-2 rounded-full border shadow-xl"
                 />
               </div>
             </div>

@@ -41,7 +41,6 @@ const CreditWidget = () => {
       duree: loanDuration,
       marque: "Test",
     };
-    console.log("data", data);
 
     try {
       const responseData = await submitLoanApplication(data);
@@ -98,7 +97,7 @@ const CreditWidget = () => {
           <div className="w-full flex justify-center pt-2">
             <input
               type="range"
-              min={3000}
+              min={0}
               max={12000}
               step={50}
               value={apport}
