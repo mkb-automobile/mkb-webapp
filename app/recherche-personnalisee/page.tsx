@@ -55,8 +55,8 @@ function Personalized() {
   ];
   return (
     <Main>
-      <section className="w-full flex bg-primary-orange-50 p-10 border shadow-2xl rounded-3xl">
-        <div className="w-1/2 p-10">
+      <section className="w-full flex bg-primary-orange-50 p-10 border shadow-2xl rounded-3xl max-sm:flex-col-reverse">
+        <div className="w-1/2 p-10 max-sm:w-full">
           <h2 className="pb-5">
             <span style={{ color: "#ff9f1c" }}>
               Bénéficiez d'un accompagnement
@@ -107,7 +107,7 @@ function Personalized() {
             </span>
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 w-full gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 w-full gap-2">
           {stepProject.map((step) => (
             <div key={step.id} className="flex flex-col items-center gap-5">
               <div className="flex place-items-center justify-center  bg-primary-orange text-white rounded-full h-10 w-10 ">
@@ -129,9 +129,12 @@ function Personalized() {
             <span style={{ color: "#ff9f1c" }}>Nos 3 engagements</span> pour
             vous accompagner
           </h2>
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-3 gap-5 max-sm:grid-cols-1">
             {stepEngagement.map((step, index) => (
-              <div key={index} className="flex  gap-6">
+              <div
+                key={index}
+                className="flex justify-center items-center gap-6"
+              >
                 <Image
                   src={step.icon}
                   width={100}
