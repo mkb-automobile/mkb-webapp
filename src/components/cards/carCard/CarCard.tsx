@@ -39,6 +39,7 @@ function CarCard({ carData }: CarCardProps) {
           fill
           priority
           className="object-cover h-50 rounded-xl"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 1024px"
         />
       </div>
       <div className="relative flex w-full mt-2">

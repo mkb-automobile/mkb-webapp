@@ -4,7 +4,6 @@ import Image from "next/image";
 import { navLinks } from "@/src/constants";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import CustomLink from "../../ui/links/CustomLink";
 
 function Navbar() {
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
@@ -19,9 +18,9 @@ function Navbar() {
           <Image
             src={"/logo.png"}
             alt="MKB-Automobile Logo"
-            width={130}
+            width={100}
             height={130}
-            className="objetc-contain"
+            className="w-full h-auto object-fill"
           />
         </Link>
         <div className="flex flex-between w-[75%] max-md:hidden">

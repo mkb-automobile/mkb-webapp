@@ -63,7 +63,7 @@ export default function Home({}) {
               <div>
                 <CustomButton
                   title="Découvrire tous les avis clients"
-                  containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[20rem] shadow-xl"
+                  containerStyles="bg-secondary-red text-white rounded-full mt-10 w-[20rem] shadow-xl"
                   handleClick={() => {
                     router.push("/voitures-occasions");
                   }}
@@ -96,7 +96,7 @@ export default function Home({}) {
                     <div className="flex justify-center w-full">
                       <CustomButton
                         title="Trouver votre voiture"
-                        containerStyles="bg-primary-orange text-white rounded-full mt-10 shadow-xl"
+                        containerStyles="bg-secondary-red text-white rounded-full mt-10 shadow-xl"
                         handleClick={() => {
                           router.push("/voitures-occasions");
                         }}
@@ -113,7 +113,7 @@ export default function Home({}) {
                       width={429}
                       height={200}
                       alt={car.title}
-                      className="rounded-t-lg"
+                      className="rounded-t-lg w-full h-auto object-cover"
                     />
                     <h2 className="mb-2 p-7 bg-white rounded-b-lg">
                       {car.title}
@@ -153,7 +153,7 @@ export default function Home({}) {
                 <div>
                   <CustomButton
                     title="En savoir plus"
-                    containerStyles="bg-primary-orange text-white rounded-full mt-10 shadow-xl"
+                    containerStyles="bg-secondary-red text-white rounded-full mt-10 shadow-xl"
                     handleClick={() => {
                       router.push("/voitures-occasions");
                     }}
@@ -169,7 +169,7 @@ export default function Home({}) {
                   key={index}
                   className="relative flex flex-col justify-center items-center bg-cover bg-center rounded-3xl h-48 px-10"
                   style={{
-                    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url(${card.backgroundImage})`,
+                    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.55)), url(${card.backgroundImage})`,
                   }}
                 >
                   <div className="font-semibold text-center text-3xl ">
@@ -181,7 +181,7 @@ export default function Home({}) {
                   <div>
                     <CustomButton
                       title={card.btnTitle}
-                      containerStyles="bg-primary-orange text-white rounded-full mt-5 shadow-xl"
+                      containerStyles="bg-secondary-red text-white rounded-full mt-5 shadow-xl"
                       handleClick={() => {
                         router.push(card.path);
                       }}
@@ -219,7 +219,7 @@ export default function Home({}) {
                 <div>
                   <CustomButton
                     title="Venez découvir"
-                    containerStyles="bg-primary-orange text-white rounded-full mt-10 shadow-xl"
+                    containerStyles="bg-secondary-red text-white rounded-full mt-10 shadow-xl"
                     handleClick={() => {
                       router.push("/voitures-occasions");
                     }}

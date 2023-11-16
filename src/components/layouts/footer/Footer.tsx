@@ -11,9 +11,9 @@ function Footer() {
           <Image
             src={"/logo.png"}
             alt="logo"
-            width={130}
-            height={130}
-            className="object-contain"
+            width={100}
+            height={100}
+            className="h-auto w-auto object-fill"
           />
           <p className="text-sm text-gray-700">
             MKB-Automobile 2023 <br />
