@@ -19,6 +19,18 @@ h3 {
   @apply font-semibold text-xl max-sm:text-sm;
 }
 
+h4 {
+  @apply font-semibold text-lg max-sm:text-base;
+}
+
+h5 {
+  @apply font-semibold text-base max-sm:text-sm;
+}
+
+h6 {
+  @apply font-semibold text-base max-sm:text-xs;
+}
+
 p {
   @apply text-sm max-sm:text-xs;
 }

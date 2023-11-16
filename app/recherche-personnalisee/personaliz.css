@@ -1,0 +1,18 @@
+.arrow {
+  width: 255px;
+  height: 140px;
+  border-top: 4px solid #ff9f1c;
+  padding: 10px;
+  position: relative;
+}
+.arrow:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid #ff9f1c;
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
+  position: absolute;
+  top: -28px;
+}
