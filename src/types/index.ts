@@ -12,6 +12,7 @@ export interface CustomButtonProps {
 }
 
 export interface CustomLinkProps {
+  key: number;
   title?: string;
   href: string;
   containerStyles?: string;

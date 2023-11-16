@@ -4,6 +4,7 @@ import Image from "next/image";
 import { navLinks } from "@/src/constants";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import CustomLink from "../../ui/links/CustomLink";
 
 function Navbar() {
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
@@ -50,10 +51,11 @@ function Navbar() {
             <button onClick={toggleMobileNav}>{<AiOutlineClose />}</button>
           </div>
           <div className="flex flex-col items-center justify-center w-full h-full">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <Link
-                key={link.title}
+                key={index}
                 href={link.path}
+                onClick={toggleMobileNav}
                 className="font-semibold  text-black text-2xl"
               >
                 {link.title}
