@@ -46,7 +46,7 @@ const Financing = () => {
           </h2>
           <p className="flex px-5">
             <strong>
-              Vous cherchez un financement pour <br /> votre nouveau véhicule ?
+              Vous cherchez un financement pour votre nouveau véhicule ?
             </strong>
           </p>
         </div>

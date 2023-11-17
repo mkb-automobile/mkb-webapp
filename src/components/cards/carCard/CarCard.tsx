@@ -4,6 +4,7 @@ import { CarCardProps } from "../../../types";
 import { CustomButton } from "../../ui";
 import { useRouter } from "next/navigation";
 import { formatNumber } from "../../../constants";
+import { LuCalendarDays } from "react-icons/lu";
 
 function CarCard({ carData }: CarCardProps) {
   const router = useRouter();
@@ -16,7 +17,9 @@ function CarCard({ carData }: CarCardProps) {
     photos,
     prixttcaffiche,
     reference,
+    anneemodele,
   } = carData;
+  // console.log(carData);
 
   const newModel = modele[0].replace(/\s/g, "-").toLocaleLowerCase();
   const newMarque = marque[0].replace(/\s/g, "-").toLocaleLowerCase();
@@ -63,6 +66,15 @@ function CarCard({ carData }: CarCardProps) {
             <p className="text-[14px]">
               {energie == "DIESEL" ? "Diesel" : "Essence"}
             </p>
+          </div>
+          <div className="flex flex-col justify-center items-center gap-2">
+            <Image
+              src={"/Paomedia-Small-N-Flat-Calendar.512.png"}
+              alt="gas"
+              width={20}
+              height={20}
+            />
+            <p className="text-[14px]">{anneemodele}</p>
           </div>
         </div>
 

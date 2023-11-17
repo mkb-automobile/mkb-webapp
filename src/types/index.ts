@@ -32,7 +32,7 @@ export interface CarDataProps {
   version?: string;
   prixttcaffiche: number;
   kilometrage: number;
-  annee: string;
+  anneemodele: string;
   energie: string;
   carrosserie: string;
   nbrplace: number;

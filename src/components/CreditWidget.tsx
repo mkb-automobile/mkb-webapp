@@ -44,7 +44,7 @@ const CreditWidget = () => {
 
     try {
       const responseData = await submitLoanApplication(data);
-      console.log("responseData", responseData);
+      // console.log("responseData", responseData);
 
       setResponse(responseData);
     } catch (error) {
