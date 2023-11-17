@@ -50,11 +50,6 @@ export default function Page({ params }: PageProps) {
           <div className="flex px-5 pb-10 w-full max-xl:flex-col max-md:flex-col">
             <div className="content w-[910px] max-xl:w-full">
               <ImageSlider car={car} />
-              <div className="grid grid-cols-3 gap-2 pb-10">
-                {car?.photos[0]?.photo?.map((url, index) => (
-                  <PhotoCard key={index} url={url} alt={car.title} />
-                ))}
-              </div>
               <div className="xl:hidden pb-5">
                 <ProductInfo car={car} date={date} />
               </div>
