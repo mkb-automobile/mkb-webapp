@@ -18,9 +18,9 @@ function Navbar() {
           <Image
             src={"/logo.png"}
             alt="MKB-Automobile Logo"
-            width={130}
+            width={100}
             height={130}
-            className="objetc-contain"
+            className="w-full h-auto object-fill"
           />
         </Link>
         <div className="flex flex-between w-[75%] max-md:hidden">
@@ -28,7 +28,7 @@ function Navbar() {
             <Link
               key={link.title}
               href={link.path}
-              className="font-semibold text-base leading-8"
+              className="font-semibold text-sm leading-8"
             >
               {link.title}
             </Link>
@@ -45,15 +45,16 @@ function Navbar() {
         </div>
       </nav>
       {isMobileNavOpen && (
-        <div className="w-full h-full fixed top-0 left-0 z-10 bg-primary-orange-100">
+        <div className="w-full h-full fixed top-0 left-0 z-10 bg-primary-orange-50">
           <div className="flex justify-end pr-10 pt-5">
             <button onClick={toggleMobileNav}>{<AiOutlineClose />}</button>
           </div>
           <div className="flex flex-col items-center justify-center w-full h-full">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <Link
-                key={link.title}
+                key={index}
                 href={link.path}
+                onClick={toggleMobileNav}
                 className="font-semibold  text-black text-2xl"
               >
                 {link.title}

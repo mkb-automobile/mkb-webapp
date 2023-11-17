@@ -1,4 +1,31 @@
+.slick-arrow {
+  z-index: 1;
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-next {
+  right: 65px;
+}
+
 .slick-prev:before,
 .slick-next:before {
-  color: orange;
+  font-size: 50px;
+  color: white;
+}
+
+@media only screen and (max-width: 767px) {
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 35px;
+  }
+
+  .slick-prev {
+    left: 8px;
+  }
+  .slick-next {
+    right: 24px;
+  }
 }

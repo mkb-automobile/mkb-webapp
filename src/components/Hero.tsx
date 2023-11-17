@@ -22,7 +22,7 @@ const Hero = () => {
 
         <CustomButton
           title="Trouver votre véhicule"
-          containerStyles="bg-primary-orange text-white rounded-full mt-10 w-[14rem] shadow-xl"
+          containerStyles="bg-secondary-red text-white rounded-full mt-10 w-[14rem] shadow-xl"
           handleClick={() => {
             router.push("/voitures-occasions");
           }}
@@ -30,7 +30,13 @@ const Hero = () => {
       </div>
       <div className="hero__image-container">
         <div className="hero__image">
-          <Image src="/hero.png" alt="hero" fill className="object-contain" />
+          <Image
+            src="/hero.png"
+            alt="hero"
+            fill
+            className="object-contain"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 1024px"
+          />
         </div>
         <div className="hero__image-overlay" />
       </div>

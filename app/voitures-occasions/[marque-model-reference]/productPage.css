@@ -1,0 +1,16 @@
+.content {
+  transition: margin 0.5s;
+}
+
+.content::before {
+  content: "";
+  display: block;
+  height: 160px; /* Hauteur de la barre de navigation */
+  margin: -160px 0 0; /* Négatif de la hauteur pour compenser le décalage initial */
+}
+
+.content::after {
+  content: "";
+  display: block;
+  clear: both;
+}

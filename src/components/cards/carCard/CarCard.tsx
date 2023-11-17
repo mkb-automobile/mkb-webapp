@@ -4,6 +4,7 @@ import { CarCardProps } from "../../../types";
 import { CustomButton } from "../../ui";
 import { useRouter } from "next/navigation";
 import { formatNumber } from "../../../constants";
+import { LuCalendarDays } from "react-icons/lu";
 
 function CarCard({ carData }: CarCardProps) {
   const router = useRouter();
@@ -16,7 +17,9 @@ function CarCard({ carData }: CarCardProps) {
     photos,
     prixttcaffiche,
     reference,
+    anneemodele,
   } = carData;
+  // console.log(carData);
 
   const newModel = modele[0].replace(/\s/g, "-").toLocaleLowerCase();
   const newMarque = marque[0].replace(/\s/g, "-").toLocaleLowerCase();
@@ -24,11 +27,11 @@ function CarCard({ carData }: CarCardProps) {
   return (
     <div className="car-card group">
       <div className="car-card__content">
-        <h2 className="car-card_content-title">
+        <h3 className="car-card_content-title">
           {marque} {modele}
-        </h2>
+        </h3>
       </div>
-      <p className="flex text-[32px] font-extrabold">
+      <p className="flex text-[32px] font-medium">
         {formatNumber(prixttcaffiche)}
         <span className="self-start text-[14px] font-medium">€</span>
       </p>
@@ -39,6 +42,7 @@ function CarCard({ carData }: CarCardProps) {
           fill
           priority
           className="object-cover h-50 rounded-xl"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 1024px"
         />
       </div>
       <div className="relative flex w-full mt-2">
@@ -62,6 +66,15 @@ function CarCard({ carData }: CarCardProps) {
             <p className="text-[14px]">
               {energie == "DIESEL" ? "Diesel" : "Essence"}
             </p>
+          </div>
+          <div className="flex flex-col justify-center items-center gap-2">
+            <Image
+              src={"/Paomedia-Small-N-Flat-Calendar.512.png"}
+              alt="gas"
+              width={20}
+              height={20}
+            />
+            <p className="text-[14px]">{anneemodele}</p>
           </div>
         </div>
 

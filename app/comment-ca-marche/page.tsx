@@ -1,11 +1,12 @@
+import { Main } from "@/src/components/layouts";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const Works = () => {
   return (
-    <main className="flex flex-col pt-36 w-full">
-      <div className="flex flex-col justify-center w-full bg-primary-orange-100">
+    <Main>
+      <section className="flex flex-col justify-center  pb-5 rounded-xl border shadow-xl bg-primary-orange-50">
         <div>
           <h1 className="text-center font-semibold text-3xl py-10">
             Comment acheter une voiture{" "}
@@ -18,7 +19,7 @@ const Works = () => {
         </div>
         <div className="flex flex-col items-center justify-center">
           <div className="flex w-full max-md:flex-col justify-center items-center">
-            <div className="flex flex-col justify-center w-2/4 pl-5 max-md:w-full p-5">
+            <div className="flex flex-col justify-center w-1/2 pl-5 max-md:w-full p-5">
               <h2 className="pb-10 font-semibold text-xl">
                 1. Trouvez votre véhicule au meilleur prix
               </h2>
@@ -39,7 +40,7 @@ const Works = () => {
                 par email.
               </p>{" "}
             </div>
-            <div>
+            <div className="w-1/2">
               <Image
                 src={"/MKB-Automobile-service-personnsalise.webp"}
                 alt="MKB-Automobile-service-personnsalise"
@@ -49,7 +50,7 @@ const Works = () => {
             </div>
           </div>
           <div className="flex  flex-row-reverse w-full max-md:flex-col justify-center items-center">
-            <div className="flex flex-col justify-center w-2/4 pl-5 max-md:w-full p-5">
+            <div className="flex flex-col justify-center w-1/2 pl-5 max-md:w-full p-5">
               <h2 className="pb-10 font-semibold text-xl">
                 2. Payez en plusieurs fois, si vous le souhaitez
               </h2>
@@ -61,7 +62,7 @@ const Works = () => {
               <p>Financez ou payez en plusieurs fois votre achat automobile.</p>
               <p>Adaptez votre paiement à vos besoins.</p>
             </div>
-            <div>
+            <div className="w-1/2">
               <Image
                 src={"/MKB-Automobile-paiement-plusieurs-fois.jpg"}
                 alt="MKB-Automobile-service-personnsalise"
@@ -71,7 +72,7 @@ const Works = () => {
             </div>
           </div>
           <div className="flex w-full max-md:flex-col justify-center items-center">
-            <div className="flex flex-col justify-center w-2/4 pl-5 max-md:w-full p-5">
+            <div className="flex flex-col justify-center w-1/2 pl-5 max-md:w-full p-5">
               <h2 className="pb-10 font-semibold text-xl">
                 3. Remise des clés
               </h2>
@@ -87,7 +88,7 @@ const Works = () => {
                 </strong>
               </p>
             </div>
-            <div>
+            <div className="w-1/2">
               <Image
                 src={"/MKB-Automobile-pratique.webp"}
                 alt="MKB-Automobile-service-personnsalise"
@@ -97,7 +98,7 @@ const Works = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
       <div className="flex flex-col justify-center items-center p-5">
         <h3 className="pb-10 font-semibold text-xl">
           Un modèle vous intéresse ? Contactez-nous
@@ -145,7 +146,7 @@ const Works = () => {
           </Link>
         </div>
       </div>
-    </main>
+    </Main>
   );
 };
 

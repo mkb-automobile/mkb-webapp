@@ -79,19 +79,19 @@ pnpm install
 . # racine du projet
 ├── app
     ├── page.tsx # page d'accueil
-    ├── about
+    ├── a-propos
         ├── page.tsx # page à propos
     ├── contact
         ├── page.tsx # page de contact
-    ├── financing
+    ├── financement
         ├── page.tsx # page de financement
     ├── howwoks
         ├── page.tsx # page de fonctionnement
-    ├── personalized
+    ├── recherche-personnalisee
         ├── page.tsx # page de personnalisation
     ├── voitures-occasions
         ├── page.tsx # page d'achat de véhicule
-    ├── taking
+    ├── reprise-automobile
         ├── page.tsx # page de reprise de véhicule
 ├── public # fichiers publics
 ├── src # fichiers sources
