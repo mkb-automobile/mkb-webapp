@@ -2,12 +2,37 @@
 import "./personaliz.css";
 import { Main } from "@/src/components/layouts";
 import Image from "next/image";
-import React from "react";
+import React, { use, useEffect } from "react";
 import { FaCheck, FaListOl } from "react-icons/fa";
 import { MdOutlineDraw } from "react-icons/md";
 import { PiChatsCircleBold, PiKeyBold } from "react-icons/pi";
 
 function Personalized() {
+  const planityWidget = document.createElement("div");
+  planityWidget.setAttribute("id", "planity-widget");
+
+  const container = document.getElementById("container");
+  if (container) {
+    container.appendChild(planityWidget);
+  }
+
+  console.log("container", container);
+
+  useEffect(() => {
+    const polyfillsScript = document.createElement("script");
+    polyfillsScript.src =
+      "https://d2skjte8udjqxw.cloudfront.net/widget/production/polyfills.latest.js";
+    polyfillsScript.async = true;
+    polyfillsScript.defer = true;
+    document.body.appendChild(polyfillsScript);
+
+    const appScript = document.createElement("script");
+    appScript.src =
+      "https://d2skjte8udjqxw.cloudfront.net/widget/lab/app.latest.js";
+    appScript.async = true;
+    document.body.appendChild(appScript);
+  }, []);
+
   const stepProject = [
     {
       id: 1,
@@ -93,6 +118,8 @@ function Personalized() {
           />
         </div>
       </section>
+
+      <div className="container"></div>
 
       <section className="py-10">
         <div className="flex flex-col justify-center items-center py-10">
