@@ -10,7 +10,7 @@ const Contact = () => {
     <Main>
       <div className="flex flex-col justify-center max-w-[1440px] mx-auto">
         <div className="flex justify-center">
-          <h1 className="text-center font-semibold text-3xl pb-5">
+          <h1 className="text-center pb-5">
             <span style={{ color: "#ff9f1c" }}>
               Une question, une demande de renseignements ?
             </span>

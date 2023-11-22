@@ -19,42 +19,46 @@ export default function Home({}) {
     <>
       <main className="overflow-hidden">
         <Hero />
-        <div className="max-w-[1440px] mx-auto">
+        <div>
           <div className="w-full flex flex-col justify-center items-center py-15">
-            <h2 className="font-semibold text-3xl">
+            <h2>
               <span style={{ color: "#ff9f1c" }}>Recherche</span> rapide
             </h2>
             <div className="mt-12 w-full flex justify-evenly pb-20">
               <SearchBar />
             </div>
           </div>
-          <section className="w-full py-10 rounded-xl border shadow-xl bg-primary-orange-50">
-            <div className="w-full pb-10">
-              <h2 className="font-semibold text-center text-3xl">
-                <span style={{ color: "#ff9f1c" }}>MKB</span> - Un gage de
-                qualité
-              </h2>
-            </div>
-            <div className="flex justify-between max-sm:grid grid-cols-1">
-              {sectionHome.map((section, index) => (
-                <div key={index} className="flex flex-col items-center p-4">
-                  <Image
-                    src={section.img}
-                    width={50}
-                    height={50}
-                    alt={`${section.title}-logo`}
-                    className="pb-5"
-                  />
-                  <h1 className="text-3xl">{section.title}</h1>
-                  <p className="text-center text-sm">{section.text}</p>
-                </div>
-              ))}
+          <section className="w-full py-10 border shadow-xl bg-primary-orange-50">
+            <div className="max-w-[1440px] mx-auto">
+              <div className="w-full pb-10 flex justify-center">
+                <h2>
+                  <span style={{ color: "#ff9f1c" }}>MKB</span> - Un gage de
+                  qualité
+                </h2>
+              </div>
+              <div className="flex justify-between max-sm:grid grid-cols-1">
+                {sectionHome.map((section, index) => (
+                  <div key={index} className="flex flex-col items-center p-10">
+                    <Image
+                      src={section.img}
+                      width={50}
+                      height={50}
+                      alt={`${section.title}-logo`}
+                      className="pb-5"
+                    />
+                    <h3 className="pb-5">{section.title}</h3>
+                    <p className="text-center text-sm mx-auto leading-7">
+                      {section.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
           <section className="flex  items-center w-full py-10">
-            <div className="flex flex-col items-center w-full">
+            <div className="flex flex-col items-center w-full max-w-[1440px] mx-auto">
               <div className="pb-5 px-20">
-                <h2 className="font-semibold text-3xl">
+                <h2>
                   <span style={{ color: "#ff9f1c" }}>Recommandé</span> par nos
                   clients - 4,8/5
                 </h2>
@@ -71,11 +75,11 @@ export default function Home({}) {
               </div>
             </div>
           </section>
-          <section className="py-10 rounded-xl border shadow-xl bg-primary-orange-50">
-            <div className="flex gap-4 max-md:grid grid-cols-1 max-sm:p-4 ">
+          <section className="py-10 border shadow-xl bg-primary-orange-50">
+            <div className="max-w-[1440px] mx-auto flex gap-4 max-md:grid grid-cols-1 max-sm:p-4 ">
               <div className="w-1/3 flex justify-center max-md:w-full max-sm:flex flex-col  pb-5 px-20">
                 <div>
-                  <div className="font-semibold text-3xl">
+                  <div>
                     <h2>
                       Ne ratez pas
                       <br />
@@ -110,14 +114,14 @@ export default function Home({}) {
                   <div key={index} className="rounded-t-lg w-fit">
                     <Image
                       src={car.path}
-                      width={429}
+                      width={350}
                       height={200}
                       alt={car.title}
                       className="rounded-t-lg w-full h-auto object-cover"
                     />
-                    <h2 className="mb-2 p-7 bg-white rounded-b-lg">
+                    <h4 className="mb-2 p-7 bg-white rounded-b-lg">
                       {car.title}
-                    </h2>
+                    </h4>
                   </div>
                 ))}
               </div>
@@ -135,7 +139,7 @@ export default function Home({}) {
                 />
               </div>
               <div className="w-3/6">
-                <h2 className="font-semibold text-3xl pb-5">
+                <h2 className="pb-5">
                   Bénéficier d'un accompagnement
                   <br />
                   adapté à vos besoins{" "}
@@ -172,7 +176,7 @@ export default function Home({}) {
                     backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.55)), url(${card.backgroundImage})`,
                   }}
                 >
-                  <div className="font-semibold text-center text-3xl ">
+                  <div>
                     <h2>{card.title}</h2>
                   </div>
                   <div className="text-center">
@@ -194,7 +198,7 @@ export default function Home({}) {
           <section className="flex w-full justify-center py-10">
             <div>
               <div className="flex justify-center items-center">
-                <h2 className="font-semibold text-3xl">
+                <h2>
                   <span style={{ color: "#ff9f1c" }}>
                     Nos marques et modèles
                   </span>

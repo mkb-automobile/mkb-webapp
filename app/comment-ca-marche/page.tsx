@@ -8,7 +8,7 @@ const Works = () => {
     <Main>
       <section className="flex flex-col justify-center  pb-5 rounded-xl border shadow-xl bg-primary-orange-50">
         <div>
-          <h1 className="text-center font-semibold text-3xl py-10">
+          <h1 className="text-center py-10">
             Comment acheter une voiture{" "}
             <span style={{ color: "#ff9f1c" }}>
               {" "}
@@ -20,7 +20,7 @@ const Works = () => {
         <div className="flex flex-col items-center justify-center">
           <div className="flex w-full max-md:flex-col justify-center items-center">
             <div className="flex flex-col justify-center w-1/2 pl-5 max-md:w-full p-5">
-              <h2 className="pb-10 font-semibold text-xl">
+              <h2 className="pb-10">
                 1. Trouvez votre véhicule au meilleur prix
               </h2>
               <p>
@@ -51,7 +51,7 @@ const Works = () => {
           </div>
           <div className="flex  flex-row-reverse w-full max-md:flex-col justify-center items-center">
             <div className="flex flex-col justify-center w-1/2 pl-5 max-md:w-full p-5">
-              <h2 className="pb-10 font-semibold text-xl">
+              <h2 className="pb-10">
                 2. Payez en plusieurs fois, si vous le souhaitez
               </h2>
               <p>
@@ -73,9 +73,7 @@ const Works = () => {
           </div>
           <div className="flex w-full max-md:flex-col justify-center items-center">
             <div className="flex flex-col justify-center w-1/2 pl-5 max-md:w-full p-5">
-              <h2 className="pb-10 font-semibold text-xl">
-                3. Remise des clés
-              </h2>
+              <h2 className="pb-10 ">3. Remise des clés</h2>
               <p>
                 Après avoir essayé et validé votre véhicule et une de nos
                 solutions de paiement (financement et paiement jusqu’à 10 fois,
@@ -100,9 +98,7 @@ const Works = () => {
         </div>
       </section>
       <div className="flex flex-col justify-center items-center p-5">
-        <h3 className="pb-10 font-semibold text-xl">
-          Un modèle vous intéresse ? Contactez-nous
-        </h3>
+        <h3 className="pb-10">Un modèle vous intéresse ? Contactez-nous</h3>
         <p>
           Nos experts vous accompagnent pour votre projet d’achat automobile.
           Nous sommes à votre écoute !

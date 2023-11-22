@@ -28,7 +28,7 @@ function Navbar() {
             <Link
               key={link.title}
               href={link.path}
-              className="font-semibold text-sm leading-8"
+              className="text-sm leading-8"
             >
               {link.title}
             </Link>
