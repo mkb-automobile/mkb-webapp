@@ -33,7 +33,6 @@ const Hero = () => {
             alt="hero"
             fill
             className="object-contain"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 1024px"
           />
         </div>
       </div>

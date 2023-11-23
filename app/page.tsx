@@ -465,13 +465,13 @@ export default function Home({}) {
                   <span style={{ color: "#ff9f1c" }}>marques de voiture</span>
                 </h2>
               </div>
-              <div className="w-full flex flex-wrap gap-10 py-10">
+              <div className="w-full flex flex-wrap gap-20 py-10">
                 {marqueModel.map((marque, index) => (
-                  <div key={index} className="flex flex-col items-center">
+                  <div key={index} className="flex flex-col ">
                     <div>
                       <h3>{marque.titre}</h3>
                     </div>
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col gap-1">
                       {Object.values(marque.modèles).map((model, index) => (
                         <div key={index}>
                           <p>{model}</p>
