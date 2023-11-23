@@ -398,7 +398,7 @@ export default function Home({}) {
             </div>
           </section>
           <section className="w-full flex justify-center py-20 bg-primary-orange-50 border shadow-xl">
-            <div className="max-w-[1440px] mx-auto">
+            <div className="max-w-[1440px] mx-auto max-sm:p-4">
               <div className="flex flex-col items-center gap-5">
                 <h2>
                   Un modèle vous intéresse ?{" "}
