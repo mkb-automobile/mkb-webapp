@@ -85,7 +85,7 @@ pnpm install
         ├── page.tsx # page de contact
     ├── financement
         ├── page.tsx # page de financement
-    ├── howwoks
+    ├── comment-ca-marche
         ├── page.tsx # page de fonctionnement
     ├── recherche-personnalisee
         ├── page.tsx # page de personnalisation
