@@ -299,11 +299,11 @@ export const manifactureLogo = [
 export const carsModel = [
   {
     title: "Citadine",
-    path: "/citadine.webp",
+    path: "/citadine.jpg",
   },
   {
     title: "SUV / 4x4",
-    path: "/suv.webp",
+    path: "/suvm.jpg",
   },
   {
     title: "Berline",

@@ -10,7 +10,7 @@ const Contact = () => {
     <Main>
       <div className="flex flex-col justify-center max-w-[1440px] mx-auto">
         <div className="flex justify-center">
-          <h1 className="text-center font-semibold text-3xl pb-5">
+          <h1 className="text-center pb-5">
             <span style={{ color: "#ff9f1c" }}>
               Une question, une demande de renseignements ?
             </span>
@@ -21,7 +21,7 @@ const Contact = () => {
           <h2 className="py-5">Par formulaire</h2>
           <h2 className="py-5">Par téléphone</h2>
         </div>
-        <div className="flex items-center bg-secondary-red p-10 rounded-2xl border shadow-2xl w-full max-md:flex-col-reverse text-white">
+        <div className="flex items-center bg-primary-orange-50 p-10 rounded-2xl border shadow-2xl w-full max-md:flex-col-revers">
           <div className="flex justify-center w-1/2 flex-col max-md:w-full ">
             <div className="flex justify-center md:hidden">
               <h2 className="py-5">Par formulaire</h2>

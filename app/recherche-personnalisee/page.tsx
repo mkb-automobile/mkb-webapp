@@ -2,7 +2,7 @@
 import "./personaliz.css";
 import { Main } from "@/src/components/layouts";
 import Image from "next/image";
-import React from "react";
+import React, { use, useEffect } from "react";
 import { FaCheck, FaListOl } from "react-icons/fa";
 import { MdOutlineDraw } from "react-icons/md";
 import { PiChatsCircleBold, PiKeyBold } from "react-icons/pi";
@@ -93,6 +93,8 @@ function Personalized() {
           />
         </div>
       </section>
+
+      <div className="container"></div>
 
       <section className="py-10">
         <div className="flex flex-col justify-center items-center py-10">

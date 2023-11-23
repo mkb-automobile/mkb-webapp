@@ -56,7 +56,7 @@ const FormContact = ({ car }: any) => {
 
   return (
     <form
-      className="bg-primary-orange-50 p-10 rounded-2xl border shadow-2xl w-full"
+      className="bg-white p-10 rounded-2xl border shadow-2xl w-full"
       onSubmit={handleSubmit}
     >
       <div className="space-y-12">
@@ -162,7 +162,7 @@ const FormContact = ({ car }: any) => {
           <CustomButton
             title="Envoyer"
             btnType="submit"
-            containerStyles="bg-primary-orange text-white rounded-full mt-10 shadow-xl"
+            containerStyles="bg-primary-orange rounded-full mt-10 shadow-xl"
           />
         </div>
       </div>

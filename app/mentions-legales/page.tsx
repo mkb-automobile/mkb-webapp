@@ -6,9 +6,7 @@ const LegalNotice = () => {
     <Main>
       <div>
         <div className="w-full border rounded-3xl shadow-2xl bg-primary-orange-50">
-          <h1 className="text-center font-semibold text-3xl py-10">
-            Mention Légales
-          </h1>
+          <h1 className="text-center py-10">Mention Légales</h1>
         </div>
         <div className="w-full p-20">
           <div>

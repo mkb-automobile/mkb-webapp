@@ -4,11 +4,11 @@ import CustomLink from "../ui/links/CustomLink";
 
 const SocialNetwork = () => {
   return (
-    <div className="flex gap-10 py-5">
+    <div className="flex justify-evenly py-5">
       {reseauSocial.map((item, index) => (
         <div
           key={index}
-          className="flex items-center justify-center bg-primary-orange p-5 rounded-full gap-2 shadow-xl"
+          className="flex items-center justify-center bg-secondary-red text-white p-5 rounded-full gap-2 shadow-xl"
         >
           <item.logo className="w-6 h-6" />
           <CustomLink title={item.titre} href={item.href} />

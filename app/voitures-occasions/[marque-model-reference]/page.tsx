@@ -110,7 +110,7 @@ export default function Page({ params }: PageProps) {
               <ProductInfo car={car} date={date} />
             </aside>
           </div>
-          <div className="w-full flex flex-col items-center p-10 bg-secondary-red text-white gap-6 shadow-xl rounded-2xl">
+          <div className="w-full flex flex-col items-center p-10 bg-primary-orange-50 gap-6 shadow-xl rounded-2xl">
             <div>
               <h2 className="text-center pb-5">
                 Ce modèle vous intéresse ?
