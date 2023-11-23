@@ -433,17 +433,17 @@ export default function Home({}) {
               <SocialNetwork />
             </div>
           </section>
-          <section className="flex w-full justify-center py-20">
-            <div className="flex flex-col max-w-[1440px] mx-auto ">
-              <div>
-                <h2>
+          <section className="flex w-full py-20">
+            <div className="flex flex-col max-w-[1440px] mx-auto w-full items-center ">
+              <div className="py-10">
+                <h2 className="flex flex-col items-center justify-center">
                   Vous avez des questions ? <br />
                   <span style={{ color: "#ff9f1c" }}>
                     On essaye d'y répondre
                   </span>
                 </h2>
               </div>
-              <div>
+              <div className="w-full">
                 <FaqAccordion data={faqData} />
               </div>
               <div>
