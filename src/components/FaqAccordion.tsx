@@ -10,7 +10,7 @@ const FaqAccordion = ({ data }: any) => {
 
   return (
     <div className="">
-      {data.map((faqItem, index) => (
+      {data.map((faqItem: any, index: number) => (
         <div key={index}>
           <div
             onClick={() => handleQuestionClick(index)}
