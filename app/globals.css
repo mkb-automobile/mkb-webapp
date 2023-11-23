@@ -16,11 +16,11 @@ h2 {
 }
 
 h3 {
-  @apply text-xl max-sm:text-sm;
+  @apply text-xl max-sm:text-base;
 }
 
 h4 {
-  @apply text-lg max-sm:text-base;
+  @apply text-lg max-sm:text-sm;
 }
 
 h5 {

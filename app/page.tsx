@@ -294,8 +294,8 @@ export default function Home({}) {
             </div>
           </section>
           <section className="flex w-full py-20">
-            <div className="flex justify-around items-center max-sm:flex-col w-full max-w-[1440px] mx-auto">
-              <div className="flex justify-center w-3/6 pb-5">
+            <div className="flex justify-around items-center gap-2 max-sm:flex-col w-full max-w-[1440px] mx-auto max-sm:p-4">
+              <div className="flex justify-center pb-5">
                 <Image
                   src="/MKB-automobile-Trouvez-votre-voiture-600-400.webp"
                   width={450}
@@ -304,7 +304,7 @@ export default function Home({}) {
                   className="rounded-3xl border shadow-xl"
                 />
               </div>
-              <div className="w-3/6">
+              <div className="">
                 <h2 className="pb-5">
                   Bénéficier d'un accompagnement
                   <br />
@@ -434,7 +434,7 @@ export default function Home({}) {
             </div>
           </section>
           <section className="flex w-full py-20">
-            <div className="flex flex-col max-w-[1440px] mx-auto w-full items-center ">
+            <div className="flex flex-col max-w-[1440px] mx-auto w-full items-center max-sm:p-4">
               <div className="py-10">
                 <h2 className="flex flex-col items-center justify-center">
                   Vous avez des questions ? <br />
@@ -457,8 +457,8 @@ export default function Home({}) {
               </div>
             </div>
           </section>
-          <section className="w-full flex justify-center py-20 px-10 bg-primary-orange-50 border shadow-xl">
-            <div className="max-w-[1440px] mx-auto">
+          <section className="w-full flex justify-center py-20 bg-primary-orange-50 border shadow-xl">
+            <div className="max-w-[1440px] mx-auto max-sm:p-4">
               <div className="w-ful flex justify-center items-center pb">
                 <h2>
                   Quelques-une de nos{" "}
