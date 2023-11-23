@@ -21,7 +21,7 @@ const Contact = () => {
           <h2 className="py-5">Par formulaire</h2>
           <h2 className="py-5">Par téléphone</h2>
         </div>
-        <div className="flex items-center bg-secondary-red p-10 rounded-2xl border shadow-2xl w-full max-md:flex-col-reverse text-white">
+        <div className="flex items-center bg-primary-orange-50 p-10 rounded-2xl border shadow-2xl w-full max-md:flex-col-revers">
           <div className="flex justify-center w-1/2 flex-col max-md:w-full ">
             <div className="flex justify-center md:hidden">
               <h2 className="py-5">Par formulaire</h2>
