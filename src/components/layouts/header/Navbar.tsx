@@ -4,6 +4,7 @@ import Image from "next/image";
 import { navLinks } from "@/src/constants";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import { savePageVisitedToLocalStorage } from "../../localStorage/SaveToLocalStorage";
 
 function Navbar() {
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
@@ -24,15 +25,17 @@ function Navbar() {
           />
         </Link>
         <div className="flex flex-between w-[75%] max-md:hidden">
-          {navLinks.map((link) => (
-            <Link
-              key={link.title}
-              href={link.path}
-              className="text-sm leading-8"
-            >
-              {link.title}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            return (
+              <Link
+                key={link.title}
+                href={link.path}
+                className="text-sm leading-8"
+              >
+                {link.title}
+              </Link>
+            );
+          })}
         </div>
         <div className="md:hidden">
           <button onClick={toggleMobileNav}>
@@ -50,16 +53,18 @@ function Navbar() {
             <button onClick={toggleMobileNav}>{<AiOutlineClose />}</button>
           </div>
           <div className="flex flex-col items-center justify-center w-full h-full">
-            {navLinks.map((link, index) => (
-              <Link
-                key={index}
-                href={link.path}
-                onClick={toggleMobileNav}
-                className="font-semibold  text-black text-2xl"
-              >
-                {link.title}
-              </Link>
-            ))}
+            {navLinks.map((link, index) => {
+              return (
+                <Link
+                  key={index}
+                  href={link.path}
+                  onClick={toggleMobileNav}
+                  className="font-semibold  text-black text-2xl"
+                >
+                  {link.title}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}

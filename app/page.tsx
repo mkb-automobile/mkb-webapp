@@ -1,6 +1,7 @@
 "use client";
 import { Hero } from "@/src/components";
 import FaqAccordion from "@/src/components/FaqAccordion";
+import { savePageVisitedToLocalStorage } from "@/src/components/localStorage/SaveToLocalStorage";
 import SocialNetwork from "@/src/components/socialNetwork/SocialNetwork";
 import { CustomButton, SearchBar } from "@/src/components/ui";
 import CustomLink from "@/src/components/ui/links/CustomLink";
@@ -235,6 +236,7 @@ export default function Home({}) {
                   title="Découvrire tous les avis clients"
                   containerStyles="bg-secondary-red text-white rounded-full mt-10 w-[20rem] shadow-xl"
                   handleClick={() => {
+                    savePageVisitedToLocalStorage("avis-clients");
                     router.push("/voitures-occasions");
                   }}
                 />
@@ -268,6 +270,7 @@ export default function Home({}) {
                         title="Trouver votre voiture"
                         containerStyles="bg-secondary-red text-white rounded-full mt-10 shadow-xl"
                         handleClick={() => {
+                          savePageVisitedToLocalStorage("voitures-occasions");
                           router.push("/voitures-occasions");
                         }}
                       />
@@ -325,7 +328,8 @@ export default function Home({}) {
                     title="En savoir plus"
                     containerStyles="bg-secondary-red text-white rounded-full mt-10 shadow-xl"
                     handleClick={() => {
-                      router.push("/voitures-occasions");
+                      savePageVisitedToLocalStorage("recherche-personnalisee");
+                      router.push("/recherche-personnalisee");
                     }}
                   />
                 </div>
@@ -353,6 +357,9 @@ export default function Home({}) {
                       title={card.btnTitle}
                       containerStyles="bg-secondary-red text-white rounded-full mt-5 shadow-xl"
                       handleClick={() => {
+                        const keyStorage = card.path.split("/")[1];
+                        console.log(keyStorage);
+                        savePageVisitedToLocalStorage(keyStorage);
                         router.push(card.path);
                       }}
                     />
@@ -390,6 +397,7 @@ export default function Home({}) {
                     title="Venez découvir"
                     containerStyles="bg-secondary-red text-white rounded-full mt-10 shadow-xl"
                     handleClick={() => {
+                      savePageVisitedToLocalStorage("voitures-occasions");
                       router.push("/voitures-occasions");
                     }}
                   />
@@ -451,6 +459,7 @@ export default function Home({}) {
                   title="Accéder à la FAQ"
                   containerStyles="bg-secondary-red text-white rounded-full mt-10 shadow-xl"
                   handleClick={() => {
+                    savePageVisitedToLocalStorage("faq");
                     router.push("/faq");
                   }}
                 />

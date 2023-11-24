@@ -1,44 +1,42 @@
-// SaveToLocalStorage.tsx
-import { useEffect } from "react";
+import { isEqual } from "lodash";
 
-interface SaveToLocalStorageProps {
+interface saveToLocalStorageProps {
   storageKey: string;
   data: any;
-  pagination?: boolean;
 }
 
-const SaveToLocalStorage: React.FC<SaveToLocalStorageProps> = ({
+/**
+ * @param {saveToLocalStorageProps} props - The props of the component
+ * @param {string} storageKey - The key to use to store the data in localStorage
+ * @param {any} data - The data to store in localStorage
+ */
+
+export const saveToLocalStorage = ({
   storageKey,
   data,
-  pagination,
-}) => {
-  useEffect(() => {
-    const storedData = JSON.parse(
-      (localStorage.getItem(storageKey) as string) || "[]",
-    );
+}: saveToLocalStorageProps) => {
+  // if data is in localStorage, get it or return an empty array
+  const storedData = JSON.parse(
+    (localStorage.getItem(storageKey) as string) || "[]",
+  );
 
-    if (pagination) {
-      const paginationExists = storedData.includes(data);
+  // check if data is already in localStorage
+  const dataExists = storedData.some((item: any) => isEqual(item, data));
 
-      if (!paginationExists) {
-        storedData.push(data);
-        localStorage.setItem(storageKey, JSON.stringify(storedData));
-      }
-    } else {
-      const existingDataIndex = storedData.findIndex(
-        (item: any) => item.id === data.id,
-      );
-
-      if (existingDataIndex !== -1) {
-        storedData.splice(existingDataIndex, 1);
-      }
-
-      storedData.push(data);
-      localStorage.setItem(storageKey, JSON.stringify(storedData));
-    }
-  }, [storageKey, data, pagination]);
-
-  return null;
+  // if data is not in localStorage, add it
+  if (!dataExists) {
+    storedData.push(data);
+    localStorage.setItem(storageKey, JSON.stringify(storedData));
+  }
 };
 
-export default SaveToLocalStorage;
+export const savePageVisitedToLocalStorage = (page: string) => {
+  const visitedPages = JSON.parse(localStorage.getItem("visitedPages") ?? "[]");
+
+  const pageExists = visitedPages.some((item: string) => isEqual(item, page));
+
+  if (!pageExists) {
+    visitedPages.push(page);
+    localStorage.setItem("visitedPages", JSON.stringify(visitedPages));
+  }
+};

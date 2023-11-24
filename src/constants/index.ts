@@ -248,7 +248,7 @@ export const supportCards = [
     title: "Contactez-nous",
     text: "Vous avez des question ? Nous sommes à votre écoute pour échanger sur votre projet automobile",
     btnTitle: "Contactez un conseiller",
-    path: "/",
+    path: "/contact",
     backgroundImage: "/MKB-automobile-Trouvez-votre-voiture-600-400.webp",
   },
 ];

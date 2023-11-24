@@ -4,10 +4,13 @@ import { CarCardProps } from "../../../types";
 import { CustomButton } from "../../ui";
 import { useRouter } from "next/navigation";
 import { formatNumber } from "../../../constants";
-import { LuCalendarDays } from "react-icons/lu";
+import isEqual from "lodash/isEqual";
+import { getFromLocalStorage } from "../../localStorage/GetFromLocalStorage";
+import { saveToLocalStorage } from "../../localStorage/SaveToLocalStorage";
 
 function CarCard({ carData }: CarCardProps) {
   const router = useRouter();
+
   const {
     marque,
     modele,
@@ -24,6 +27,14 @@ function CarCard({ carData }: CarCardProps) {
   const newModel = modele[0].replace(/\s/g, "-").toLocaleLowerCase();
   const newMarque = marque[0].replace(/\s/g, "-").toLocaleLowerCase();
 
+  const handleViewMoreClick = () => {
+    saveToLocalStorage({
+      storageKey: "carDada",
+      data: carData,
+    });
+    router.push(`/voitures-occasions/${newMarque}-${newModel}-${reference}`);
+  };
+
   return (
     <div className="car-card group">
       <div className="car-card__content">
@@ -31,7 +42,7 @@ function CarCard({ carData }: CarCardProps) {
           {marque} {modele}
         </h3>
       </div>
-      <p className="flex text-[32px] font-medium">
+      <p className="flex text-[25px]">
         {formatNumber(prixttcaffiche)}
         <span className="self-start text-[14px] font-medium">€</span>
       </p>
@@ -84,11 +95,7 @@ function CarCard({ carData }: CarCardProps) {
             containerStyles="w-full py-[16px] rounded-full bg-primary-orange"
             textStyles="text-white text-[14px] leading-[17px] font-bold"
             rightIcon="/right-arrow.svg"
-            handleClick={() => {
-              router.push(
-                `/voitures-occasions/${newMarque}-${newModel}-${reference}`,
-              );
-            }}
+            handleClick={handleViewMoreClick}
           />
         </div>
       </div>

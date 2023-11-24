@@ -3,6 +3,7 @@ import React from "react";
 import CustomButton from "./ui/buttons/CustomButton";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { savePageVisitedToLocalStorage } from "./localStorage/SaveToLocalStorage";
 
 const Hero = () => {
   const router = useRouter();
@@ -22,6 +23,7 @@ const Hero = () => {
           title="Trouver votre véhicule"
           containerStyles="bg-secondary-red text-white rounded-full mt-10 w-[14rem] shadow-xl"
           handleClick={() => {
+            savePageVisitedToLocalStorage("voitures-occasions");
             router.push("/voitures-occasions");
           }}
         />

@@ -17,9 +17,13 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
   </button>
 );
 
-function SearchBar() {
-  const [manufacturer, setManufacturer] = useState("");
-  const [model, setModel] = useState("");
+function SearchBar({
+  data,
+  manufacturer,
+  model,
+  setManufacturer,
+  setModel,
+}: any) {
   const router = useRouter();
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
@@ -35,16 +39,16 @@ function SearchBar() {
   const updateSearchParams = (model: string, manufacturer: string) => {
     const searchParams = new URLSearchParams(window.location.search);
 
-    if (model) {
-      searchParams.set("model", model);
-    } else {
-      searchParams.delete("model");
-    }
-    if (manufacturer) {
-      searchParams.set("manufacturer", manufacturer);
-    } else {
-      searchParams.delete("manufacturer");
-    }
+    // if (model) {
+    //   searchParams.set("model", model);
+    // } else {
+    //   searchParams.delete("model");
+    // }
+    // if (manufacturer) {
+    //   searchParams.set("manufacturer", manufacturer);
+    // } else {
+    //   searchParams.delete("manufacturer");
+    // }
 
     const newPathName = `${
       window.location.pathname
@@ -57,6 +61,7 @@ function SearchBar() {
     <form className="searchbar" onSubmit={handleSearch}>
       <div className="searchbar__item">
         <SearchManufacturer
+          data={data}
           manufacturer={manufacturer}
           setManufacturer={setManufacturer}
         />
