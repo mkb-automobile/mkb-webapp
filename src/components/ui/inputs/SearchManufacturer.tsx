@@ -10,15 +10,10 @@ const SearchManufacturer = ({
   manufacturer,
   setManufacturer,
 }: SearchManufacturerProps) => {
-  console.log("manufacturer", manufacturer);
-
   const vehiculesFilter = data?.filter((car: any) => {
     const marque = car?.marque?.[0];
-    console.log("marque", marque);
     return marque && marque.toLowerCase().includes(manufacturer.toLowerCase());
   });
-
-  console.log("vehiculesFilter", vehiculesFilter);
 
   // const marque = car?.marque?.[0];
 

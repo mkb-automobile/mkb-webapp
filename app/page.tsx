@@ -358,7 +358,6 @@ export default function Home({}) {
                       containerStyles="bg-secondary-red text-white rounded-full mt-5 shadow-xl"
                       handleClick={() => {
                         const keyStorage = card.path.split("/")[1];
-                        console.log(keyStorage);
                         savePageVisitedToLocalStorage(keyStorage);
                         router.push(card.path);
                       }}

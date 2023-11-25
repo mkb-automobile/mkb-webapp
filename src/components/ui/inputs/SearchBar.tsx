@@ -24,8 +24,6 @@ function SearchBar({
   setManufacturer,
   setModel,
 }: any) {
-  console.log("manufacturer", manufacturer);
-  console.log("model", model);
   const router = useRouter();
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
