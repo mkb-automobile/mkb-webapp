@@ -11,7 +11,7 @@ import { useRef, useState } from "react";
 const ImageSlider = ({ car }: CarDetailsProps) => {
   const sliderRef = useRef<Slider>(null);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-  const photos = car?.photos?.[0]?.photo ?? [];
+  const photos = car?.photos?.photo ?? [];
 
   const goToSlide = (index: number) => {
     if (sliderRef.current) {

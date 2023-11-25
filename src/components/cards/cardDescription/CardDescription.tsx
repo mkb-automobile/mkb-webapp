@@ -1,8 +1,8 @@
 import React from "react";
 
 const CardDescription = ({ car }: any) => {
-  const descriptionArray = car?.description;
-  const descriptionString = descriptionArray?.[0];
+  const descriptionString = car?.description;
+
   const elements = descriptionString
     ?.split("<br />")
     .map((item: any, index: any) => <li key={index}>{item}</li>);

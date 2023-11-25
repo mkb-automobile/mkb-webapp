@@ -11,9 +11,9 @@ const FormContact = ({ car }: any) => {
   const [message, setMessage] = useState("");
 
   // const router = useRouter();
-  const marque = car?.marque[0];
-  const modele = car?.modele[0];
-  const refCar = car?.reference[0];
+  const marque = car?.marque;
+  const modele = car?.modele;
+  const refCar = car?.reference;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
