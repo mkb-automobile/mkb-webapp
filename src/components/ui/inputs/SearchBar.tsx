@@ -17,9 +17,15 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
   </button>
 );
 
-function SearchBar() {
-  const [manufacturer, setManufacturer] = useState("");
-  const [model, setModel] = useState("");
+function SearchBar({
+  data,
+  manufacturer,
+  model,
+  setManufacturer,
+  setModel,
+}: any) {
+  console.log("manufacturer", manufacturer);
+  console.log("model", model);
   const router = useRouter();
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
@@ -57,6 +63,7 @@ function SearchBar() {
     <form className="searchbar" onSubmit={handleSearch}>
       <div className="searchbar__item">
         <SearchManufacturer
+          data={data}
           manufacturer={manufacturer}
           setManufacturer={setManufacturer}
         />
