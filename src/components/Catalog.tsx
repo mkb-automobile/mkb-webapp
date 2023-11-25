@@ -58,15 +58,15 @@ function CatalogCars() {
 
   // console.log(dataFilter);
 
-  const dataYearsFilter = data?.map((car) => car.anneemodele);
-  const yearsObjetArray = dataYearsFilter?.map(([year]) => ({
-    title: year,
-    value: year,
-  }));
+  // const dataYearsFilter = data?.map((car) => car.anneemodele);
+  // const yearsObjetArray = dataYearsFilter?.map(([year]) => ({
+  //   title: year,
+  //   value: year,
+  // }));
 
-  const sortedYears = yearsObjetArray.sort(
-    (a, b) => parseInt(a.value) - parseInt(b.value),
-  );
+  // const sortedYears = yearsObjetArray.sort(
+  //   (a, b) => parseInt(a.value) - parseInt(b.value),
+  // );
 
   // const handleYearFilter = (year: number) => {
   //   const isYearSelected = selectedYear.includes(year);
@@ -102,12 +102,12 @@ function CatalogCars() {
           />
 
           <div className="home__filter-container">
-            <CustomFilter title="Carburant" options={fuels} setFuel={setFuel} />
+            {/* <CustomFilter title="Carburant" options={fuels} setFuel={setFuel} />
             <CustomFilter
               title="Année"
               options={sortedYears}
               setYear={setYear}
-            />
+            /> */}
           </div>
         </div>
 
@@ -119,9 +119,7 @@ function CatalogCars() {
             </div>
           )}
           <div className="home__cars-wrapper">
-            {dataFilter?.map((car, index) => (
-              <CarCard carData={car} key={index} />
-            ))}
+            {data?.map((car, index) => <CarCard data={car} key={index} />)}
           </div>
           <div className="flex justify-evenly">
             <button

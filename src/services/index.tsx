@@ -12,11 +12,10 @@ export const fetchData = () => {
       return response.json();
     })
     .then((data) => {
-      const carsData = data.vehicules.vehicule;
-      if (!Array.isArray(data.vehicules.vehicule)) {
+      if (!Array.isArray(data)) {
         throw new Error("Les données ne sont pas au format JSON");
       }
-      return carsData;
+      return data;
     })
     .catch((error) => {
       console.error(

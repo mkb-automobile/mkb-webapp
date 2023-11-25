@@ -4,14 +4,23 @@ import { useState, Fragment } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { SearchManufacturerProps } from "@/src/types";
-import { EventEmitter } from "stream";
 
 const SearchManufacturer = ({
   data,
   manufacturer,
   setManufacturer,
 }: SearchManufacturerProps) => {
-  const [query, setQuery] = useState("");
+  console.log("manufacturer", manufacturer);
+
+  const vehiculesFilter = data?.filter((car: any) => {
+    const marque = car?.marque?.[0];
+    console.log("marque", marque);
+    return marque && marque.toLowerCase().includes(manufacturer.toLowerCase());
+  });
+
+  console.log("vehiculesFilter", vehiculesFilter);
+
+  // const marque = car?.marque?.[0];
 
   return (
     <div className="search-manufacturer">
@@ -30,17 +39,17 @@ const SearchManufacturer = ({
             className="search-manufacturer__input"
             placeholder="Volkswagen"
             displayValue={(manufacturer: string) => manufacturer}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => setManufacturer(e.target.value)}
           />
           <Transition
             as={Fragment}
             leave="transition ease-in duration-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
-            afterLeave={() => setQuery("")}
+            afterLeave={() => setManufacturer("")}
           >
             <Combobox.Options>
-              {data?.marque?.map((item) => (
+              {data?.marque?.map((item: any) => (
                 <Combobox.Option
                   key={item}
                   className={({

@@ -24,6 +24,8 @@ function SearchBar({
   setManufacturer,
   setModel,
 }: any) {
+  console.log("manufacturer", manufacturer);
+  console.log("model", model);
   const router = useRouter();
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
@@ -39,16 +41,16 @@ function SearchBar({
   const updateSearchParams = (model: string, manufacturer: string) => {
     const searchParams = new URLSearchParams(window.location.search);
 
-    // if (model) {
-    //   searchParams.set("model", model);
-    // } else {
-    //   searchParams.delete("model");
-    // }
-    // if (manufacturer) {
-    //   searchParams.set("manufacturer", manufacturer);
-    // } else {
-    //   searchParams.delete("manufacturer");
-    // }
+    if (model) {
+      searchParams.set("model", model);
+    } else {
+      searchParams.delete("model");
+    }
+    if (manufacturer) {
+      searchParams.set("manufacturer", manufacturer);
+    } else {
+      searchParams.delete("manufacturer");
+    }
 
     const newPathName = `${
       window.location.pathname

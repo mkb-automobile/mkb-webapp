@@ -30,8 +30,9 @@ export default function Page({ params }: PageProps) {
 
   const car = data?.find((item) => {
     const { marque, modele, reference } = item;
-    const newModel = modele[0].replace(/\s/g, "-").toLocaleLowerCase();
-    const id = `${marque[0].toLocaleLowerCase()}-${newModel}-${reference}`;
+    const newModel = modele.replace(/\s/g, "-").toLocaleLowerCase();
+    const newMarque = marque.replace(/\s/g, "-").toLocaleLowerCase();
+    const id = `${newMarque}-${newModel}-${reference}`;
     return id === params["marque-model-reference"];
   });
 

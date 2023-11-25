@@ -8,7 +8,7 @@ import isEqual from "lodash/isEqual";
 import { getFromLocalStorage } from "../../localStorage/GetFromLocalStorage";
 import { saveToLocalStorage } from "../../localStorage/SaveToLocalStorage";
 
-function CarCard({ carData }: CarCardProps) {
+function CarCard({ data }: CarCardProps) {
   const router = useRouter();
 
   const {
@@ -21,16 +21,16 @@ function CarCard({ carData }: CarCardProps) {
     prixttcaffiche,
     reference,
     anneemodele,
-  } = carData;
+  } = data;
   // console.log(carData);
 
-  const newModel = modele[0].replace(/\s/g, "-").toLocaleLowerCase();
-  const newMarque = marque[0].replace(/\s/g, "-").toLocaleLowerCase();
+  const newModel = modele.replace(/\s/g, "-").toLocaleLowerCase();
+  const newMarque = marque.replace(/\s/g, "-").toLocaleLowerCase();
 
   const handleViewMoreClick = () => {
     saveToLocalStorage({
       storageKey: "carDada",
-      data: carData,
+      data: data,
     });
     router.push(`/voitures-occasions/${newMarque}-${newModel}-${reference}`);
   };
@@ -48,7 +48,7 @@ function CarCard({ carData }: CarCardProps) {
       </p>
       <div className="relative max-sm:h-80 max-md:h-60 w-full h-40 my-3 object-contain">
         <Image
-          src={photos?.[0].photo?.[0] ?? "/no-img.png"}
+          src={photos?.photo?.[0] ?? "/no-img.png"}
           alt="car model"
           fill
           priority

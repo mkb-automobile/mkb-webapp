@@ -21,6 +21,7 @@ export interface CustomLinkProps {
 export interface SearchManufacturerProps {
   manufacturer: string;
   setManufacturer: (manufacturer: string) => void;
+  data: any;
 }
 
 export interface CarDataProps {
@@ -46,12 +47,12 @@ export interface CarDataProps {
   datemes?: string;
   photos: {
     photo: string[];
-  }[];
+  };
   ville?: string;
 }
 
 export interface CarCardProps {
-  carData: CarDataProps;
+  data: CarDataProps;
 }
 
 export interface CarDetailsProps {
