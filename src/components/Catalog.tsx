@@ -29,7 +29,7 @@ function CatalogCars() {
     return 1;
   });
 
-  const elementPerPage = 12;
+  const elementPerPage = 16;
   const startPage = (page - 1) * elementPerPage;
   const endPAge = startPage + elementPerPage;
 
@@ -55,8 +55,6 @@ function CatalogCars() {
 
   const nbPages = Math.ceil(data?.length / elementPerPage);
   const pagesNumbers = Array.from({ length: nbPages }, (_, i) => i + 1);
-
-  // console.log(dataFilter);
 
   // const dataYearsFilter = data?.map((car) => car.anneemodele);
   // const yearsObjetArray = dataYearsFilter?.map(([year]) => ({
@@ -119,7 +117,9 @@ function CatalogCars() {
             </div>
           )}
           <div className="home__cars-wrapper">
-            {data?.map((car, index) => <CarCard data={car} key={index} />)}
+            {dataFilter?.map((car, index) => (
+              <CarCard data={car} key={index} />
+            ))}
           </div>
           <div className="flex justify-evenly">
             <button

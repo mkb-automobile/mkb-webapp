@@ -22,7 +22,6 @@ function CarCard({ data }: CarCardProps) {
     reference,
     anneemodele,
   } = data;
-  // console.log(carData);
 
   const newModel = modele.replace(/\s/g, "-").toLocaleLowerCase();
   const newMarque = marque.replace(/\s/g, "-").toLocaleLowerCase();

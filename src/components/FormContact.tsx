@@ -29,8 +29,6 @@ const FormContact = ({ car }: any) => {
       refCar: refCar,
     };
 
-    // console.log(formData);
-
     const response = await fetch(`${SPIDERVO_API_URL}/api/sendcontactform`, {
       method: "POST",
       headers: {
@@ -38,8 +36,6 @@ const FormContact = ({ car }: any) => {
       },
       body: JSON.stringify(formData),
     });
-
-    // console.log(response);
 
     if (response.ok) {
       console.log("Email sent successfully");
