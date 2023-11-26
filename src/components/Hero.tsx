@@ -8,7 +8,7 @@ import { savePageVisitedToLocalStorage } from "./localStorage/SaveToLocalStorage
 const Hero = () => {
   const router = useRouter();
   return (
-    <div className="hero max-w-[1440px] mx-auto pt-36 w-full ">
+    <div className="hero max-w-[1440px] mx-auto pt-36 w-full pb-20 ">
       <div className="flex-1 pl-5">
         <h1 className="hero__title">
           L'achat de votre voiture

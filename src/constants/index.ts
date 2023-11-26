@@ -208,7 +208,7 @@ export const fuels = [
 // Header
 export const navLinks = [
   { title: "Achat", path: "/voitures-occasions" },
-  // { title: "Reprise", path: "/reprise-automobile" },
+  { title: "Reprise", path: "/reprise-automobile" },
   { title: "Recherche personnalisé", path: "/recherche-personnalisee" },
   { title: "Financement", path: "/financement" },
   { title: "Comment ça marche ?", path: "/comment-ca-marche" },
@@ -331,7 +331,7 @@ export const footerLinks = [
     links: [
       { title: "MKB Automobile", url: "/a-propos" },
       { title: "Contact", url: "/contact" },
-      // { title: "FAQ", url: "/faq" },
+      { title: "FAQ", url: "/faq" },
       { title: "Comment ça marche ?", url: "/comment-ca-marche" },
     ],
   },
@@ -339,7 +339,7 @@ export const footerLinks = [
     title: "Nos Services",
     links: [
       { title: "Achat", url: "/voitures-occasions" },
-      // { title: "Reprise", url: "/reprise-automobile" },
+      { title: "Reprise", url: "/reprise-automobile" },
       { title: "Financement", url: "/financement" },
       { title: "Recherche personnalisée", url: "/recherche-personnalisee" },
     ],

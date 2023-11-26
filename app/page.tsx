@@ -1,4 +1,5 @@
 "use client";
+import "../src/styles/trustmary.css";
 import { Hero } from "@/src/components";
 import FaqAccordion from "@/src/components/FaqAccordion";
 import { savePageVisitedToLocalStorage } from "@/src/components/localStorage/SaveToLocalStorage";
@@ -57,14 +58,14 @@ export default function Home({}) {
       <main className="overflow-hidden">
         <Hero />
         <div>
-          <div className="w-full flex flex-col justify-center items-center py-15">
+          {/* <div className="w-full flex flex-col justify-center items-center py-15">
             <h2>
               <span style={{ color: "#ff9f1c" }}>Recherche</span> rapide
             </h2>
             <div className="mt-12 w-full flex justify-evenly pb-20">
               <SearchBar />
             </div>
-          </div>
+          </div> */}
           <section className="w-full py-20 border shadow-xl bg-primary-orange-50">
             <div className="max-w-[1440px] mx-auto">
               <div className="w-full pb-10 flex justify-center">
@@ -97,17 +98,17 @@ export default function Home({}) {
               <div className="pb-5 px-20">
                 <h2>
                   <span style={{ color: "#ff9f1c" }}>Recommandé</span> par nos
-                  clients - 4,8/5
+                  clients
                 </h2>
               </div>
-              <div>Ici les avis</div>
+              <div id="trustmary-widget" />
               <div>
                 <CustomButton
                   title="Découvrire tous les avis clients"
                   containerStyles="bg-secondary-red text-white rounded-full mt-10 w-[20rem] shadow-xl"
                   handleClick={() => {
                     savePageVisitedToLocalStorage("avis-clients");
-                    router.push("/voitures-occasions");
+                    router.push("/avis-clients");
                   }}
                 />
               </div>
@@ -311,7 +312,7 @@ export default function Home({}) {
             </div>
           </section>
           <section className="flex w-full py-20">
-            <div className="flex flex-col max-w-[1440px] mx-auto w-full px-5 items-center max-sm:p-4">
+            <div className="flex flex-col max-w-[1440px] mx-auto w-full px-10 items-center max-sm:p-4">
               <div className="py-10">
                 <h2 className="flex flex-col items-center justify-center">
                   Vous avez des questions ? <br />

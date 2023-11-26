@@ -5,11 +5,11 @@ const PrivacyPolicy = () => {
   return (
     <Main>
       <div className="w-full border rounded-3xl shadow-2xl bg-primary-orange-50">
-        <h1 className="text-center py-10">Politique de confidentialité</h1>
+        <h2 className="text-center py-10">Politique de confidentialité</h2>
       </div>
       <div>
         <div className="w-full p-20">
-          <h2>1. Collecte de l’information</h2>
+          <h3>1. Collecte de l’information</h3>
           <p>
             Nous recueillons des informations lorsque vous vous inscrivez sur
             notre site, lorsque vous vous connectez à votre compte, faites un
@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
             vous demandez.
           </p>
           <p>&nbsp;</p>
-          <h2>2. Utilisation des informations</h2>
+          <h3>2. Utilisation des informations</h3>
           <p>
             Toutes les informations que nous recueillons auprès de vous peuvent
             être utilisées pour :
@@ -41,7 +41,7 @@ const PrivacyPolicy = () => {
             <li>Administrer un concours, une promotion, ou une enquête</li>
           </ul>
           <p>&nbsp;</p>
-          <h2>3. Confidentialité du commerce en ligne</h2>
+          <h3>3. Confidentialité du commerce en ligne</h3>
           <p>
             Nous sommes les seuls propriétaires des informations recueillies sur
             ce site. Vos informations personnelles ne seront pas vendues,
@@ -50,7 +50,7 @@ const PrivacyPolicy = () => {
             qui est nécessaire pour répondre à une demande.
           </p>
           <p>&nbsp;</p>
-          <h2>4. Divulgation à des tiers</h2>
+          <h3>4. Divulgation à des tiers</h3>
           <p>
             Nous ne vendons, n’échangeons et ne transférons pas vos informations
             personnelles identifiables à des tiers. Cela ne comprend pas les
@@ -68,7 +68,7 @@ const PrivacyPolicy = () => {
             utilisations.
           </p>
           <p>&nbsp;</p>
-          <h2>5. Protection des informations</h2>
+          <h3>5. Protection des informations</h3>
           <p>
             Nous mettons en œuvre une variété de mesures de sécurité pour
             préserver la sécurité de vos informations personnelles. Nous
@@ -88,7 +88,7 @@ const PrivacyPolicy = () => {
             notre site.
           </p>
           <p>&nbsp;</p>
-          <h2>6. Se désabonner</h2>
+          <h3>6. Se désabonner</h3>
           <p>
             Nous utilisons l’adresse e-mail que vous fournissez pour vous
             envoyer des informations et mises à jour relatives à votre commande,
@@ -103,7 +103,7 @@ const PrivacyPolicy = () => {
           <p>
             En utilisant notre site, vous consentez à notre politique de
             confidentialité.
-          </p>{" "}
+          </p>
         </div>
       </div>
     </Main>

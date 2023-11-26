@@ -5,6 +5,7 @@ import { Footer, Navbar } from "@/src/components/layouts";
 import { CarContextProvider } from "@/src/hooks/CarContext";
 import CleanupLocalStorage from "@/src/components/localStorage/CleanupLocalStorage";
 import SeoCarManufactures from "@/src/components/layouts/footer/SeoCarManufactures";
+import HomeRevews from "@/src/components/trustmary/HomeRevews";
 
 export const metadata: Metadata = {
   title: "MKB-Automobile",
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className="relative">
+        <HomeRevews />
         <Navbar />
         <CleanupLocalStorage />
         <CarContextProvider>{children}</CarContextProvider>
