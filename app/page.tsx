@@ -441,7 +441,7 @@ export default function Home({}) {
             </div>
           </section>
           <section className="flex w-full py-20">
-            <div className="flex flex-col max-w-[1440px] mx-auto w-full items-center max-sm:p-4">
+            <div className="flex flex-col max-w-[1440px] mx-auto w-full px-5 items-center max-sm:p-4">
               <div className="py-10">
                 <h2 className="flex flex-col items-center justify-center">
                   Vous avez des questions ? <br />
@@ -466,7 +466,7 @@ export default function Home({}) {
             </div>
           </section>
           <section className="w-full flex justify-center py-20 bg-primary-orange-50 border shadow-xl">
-            <div className="max-w-[1440px] mx-auto max-sm:p-4">
+            <div className="max-w-[1440px] mx-auto px-5 max-sm:p-4">
               <div className="w-ful flex justify-center items-center pb">
                 <h2>
                   Quelques-une de nos{" "}
