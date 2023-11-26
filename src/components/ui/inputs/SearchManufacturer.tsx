@@ -1,22 +1,16 @@
 "use client";
 
-import { useState, Fragment } from "react";
+import { Fragment } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { SearchManufacturerProps } from "@/src/types";
+import { dataFormatText } from "@/src/utils/formatText";
 
 const SearchManufacturer = ({
   data,
   manufacturer,
   setManufacturer,
 }: SearchManufacturerProps) => {
-  const vehiculesFilter = data?.filter((car: any) => {
-    const marque = car?.marque?.[0];
-    return marque && marque.toLowerCase().includes(manufacturer.toLowerCase());
-  });
-
-  // const marque = car?.marque?.[0];
-
   return (
     <div className="search-manufacturer">
       <Combobox value={manufacturer} onChange={setManufacturer}>
@@ -41,7 +35,6 @@ const SearchManufacturer = ({
             leave="transition ease-in duration-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
-            afterLeave={() => setManufacturer("")}
           >
             <Combobox.Options>
               {data?.marque?.map((item: any) => (
