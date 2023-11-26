@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Footer, Navbar } from "@/src/components/layouts";
 import { CarContextProvider } from "@/src/hooks/CarContext";
 import CleanupLocalStorage from "@/src/components/localStorage/CleanupLocalStorage";
+import SeoCarManufactures from "@/src/components/layouts/footer/SeoCarManufactures";
 
 export const metadata: Metadata = {
   title: "MKB-Automobile",
@@ -21,6 +22,7 @@ export default function RootLayout({
         <Navbar />
         <CleanupLocalStorage />
         <CarContextProvider>{children}</CarContextProvider>
+        <SeoCarManufactures />
         <Footer />
         <Analytics />
       </body>
