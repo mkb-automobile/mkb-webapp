@@ -18,7 +18,7 @@ const FaqAccordion = ({ data }: any) => {
             className="bg-primary-orange-100 p-4"
           >
             <h4>
-              <span className="text-3xl">
+              <span className="text-xl">
                 {openedQuestion === index ? "--" : "+"}
               </span>{" "}
               {faqItem.question}

@@ -1,0 +1,7 @@
+.tm-title {
+  display: none !important;
+}
+#trustmary-widget > div:nth-child(2),
+#trustmary-widget-reviews > div:nth-child(2) {
+  display: none !important;
+}

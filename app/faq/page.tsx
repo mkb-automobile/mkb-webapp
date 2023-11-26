@@ -4,7 +4,7 @@ import CustomLink from "@/src/components/ui/links/CustomLink";
 import React from "react";
 
 const Faq = () => {
-  const containerFaq = [
+  const foqContainerFaq = [
     {
       title: "Achat du véhicule",
       data: [
@@ -141,7 +141,7 @@ Prise de rendez-vous par :
   ];
   return (
     <Main>
-      <section>
+      <section className="px-5">
         <div className="flex flex-col max-w-[1440px] mx-auto w-full ">
           <div className="py-10">
             <h2 className="flex flex-col items-center justify-center">
@@ -150,7 +150,7 @@ Prise de rendez-vous par :
             </h2>
           </div>
           <div className="flex flex-col gap-10 py-10">
-            {containerFaq.map((item, index) => (
+            {foqContainerFaq.map((item, index) => (
               <div key={index} className="flex flex-col gap-4">
                 <h3>{item.title}</h3>
                 <FaqAccordion data={item.data} />
@@ -159,7 +159,7 @@ Prise de rendez-vous par :
           </div>
         </div>
       </section>
-      <section>
+      <section className="px-5">
         <div>
           <p>Vous n’avez pas trouvé la réponse que vous cherchiez ?</p>
           <h2>N’hésitez pas à nous contacter</h2>

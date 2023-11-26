@@ -3,10 +3,8 @@ import Image from "next/image";
 import { CarCardProps } from "../../../types";
 import { CustomButton } from "../../ui";
 import { useRouter } from "next/navigation";
-import { formatNumber } from "../../../constants";
-import isEqual from "lodash/isEqual";
-import { getFromLocalStorage } from "../../localStorage/GetFromLocalStorage";
 import { saveToLocalStorage } from "../../localStorage/SaveToLocalStorage";
+import { formatNumber } from "@/src/utils";
 
 function CarCard({ data }: CarCardProps) {
   const router = useRouter();

@@ -1,4 +1,5 @@
 "use client";
+import "../src/styles/trustmary.css";
 import { Hero } from "@/src/components";
 import FaqAccordion from "@/src/components/FaqAccordion";
 import { savePageVisitedToLocalStorage } from "@/src/components/localStorage/SaveToLocalStorage";
@@ -47,136 +48,6 @@ const faqData = [
   },
 ];
 
-const marqueModel = [
-  {
-    titre: "Audi",
-    modèles: {
-      "1": "Audi Al d'occasion",
-      "2": "Audi A3 d'occasion",
-      "3": "Audi A3 Sportback d'occasion",
-      // Ajoute d'autres modèles Audi si nécessaire
-    },
-  },
-  {
-    titre: "BMW",
-    modèles: {
-      "1": "BMW Série 1 d'occasion",
-      "2": "BMW Série 3 d'occasion",
-      "3": "BMW Série 4 d'occasion",
-      "4": "BMW Série 5 d'occasion",
-      "5": "BMW XI d'occasion",
-      "6": "BMW X6 d'occasion",
-      // Ajoute d'autres modèles BMW si nécessaire
-    },
-  },
-  {
-    titre: "Citroën",
-    modèles: {
-      "1": "Citroën Berlingo d'occasion",
-      "2": "Citroën C1 d'occasion",
-      "3": "Citroën C3 d'occasion",
-      "4": "Citroën C4 d'occasion",
-      "5": "Citroën C5 d'occasion",
-      "6": "Citroën Jumpy d'occasion",
-      "7": "Citroën Nemo d'occasion",
-      // Ajoute d'autres modèles Citroën si nécessaire
-    },
-  },
-  {
-    titre: "Ford",
-    modèles: {
-      "1": "Ford Fiesta d'occasion",
-      "2": "Ford C-max d'occasion",
-      // Ajoute d'autres modèles Ford si nécessaire
-    },
-  },
-  {
-    titre: "Porsche",
-    modèles: {
-      "1": "Porsche Macan d'occasion",
-      "2": "Porsche Panamera d'occasion",
-      // Ajoute d'autres modèles Porsche si nécessaire
-    },
-  },
-  {
-    titre: "Honda",
-    modèles: {
-      "1": "Honda CR-V d'occasion",
-      "2": "Honda Civic d'occasion",
-      // Ajoute d'autres modèles Honda si nécessaire
-    },
-  },
-  {
-    titre: "Renault",
-    modèles: {
-      "1": "Renault Captur d'occasion",
-      "2": "Renault Clio d'occasion",
-      "3": "Renault Megane d'occasion",
-      "4": "Renault Scenic d'occasion",
-      "5": "Renault Zoe d'occasion",
-      // Ajoute d'autres modèles Renault si nécessaire
-    },
-  },
-  {
-    titre: "Dacia",
-    modèles: {
-      "1": "Dacia Logan d'occasion",
-      "2": "Dacia Sandero d'occasion",
-      // Ajoute d'autres modèles Dacia si nécessaire
-    },
-  },
-  {
-    titre: "Nissan",
-    modèles: {
-      "1": "Nissan Juke d'occasion",
-      "2": "Nissan Micra d'occasion",
-      "3": "Nissan Oashaai d'occasion",
-      // Ajoute d'autres modèles Nissan si nécessaire
-    },
-  },
-  {
-    titre: "Seat",
-    modèles: {
-      "1": "Seat Ibiza d'occasion",
-      // Ajoute d'autres modèles Seat si nécessaire
-    },
-  },
-  {
-    titre: "Fiat",
-    modèles: {
-      "1": "Fiat 500 d'occasion",
-      "2": "Fiat Panda d'occasion",
-      "3": "Fiat Punto d'occasion",
-      "4": "Fiat Tibo d'occasion",
-      // Ajoute d'autres modèles Fiat si nécessaire
-    },
-  },
-  {
-    titre: "Peugeot",
-    modèles: {
-      "1": "Peugeot 108 d'occasion",
-      "2": "Peugeot 2008 d'occasion",
-      "3": "Peugeot 207 d'occasion",
-      "4": "Peugeot 208 d'occasion",
-      "5": "Peugeot 308 d'occasion",
-      "6": "Peugeot 5008 d'occasion",
-      "7": "Peugeot 508 d'occasion",
-      "8": "Peugeot 508 SW d'occasion",
-      // Ajoute d'autres modèles Peugeot si nécessaire
-    },
-  },
-  {
-    titre: "Volkswagen",
-    modèles: {
-      "1": "Volkswagen Golf d'occasion",
-      "2": "Volkswagen Polo d'occasion",
-      "3": "Volkswagen Tiguan d'occasion",
-      "4": "Volkswagen Touran d'occasion",
-      // Ajoute d'autres modèles Volkswagen si nécessaire
-    },
-  },
-];
-
 export default function Home({}) {
   const router = useRouter();
   console.info(
@@ -187,14 +58,14 @@ export default function Home({}) {
       <main className="overflow-hidden">
         <Hero />
         <div>
-          <div className="w-full flex flex-col justify-center items-center py-15">
+          {/* <div className="w-full flex flex-col justify-center items-center py-15">
             <h2>
               <span style={{ color: "#ff9f1c" }}>Recherche</span> rapide
             </h2>
             <div className="mt-12 w-full flex justify-evenly pb-20">
               <SearchBar />
             </div>
-          </div>
+          </div> */}
           <section className="w-full py-20 border shadow-xl bg-primary-orange-50">
             <div className="max-w-[1440px] mx-auto">
               <div className="w-full pb-10 flex justify-center">
@@ -227,17 +98,17 @@ export default function Home({}) {
               <div className="pb-5 px-20">
                 <h2>
                   <span style={{ color: "#ff9f1c" }}>Recommandé</span> par nos
-                  clients - 4,8/5
+                  clients
                 </h2>
               </div>
-              <div>Ici les avis</div>
+              <div id="trustmary-widget" />
               <div>
                 <CustomButton
                   title="Découvrire tous les avis clients"
                   containerStyles="bg-secondary-red text-white rounded-full mt-10 w-[20rem] shadow-xl"
                   handleClick={() => {
                     savePageVisitedToLocalStorage("avis-clients");
-                    router.push("/voitures-occasions");
+                    router.push("/avis-clients");
                   }}
                 />
               </div>
@@ -441,7 +312,7 @@ export default function Home({}) {
             </div>
           </section>
           <section className="flex w-full py-20">
-            <div className="flex flex-col max-w-[1440px] mx-auto w-full px-5 items-center max-sm:p-4">
+            <div className="flex flex-col max-w-[1440px] mx-auto w-full px-10 items-center max-sm:p-4">
               <div className="py-10">
                 <h2 className="flex flex-col items-center justify-center">
                   Vous avez des questions ? <br />
@@ -462,32 +333,6 @@ export default function Home({}) {
                     router.push("/faq");
                   }}
                 />
-              </div>
-            </div>
-          </section>
-          <section className="w-full flex justify-center py-20 bg-primary-orange-50 border shadow-xl">
-            <div className="max-w-[1440px] mx-auto px-5 max-sm:p-4">
-              <div className="w-ful flex justify-center items-center pb">
-                <h2>
-                  Quelques-une de nos{" "}
-                  <span style={{ color: "#ff9f1c" }}>marques de voiture</span>
-                </h2>
-              </div>
-              <div className="w-full flex flex-wrap gap-20 py-10">
-                {marqueModel.map((marque, index) => (
-                  <div key={index} className="flex flex-col ">
-                    <div>
-                      <h3>{marque.titre}</h3>
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      {Object.values(marque.modèles).map((model, index) => (
-                        <div key={index}>
-                          <p>{model}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
           </section>
