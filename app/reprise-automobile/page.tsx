@@ -157,7 +157,7 @@ Prise de rendez-vous par :
         </div>
       </section>
       <section className="bg-primary-orange-50 py-10">
-        <div className="max-w-[1440px] mx-auto max-sm:px-4">
+        <div className="max-w-[1440px] w-full flex flex-col gap-10 mx-auto max-sm:px-4">
           <div>
             <h2 className="flex flex-col justify-center items-center">
               <span style={{ color: "#ff9f1c" }}>FAQ Reprise véhicule</span>{" "}
@@ -167,7 +167,7 @@ Prise de rendez-vous par :
           <div>
             <FaqAccordion data={containerFaq} />
           </div>
-          <div>
+          <div className="w-full flex justify-center">
             <CustomButton
               title="Accéder à la FAQ"
               containerStyles="bg-secondary-red text-white rounded-full mt-10 shadow-xl"
