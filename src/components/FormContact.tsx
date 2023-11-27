@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { CustomButton } from "./ui";
-import { SPIDERVO_API_URL } from "../constants";
+import { sipdervoConfig } from "../config";
 
 const FormContact = ({ car }: any) => {
   const [name, setName] = useState("");
@@ -29,13 +29,16 @@ const FormContact = ({ car }: any) => {
       refCar: refCar,
     };
 
-    const response = await fetch(`${SPIDERVO_API_URL}/api/sendcontactform`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      `${sipdervoConfig.serverUrl}/api/sendcontactform`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       },
-      body: JSON.stringify(formData),
-    });
+    );
 
     if (response.ok) {
       console.log("Email sent successfully");

@@ -1,10 +1,11 @@
 import { METHODS } from "http";
-import { SPIDERVO_API_URL } from "../constants";
+import { lenboxConfig, sipdervoConfig } from "../config";
+
 export const fetchData = () => {
-  if (!SPIDERVO_API_URL) {
-    throw new Error("SPIDERVO_API_URL n'est pas définie");
+  if (!sipdervoConfig.serverUrl) {
+    throw new Error("sipdervoConfig.serverUrl n'est pas définie");
   }
-  return fetch(`${SPIDERVO_API_URL}/api`)
+  return fetch(`${sipdervoConfig.serverUrl}/api`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -26,11 +27,9 @@ export const fetchData = () => {
     });
 };
 
-const apiUrl = process.env.NEXT_PUBLIC_LENBOX_API_URL;
-
 export const submitLoanApplication = async (data: any) => {
   try {
-    const response = await fetch(apiUrl!, {
+    const response = await fetch(lenboxConfig.apiCreditUrl!, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

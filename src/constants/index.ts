@@ -3,7 +3,6 @@ import { BsFacebook, BsInstagram } from "react-icons/bs";
 import { FaAward, FaRegCreditCard } from "react-icons/fa";
 
 // API
-export const SPIDERVO_API_URL: string = process.env.NEXT_PUBLIC_API_URL || "";
 
 export const cardDetailsServicesMkb = [
   {
