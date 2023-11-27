@@ -4,6 +4,7 @@ import { CustomButton } from "./ui";
 import { submitLoanApplication } from "../services";
 import MensualiteCard from "./cards/mensualiteCard/MensualiteCard";
 import CustomLink from "./ui/links/CustomLink";
+import { lenboxConfig } from "../config";
 
 interface LoanResponse {
   affecte: boolean;
@@ -34,8 +35,8 @@ const CreditWidget = () => {
     e.preventDefault();
 
     const data = {
-      authkey: process.env.NEXT_PUBLIC_LENBOX_AUTH_KEY,
-      vd: process.env.NEXT_PUBLIC_LENBOX_VD,
+      authkey: lenboxConfig.authKey,
+      vd: lenboxConfig.clientKey,
       montant: loanAmount,
       apport: apport,
       duree: loanDuration,

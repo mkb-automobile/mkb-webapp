@@ -1,6 +1,5 @@
 "use client";
 import FaqAccordion from "@/src/components/FaqAccordion";
-import { Main } from "@/src/components/layouts";
 import { savePageVisitedToLocalStorage } from "@/src/components/localStorage/SaveToLocalStorage";
 import { CustomButton } from "@/src/components/ui";
 import CustomLink from "@/src/components/ui/links/CustomLink";
