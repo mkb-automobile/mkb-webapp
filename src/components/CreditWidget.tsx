@@ -4,7 +4,7 @@ import { CustomButton } from "./ui";
 import { submitLoanApplication } from "../services";
 import MensualiteCard from "./cards/mensualiteCard/MensualiteCard";
 import CustomLink from "./ui/links/CustomLink";
-import { lenboxConfig } from "../config";
+import { lenboxConfig } from "../config/services";
 
 interface LoanResponse {
   affecte: boolean;

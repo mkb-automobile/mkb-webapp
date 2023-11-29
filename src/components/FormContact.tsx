@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { CustomButton } from "./ui";
-import { sipdervoConfig } from "../config";
+import { sipdervoConfig } from "../config/services";
 
 const FormContact = ({ car }: any) => {
   const [name, setName] = useState("");
