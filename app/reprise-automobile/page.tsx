@@ -1,6 +1,6 @@
 "use client";
 import FaqAccordion from "@/src/components/FaqAccordion";
-// import DynamicForm from "@/src/components/dynamicForm/DynamicForm";
+import DynamicForm from "@/src/components/dynamicForm/DynamicForm";
 import { savePageVisitedToLocalStorage } from "@/src/components/localStorage/SaveToLocalStorage";
 import { CustomButton } from "@/src/components/ui";
 import CustomLink from "@/src/components/ui/links/CustomLink";
@@ -103,7 +103,9 @@ Prise de rendez-vous par :
             <div>
               <h2>Estimez votre voiture en ligne (environ 2 minutes)</h2>
             </div>
-            <div>{/* <DynamicForm /> */}</div>
+            <div>
+              <DynamicForm />
+            </div>
             <div>
               <div>
                 <p>

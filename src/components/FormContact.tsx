@@ -32,16 +32,13 @@ const FormContact = ({ car }: any) => {
 
     console.log(formData);
 
-    const response = await fetch(
-      `${sipdervoConfig.serverUrl}/api/sendcontactform`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+    const response = await fetch(`${sipdervoConfig.serverUrl}/api/form`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify(formData),
+    });
 
     if (response.ok) {
       console.log("Email sent successfully");
