@@ -2,10 +2,11 @@ import { values } from "lodash";
 import React, { ChangeEvent, TextareaHTMLAttributes } from "react";
 
 interface CustomInputProps {
-  id: string;
+  id?: string;
   title?: string;
   inputType?: string;
   rows?: number;
+  placeholder?: string;
   containerStyles?: string;
   containerStylesDiv?: string;
   textStyles?: string;
@@ -21,6 +22,7 @@ const CustomInput = ({
   title,
   inputType,
   rows,
+  placeholder,
   containerStyles,
   containerStylesDiv,
   textStyles,

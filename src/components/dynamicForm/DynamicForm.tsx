@@ -1,59 +1,88 @@
 import React, { useState } from "react";
-import CustomInput from "../ui/inputs/CustomInput";
-import { CustomButton } from "../ui";
 
-const DynamicForm = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<string[]>([]);
-
-  const questions = [
-    ["Nom", "Prénom", "Email"],
-    ["Nom du Projet", "Description du Projet"],
-    ["Estimation du Budget", "Délai de Livraison"],
+const MultiStepForm = () => {
+  const steps = [
+    {
+      title: "Votre voiture",
+      questions: [
+        "Marque",
+        "Modèle",
+        "Année",
+        "Mois",
+        "Nombre de portes",
+        "Carburant",
+        "Boite de vitesse",
+        "Motorisation",
+        "Finition",
+        "Kilométrage",
+        "Couleur intérieur",
+        "Couleur extérieur",
+      ],
+    },
+    {
+      title: "Vos Coordonnées",
+      questions: [
+        "Nom",
+        "Prénom",
+        "Email",
+        "Téléphone",
+        "Code postal",
+        "Ville",
+        "Adresse",
+      ],
+    },
   ];
 
-  const handleAnswer = (answer: any) => {
-    setAnswers((prevAnswer) => [...prevAnswer, answer]);
-    setCurrentQuestion(currentQuestion + 1);
+  // Déclarer le type de formData
+  const [formData, setFormData] = useState<{ [key: string]: string }>({});
+  const [currentStep, setCurrentStep] = useState(0);
 
-    // Vérifie si toutes les questions de l'étape actuelle ont été répondues
-    if (currentQuestion === questions[currentStep].length - 1) {
-      // Passe à l'étape suivante
-      setCurrentStep(currentStep + 1);
-      // Réinitialise le numéro de question
-      setCurrentQuestion(0);
-    }
+  const nextStep = () => {
+    setCurrentStep(currentStep + 1);
   };
 
-  const hangleChangePrevious = () => {
-    setCurrentQuestion(currentQuestion - 1);
+  const prevStep = () => {
+    setCurrentStep(currentStep - 1);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  console.log(formData);
+
+  const renderStep = () => {
+    const currentQuestions = steps[currentStep].questions;
+
+    return (
+      <div>
+        <h2>{steps[currentStep].title}</h2>
+        {currentQuestions.map((question, index) => (
+          <div key={index}>
+            <label>{question}:</label>
+            <input
+              type="text"
+              name={question}
+              value={formData[question] || ""}
+              onChange={handleChange}
+            />
+          </div>
+        ))}
+      </div>
+    );
   };
 
   return (
     <div>
-      {currentStep < questions.length ? (
-        <div>
-          <h3>Étape {currentStep + 1}</h3>
-          <h4>{questions[currentStep][currentQuestion]}</h4>
-          <CustomInput
-            id="answer"
-            inputType="text"
-            value={answers[currentQuestion]}
-            handleChange={(e) => handleAnswer(e.target.value)}
-          />
-          <CustomButton
-            title="Suivant"
-            handleClick={() => handleAnswer("answer")}
-            containerStyles="bg-primary-orange-50"
-            textStyles="text-primary-orange"
-          />
-        </div>
-      ) : (
-        <h3>Merci pour vos réponses à nos questions</h3>
-      )}
+      {renderStep()}
+      <button onClick={prevStep} disabled={currentStep === 0}>
+        Précédent
+      </button>
+      <button onClick={nextStep} disabled={currentStep === steps.length - 1}>
+        Suivant
+      </button>
     </div>
   );
 };
 
-export default DynamicForm;
+export default MultiStepForm;
