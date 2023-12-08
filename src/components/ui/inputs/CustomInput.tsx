@@ -15,6 +15,7 @@ interface CustomInputProps {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
   required?: boolean;
+  desabled?: boolean;
 }
 
 const CustomInput = ({
@@ -29,6 +30,7 @@ const CustomInput = ({
   value,
   handleChange,
   required,
+  desabled,
 }: CustomInputProps) => {
   const isTextArea = inputType === "textarea";
   return (
@@ -47,6 +49,7 @@ const CustomInput = ({
             onChange={handleChange}
             required={required}
             className={`${containerStyles}`}
+            disabled={desabled}
           />
         ) : (
           <input
@@ -58,6 +61,7 @@ const CustomInput = ({
             onChange={handleChange}
             required={required}
             className={`${containerStyles}`}
+            disabled={desabled}
           />
         )}
       </div>

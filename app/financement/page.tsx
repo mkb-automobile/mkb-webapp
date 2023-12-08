@@ -218,7 +218,7 @@ const Financing = () => {
                 />
               </div>
             </div>
-            <div className="w-1/2 max-md:w-full">
+            <div className="w-1/2 max-md:w-full" id="financement">
               <CreditWidget />
             </div>
           </div>

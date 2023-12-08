@@ -11,11 +11,11 @@ const CustomButton = ({
   btnType,
   textStyles,
   rightIcon,
-  isDisabled,
+  desabled,
 }: CustomButtonProps) => {
   return (
     <button
-      disabled={false}
+      disabled={desabled}
       type={btnType || "button"}
       className={`custom-btn ${containerStyles}`}
       onClick={handleClick}

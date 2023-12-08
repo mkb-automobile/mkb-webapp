@@ -127,6 +127,7 @@ const FormContact = ({ car }: any) => {
             title="Envoyer"
             btnType="submit"
             containerStyles="bg-primary-orange rounded-full mt-10 shadow-xl"
+            desabled={true}
           />
         </div>
       </div>
