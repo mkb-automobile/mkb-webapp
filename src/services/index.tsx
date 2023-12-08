@@ -1,5 +1,5 @@
 import { METHODS } from "http";
-import { lenboxConfig, sipdervoConfig } from "../config";
+import { lenboxConfig, sipdervoConfig } from "../config/services";
 
 export const fetchData = () => {
   if (!sipdervoConfig.serverUrl) {

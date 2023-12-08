@@ -1,5 +1,6 @@
 "use client";
 import FaqAccordion from "@/src/components/FaqAccordion";
+import DynamicForm from "@/src/components/dynamicForm/DynamicForm";
 import { savePageVisitedToLocalStorage } from "@/src/components/localStorage/SaveToLocalStorage";
 import { CustomButton } from "@/src/components/ui";
 import CustomLink from "@/src/components/ui/links/CustomLink";
@@ -75,7 +76,10 @@ Prise de rendez-vous par :
           </div>
           <div className=" flex justify-evenly py-10 max-md:flex-col gap-5">
             {repriseAutoCardTitle.map((card) => (
-              <div className="flex flex-col justify-center items-center gap-10 bg-primary-orange rounded-3xl p-10 border shadow-xl max-md:p-5 ">
+              <div
+                key={card.title}
+                className="flex flex-col justify-center items-center gap-10 bg-primary-orange rounded-3xl p-10 border shadow-xl max-md:p-5 "
+              >
                 <div>
                   <h3>{card.title}</h3>
                 </div>
@@ -98,11 +102,13 @@ Prise de rendez-vous par :
       </section>
       <section className="w-full py-10 flex">
         <div className=" flex max-w-[1440px] mx-auto pt-36 max-md:px-4 max-md:flex-col">
-          <div className="w-2/3 max-md:w-full">
+          <div className="w-2/3 max-md:w-full px-5">
             <div>
               <h2>Estimez votre voiture en ligne (environ 2 minutes)</h2>
             </div>
-            <div>{/* formulaire ici  */}</div>
+            <div className="bg-primary-orange-50 rounded-xl p-10">
+              <DynamicForm />
+            </div>
             <div>
               <div>
                 <p>

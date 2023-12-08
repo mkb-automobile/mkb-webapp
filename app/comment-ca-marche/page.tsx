@@ -8,21 +8,21 @@ const Works = () => {
     <Main>
       <section className="flex flex-col justify-center  pb-5 rounded-xl border shadow-xl bg-primary-orange-50">
         <div>
-          <h1 className="text-center py-10">
+          <h2 className="text-center py-10">
             Comment acheter une voiture{" "}
             <span style={{ color: "#ff9f1c" }}>
               {" "}
               avec
               <br /> MKB Automobile ?
             </span>{" "}
-          </h1>
+          </h2>
         </div>
         <div className="flex flex-col items-center justify-center">
           <div className="flex w-full max-md:flex-col justify-center items-center">
             <div className="flex flex-col justify-center w-1/2 pl-5 max-md:w-full p-5">
-              <h2 className="pb-10">
+              <h3 className="pb-10">
                 1. Trouvez votre véhicule au meilleur prix
-              </h2>
+              </h3>
               <p>
                 Trouvez la voiture de vos rêves parmi{" "}
                 <strong>une grande sélection en France et Europe</strong> et
@@ -51,9 +51,9 @@ const Works = () => {
           </div>
           <div className="flex  flex-row-reverse w-full max-md:flex-col justify-center items-center">
             <div className="flex flex-col justify-center w-1/2 pl-5 max-md:w-full p-5">
-              <h2 className="pb-10">
+              <h3 className="pb-10">
                 2. Payez en plusieurs fois, si vous le souhaitez
-              </h2>
+              </h3>
               <p>
                 <strong>
                   Trouvons ensemble la meilleure façon de vous accompagner.
@@ -73,7 +73,7 @@ const Works = () => {
           </div>
           <div className="flex w-full max-md:flex-col justify-center items-center">
             <div className="flex flex-col justify-center w-1/2 pl-5 max-md:w-full p-5">
-              <h2 className="pb-10 ">3. Remise des clés</h2>
+              <h3 className="pb-10 ">3. Remise des clés</h3>
               <p>
                 Après avoir essayé et validé votre véhicule et une de nos
                 solutions de paiement (financement et paiement jusqu’à 10 fois,

@@ -1,6 +1,6 @@
 "use client";
 
-import { trustmaryConfig } from "@/src/config";
+import { trustmaryConfig } from "@/src/config/services";
 import { useEffect } from "react";
 
 const HomeRevews = () => {

@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { CustomButton } from "./ui";
-import { sipdervoConfig } from "../config";
+import { sipdervoConfig } from "../config/services";
+import CustomInput from "./ui/inputs/CustomInput";
 
 const FormContact = ({ car }: any) => {
   const [name, setName] = useState("");
@@ -29,16 +30,15 @@ const FormContact = ({ car }: any) => {
       refCar: refCar,
     };
 
-    const response = await fetch(
-      `${sipdervoConfig.serverUrl}/api/sendcontactform`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+    console.log(formData);
+
+    const response = await fetch(`${sipdervoConfig.serverUrl}/api/form`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify(formData),
+    });
 
     if (response.ok) {
       console.log("Email sent successfully");
@@ -62,106 +62,72 @@ const FormContact = ({ car }: any) => {
         <div className="pb-12">
           <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-3">
-              <label
-                htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Nom
-              </label>
-              <div className="mt-2">
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="last-name"
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Doe"
-                  required
-                />
-              </div>
+              <CustomInput
+                title="Nom"
+                id="last-name"
+                value={name}
+                handleChange={(e) => setName(e.target.value)}
+                required={true}
+                containerStyles="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                textStyles="block text-sm font-medium leading-6 text-gray-900"
+              />
             </div>
 
             <div className="sm:col-span-3">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Prénom
-              </label>
-              <div className="mt-2">
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="first-name"
-                  type="text"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  placeholder="John"
-                />
-              </div>
+              <CustomInput
+                title="Prénom"
+                id="first-name"
+                value={firstName}
+                handleChange={(e) => setFirstName(e.target.value)}
+                required={true}
+                containerStyles="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                textStyles="block text-sm font-medium leading-6 text-gray-900"
+              />
             </div>
 
             <div className="sm:col-span-5">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Email
-              </label>
-              <div className="mt-2">
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="votremail@ ..."
-                  required
-                />
-              </div>
+              <CustomInput
+                title="Email"
+                id="email"
+                inputType="email"
+                value={email}
+                handleChange={(e) => setEmail(e.target.value)}
+                required={true}
+                containerStyles="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                textStyles="block text-sm font-medium leading-6 text-gray-900"
+              />
             </div>
             <div className="sm:col-span-4">
-              <label
-                htmlFor="phone"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Téléphone
-              </label>
-              <div className="mt-2">
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="phone"
-                  type="phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="060707..."
-                  required
-                />
-              </div>
+              <CustomInput
+                title="Téléphone"
+                id="phone"
+                inputType="tel"
+                value={phone}
+                handleChange={(e) => setPhone(e.target.value)}
+                required={true}
+                containerStyles="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                textStyles="block text-sm font-medium leading-6 text-gray-900"
+              />
             </div>
             <div className="col-span-full">
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Votre message
-              </label>
-              <div className="mt-2">
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={10}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  required
-                />
-              </div>
+              <CustomInput
+                title="Message"
+                id="message"
+                inputType="textarea"
+                rows={5}
+                value={message}
+                handleChange={(e) => setMessage(e.target.value)}
+                required={true}
+                containerStyles="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                textStyles="block text-sm font-medium leading-6 text-gray-900"
+              />
             </div>
           </div>
           <CustomButton
             title="Envoyer"
             btnType="submit"
             containerStyles="bg-primary-orange rounded-full mt-10 shadow-xl"
+            desabled={true}
           />
         </div>
       </div>
