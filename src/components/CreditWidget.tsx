@@ -145,11 +145,11 @@ const CreditWidget = () => {
                   ))}
                 </div>
                 <div className="flex justify-center pt-5">
-                  <CustomLink
+                  {/* <CustomLink
                     title="Continuer le processus de financement"
                     href={response?.url}
                     containerStyles="text-primary-orange-500 font-semibold"
-                  />
+                  /> */}
                 </div>
               </div>
             )}
