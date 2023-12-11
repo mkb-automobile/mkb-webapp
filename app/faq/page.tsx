@@ -146,7 +146,7 @@ Prise de rendez-vous par :
           <div className="py-10">
             <h2 className="flex flex-col items-center justify-center">
               Vous avez des questions ? <br />
-              <span style={{ color: "#ff9f1c" }}>On essaye d'y répondre</span>
+              <span style={{ color: "#ff9f1c" }}>On y répond</span>
             </h2>
           </div>
           <div className="flex flex-col gap-10 py-10">
