@@ -1,7 +1,6 @@
-import { METHODS } from "http";
 import { lenboxConfig, sipdervoConfig } from "../config/services";
 
-export const fetchData = () => {
+export const fetchData = async () => {
   if (!sipdervoConfig.serverUrl) {
     throw new Error("sipdervoConfig.serverUrl n'est pas définie");
   }

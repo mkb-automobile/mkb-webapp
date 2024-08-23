@@ -1,7 +1,7 @@
 "use client";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { CarDataProps } from "../types";
 import { fetchData } from "../services";
+import { CarDataProps } from "../types";
 
 type CarContextType = {
   data: CarDataProps[];
