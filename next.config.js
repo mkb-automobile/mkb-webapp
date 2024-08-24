@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["www.spider-vo.net"],
+    domains: ["www.spider-vo.net", "spidervo.s3.fr-par.scw.cloud"],
   },
 };
 

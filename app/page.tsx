@@ -1,10 +1,9 @@
 "use client";
-import "../src/styles/trustmary.css";
 import { Hero } from "@/src/components";
 import FaqAccordion from "@/src/components/FaqAccordion";
 import { savePageVisitedToLocalStorage } from "@/src/components/localStorage/SaveToLocalStorage";
 import SocialNetwork from "@/src/components/socialNetwork/SocialNetwork";
-import { CustomButton, SearchBar } from "@/src/components/ui";
+import { CustomButton } from "@/src/components/ui";
 import CustomLink from "@/src/components/ui/links/CustomLink";
 import {
   carsModel,
@@ -14,6 +13,7 @@ import {
 } from "@/src/constants";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import "../src/styles/trustmary.css";
 
 const faqData = [
   {
