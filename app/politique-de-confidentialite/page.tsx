@@ -1,15 +1,36 @@
+"use client";
 import { Main } from "@/src/components/layouts";
+import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
+import { Badge } from "@/src/components/ui/badge";
+import { Separator } from "@/src/components/ui/separator";
+import { Shield, Lock, Eye, Mail, Cookie, CheckCircle2 } from "lucide-react";
 import React from "react";
 
 const PrivacyPolicy = () => {
   return (
     <Main>
-      <div className="w-full border rounded-3xl shadow-2xl bg-primary-orange-50">
-        <h2 className="text-center py-10">Politique de confidentialité</h2>
-      </div>
-      <div>
-        <div className="w-full p-20">
-          <h3>1. Collecte de l’information</h3>
+      <div className="w-full space-y-12 animate-fade-in">
+        <Card className="border-0 shadow-xl bg-gradient-to-br from-primary-orange-50 via-white to-primary-orange-50">
+          <CardHeader className="text-center pb-8">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Shield className="w-8 h-8 text-primary-orange" />
+              <Badge variant="outline" className="border-primary-orange/50 bg-primary-orange/10 text-primary-orange px-4 py-1.5">
+                Protection des données
+              </Badge>
+            </div>
+            <CardTitle className="text-h1">
+              Politique de confidentialité
+            </CardTitle>
+          </CardHeader>
+        </Card>
+        <Card className="border-0 shadow-large bg-white/90 backdrop-blur-sm">
+          <CardContent className="p-8 md:p-12 space-y-12">
+            <section className="space-y-6">
+              <div className="flex items-center gap-3">
+                <Eye className="w-6 h-6 text-primary-orange" />
+                <h2 className="text-h2">1. Collecte de l'information</h2>
+              </div>
+              <Separator className="bg-primary-orange/30" />
           <p>
             Nous recueillons des informations lorsque vous vous inscrivez sur
             notre site, lorsque vous vous connectez à votre compte, faites un
@@ -22,26 +43,35 @@ const PrivacyPolicy = () => {
             vous demandez.
           </p>
           <p>&nbsp;</p>
-          <h3>2. Utilisation des informations</h3>
-          <p>
-            Toutes les informations que nous recueillons auprès de vous peuvent
-            être utilisées pour :
-          </p>
-          <ul>
-            <li>
-              Personnaliser votre expérience et répondre à vos besoins
-              individuels
-            </li>
-            <li>Fournir un contenu publicitaire personnalisé</li>
-            <li>Améliorer notre site</li>
-            <li>
-              Améliorer le service client et vos besoins de prise en charge
-            </li>
-            <li>Vous contacter par e-mail</li>
-            <li>Administrer un concours, une promotion, ou une enquête</li>
-          </ul>
+              <div className="flex items-center gap-3 pt-8">
+                <CheckCircle2 className="w-6 h-6 text-primary-orange" />
+                <h2 className="text-h2">2. Utilisation des informations</h2>
+              </div>
+              <Separator className="bg-primary-orange/30" />
+              <p className="text-body-lg text-grey">
+                Toutes les informations que nous recueillons auprès de vous peuvent être utilisées pour :
+              </p>
+              <ul className="space-y-3 list-none">
+                {[
+                  "Personnaliser votre expérience et répondre à vos besoins individuels",
+                  "Fournir un contenu publicitaire personnalisé",
+                  "Améliorer notre site",
+                  "Améliorer le service client et vos besoins de prise en charge",
+                  "Vous contacter par e-mail",
+                  "Administrer un concours, une promotion, ou une enquête"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary-orange mt-0.5 flex-shrink-0" />
+                    <span className="text-body text-grey">{item}</span>
+                  </li>
+                ))}
+              </ul>
           <p>&nbsp;</p>
-          <h3>3. Confidentialité du commerce en ligne</h3>
+              <div className="flex items-center gap-3 pt-8">
+                <Lock className="w-6 h-6 text-primary-orange" />
+                <h2 className="text-h2">3. Confidentialité du commerce en ligne</h2>
+              </div>
+              <Separator className="bg-primary-orange/30" />
           <p>
             Nous sommes les seuls propriétaires des informations recueillies sur
             ce site. Vos informations personnelles ne seront pas vendues,
@@ -50,7 +80,11 @@ const PrivacyPolicy = () => {
             qui est nécessaire pour répondre à une demande.
           </p>
           <p>&nbsp;</p>
-          <h3>4. Divulgation à des tiers</h3>
+              <div className="flex items-center gap-3 pt-8">
+                <Shield className="w-6 h-6 text-primary-orange" />
+                <h2 className="text-h2">4. Divulgation à des tiers</h2>
+              </div>
+              <Separator className="bg-primary-orange/30" />
           <p>
             Nous ne vendons, n’échangeons et ne transférons pas vos informations
             personnelles identifiables à des tiers. Cela ne comprend pas les
@@ -68,7 +102,11 @@ const PrivacyPolicy = () => {
             utilisations.
           </p>
           <p>&nbsp;</p>
-          <h3>5. Protection des informations</h3>
+              <div className="flex items-center gap-3 pt-8">
+                <Shield className="w-6 h-6 text-primary-orange" />
+                <h2 className="text-h2">5. Protection des informations</h2>
+              </div>
+              <Separator className="bg-primary-orange/30" />
           <p>
             Nous mettons en œuvre une variété de mesures de sécurité pour
             préserver la sécurité de vos informations personnelles. Nous
@@ -88,7 +126,11 @@ const PrivacyPolicy = () => {
             notre site.
           </p>
           <p>&nbsp;</p>
-          <h3>6. Se désabonner</h3>
+              <div className="flex items-center gap-3 pt-8">
+                <Mail className="w-6 h-6 text-primary-orange" />
+                <h2 className="text-h2">6. Se désabonner</h2>
+              </div>
+              <Separator className="bg-primary-orange/30" />
           <p>
             Nous utilisons l’adresse e-mail que vous fournissez pour vous
             envoyer des informations et mises à jour relatives à votre commande,
@@ -99,12 +141,17 @@ const PrivacyPolicy = () => {
             chaque e-mail.
           </p>
           <p>&nbsp;</p>
-          <h2>7. Consentement</h2>
+              <div className="flex items-center gap-3 pt-8">
+                <CheckCircle2 className="w-6 h-6 text-primary-orange" />
+                <h2 className="text-h2">7. Consentement</h2>
+              </div>
+              <Separator className="bg-primary-orange/30" />
           <p>
-            En utilisant notre site, vous consentez à notre politique de
-            confidentialité.
-          </p>
-        </div>
+              En utilisant notre site, vous consentez à notre politique de confidentialité.
+            </p>
+            </section>
+          </CardContent>
+        </Card>
       </div>
     </Main>
   );

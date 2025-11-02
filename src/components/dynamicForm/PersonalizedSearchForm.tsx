@@ -8,24 +8,23 @@ import { Progress } from "../ui/progress";
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { Separator } from "../ui/separator";
-import { CheckCircle2, ArrowRight, ArrowLeft, Car, User, FileText, Send, Sparkles, Clock } from "lucide-react";
+import { CheckCircle2, ArrowRight, ArrowLeft, Search, User, FileText, Send, Sparkles, Clock, Car, DollarSign, Settings } from "lucide-react";
 import { marqueModel, yearsOfProduction, fuels } from "@/src/constants";
 
-interface FormData {
-  // Véhicule
-  marque: string;
-  modele: string;
-  annee: string;
-  mois: string;
-  nombrePortes: string;
+interface PersonalizedSearchFormData {
+  // Critères de recherche
+  marqueSouhaitee: string;
+  modeleSouhaite: string;
+  budgetMin: string;
+  budgetMax: string;
+  anneeMin: string;
+  anneeMax: string;
   carburant: string;
   boiteVitesse: string;
-  motorisation: string;
-  finition: string;
-  kilometrage: string;
-  couleurInterieur: string;
-  couleurExterieur: string;
-  etatGeneral: string;
+  nombrePortes: string;
+  kilometrageMax: string;
+  couleurPreferee: string;
+  criteresImportants: string[];
   
   // Coordonnées
   nom: string;
@@ -34,56 +33,63 @@ interface FormData {
   telephone: string;
   codePostal: string;
   ville: string;
-  adresse: string;
   
   // Informations complémentaires
+  delaiRecherche: string;
   commentaires: string;
+  urgence: string;
 }
 
-const DynamicForm = () => {
+const PersonalizedSearchForm = () => {
   const steps = [
     {
       id: 1,
-      title: "Caractéristiques du véhicule",
+      title: "Véhicule recherché",
       icon: Car,
-      description: "Informations sur votre véhicule"
+      description: "Définissez vos critères de recherche"
     },
     {
       id: 2,
+      title: "Budget et préférences",
+      icon: DollarSign,
+      description: "Votre budget et vos priorités"
+    },
+    {
+      id: 3,
       title: "Vos coordonnées",
       icon: User,
       description: "Comment vous contacter"
     },
     {
-      id: 3,
-      title: "Informations complémentaires",
+      id: 4,
+      title: "Délai et informations",
       icon: FileText,
       description: "Détails supplémentaires"
     },
   ];
 
-  const [formData, setFormData] = useState<FormData>({
-    marque: "",
-    modele: "",
-    annee: "",
-    mois: "",
-    nombrePortes: "",
+  const [formData, setFormData] = useState<PersonalizedSearchFormData>({
+    marqueSouhaitee: "",
+    modeleSouhaite: "",
+    budgetMin: "",
+    budgetMax: "",
+    anneeMin: "",
+    anneeMax: "",
     carburant: "",
     boiteVitesse: "",
-    motorisation: "",
-    finition: "",
-    kilometrage: "",
-    couleurInterieur: "",
-    couleurExterieur: "",
-    etatGeneral: "",
+    nombrePortes: "",
+    kilometrageMax: "",
+    couleurPreferee: "",
+    criteresImportants: [],
     nom: "",
     prenom: "",
     email: "",
     telephone: "",
     codePostal: "",
     ville: "",
-    adresse: "",
+    delaiRecherche: "",
     commentaires: "",
+    urgence: "",
   });
 
   const [currentStep, setCurrentStep] = useState(0);
@@ -93,24 +99,31 @@ const DynamicForm = () => {
 
   const progress = ((currentStep + 1) / steps.length) * 100;
 
-  const handleInputChange = (name: keyof FormData, value: string) => {
+  const handleInputChange = (name: keyof PersonalizedSearchFormData, value: string | string[]) => {
     setFormData({ ...formData, [name]: value });
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors({ ...errors, [name]: "" });
     }
+  };
+
+  const toggleCriteresImportant = (critere: string) => {
+    const current = formData.criteresImportants;
+    const updated = current.includes(critere)
+      ? current.filter(c => c !== critere)
+      : [...current, critere];
+    handleInputChange("criteresImportants", updated);
   };
 
   const validateStep = (step: number): boolean => {
     const newErrors: { [key: string]: string } = {};
 
     if (step === 0) {
-      if (!formData.marque) newErrors.marque = "La marque est requise";
-      if (!formData.modele) newErrors.modele = "Le modèle est requis";
-      if (!formData.annee) newErrors.annee = "L'année est requise";
-      if (!formData.carburant) newErrors.carburant = "Le carburant est requis";
-      if (!formData.kilometrage) newErrors.kilometrage = "Le kilométrage est requis";
+      // Pas de validation stricte pour l'étape 1, tous les champs sont optionnels
     } else if (step === 1) {
+      if (formData.budgetMin && formData.budgetMax && parseFloat(formData.budgetMin) > parseFloat(formData.budgetMax)) {
+        newErrors.budgetMax = "Le budget maximum doit être supérieur au budget minimum";
+      }
+    } else if (step === 2) {
       if (!formData.nom) newErrors.nom = "Le nom est requis";
       if (!formData.prenom) newErrors.prenom = "Le prénom est requis";
       if (!formData.email) {
@@ -142,21 +155,30 @@ const DynamicForm = () => {
     if (!validateStep(currentStep)) return;
 
     setIsSubmitting(true);
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
     
-    console.log("Form submitted:", formData);
+    console.log("Personalized search form submitted:", formData);
     setIsSubmitting(false);
     setIsSubmitted(true);
     
     // Here you would send the data to your API
-    // await fetch('/api/reprise', { method: 'POST', body: JSON.stringify(formData) });
+    // await fetch('/api/recherche-personnalisee', { method: 'POST', body: JSON.stringify(formData) });
   };
 
   const getAvailableModels = () => {
-    const selectedMarque = marqueModel.find(m => m.titre === formData.marque);
+    const selectedMarque = marqueModel.find(m => m.titre === formData.marqueSouhaitee);
     return selectedMarque ? Object.values(selectedMarque.modèles) : [];
   };
+
+  const criteresOptions = [
+    "Kilométrage faible",
+    "Premier propriétaire",
+    "Garantie constructeur",
+    "Entretien régulier",
+    "Pneus récents",
+    "Véhicule d'occasion récent",
+    "Options haut de gamme",
+  ];
 
   const renderStepContent = () => {
     const StepIcon = steps[currentStep].icon;
@@ -170,27 +192,28 @@ const DynamicForm = () => {
                 <StepIcon className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-h3 font-bold">Caractéristiques du véhicule</h3>
-                <p className="text-body-sm text-grey">Renseignez les informations principales</p>
+                <h3 className="text-h3 font-bold">Véhicule recherché</h3>
+                <p className="text-body-sm text-grey">Décrivez le véhicule de vos rêves</p>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <Label htmlFor="marque" className="text-body font-semibold">
-                  Marque <span className="text-primary-orange">*</span>
+                <Label htmlFor="marqueSouhaitee" className="text-body font-semibold">
+                  Marque souhaitée
                 </Label>
                 <Select
-                  value={formData.marque}
+                  value={formData.marqueSouhaitee || "none"}
                   onValueChange={(value) => {
-                    handleInputChange("marque", value);
-                    handleInputChange("modele", ""); // Reset model when brand changes
+                    handleInputChange("marqueSouhaitee", value === "none" ? "" : value);
+                    handleInputChange("modeleSouhaite", "");
                   }}
                 >
-                  <SelectTrigger className={`h-12 ${errors.marque ? "border-red-500" : ""}`}>
-                    <SelectValue placeholder="Sélectionnez une marque" />
+                  <SelectTrigger className="h-12">
+                    <SelectValue placeholder="Sélectionnez une marque (optionnel)" />
                   </SelectTrigger>
                   <SelectContent>
+                    <SelectItem value="none">Aucune préférence</SelectItem>
                     {marqueModel.map((marque) => (
                       <SelectItem key={marque.titre} value={marque.titre}>
                         {marque.titre}
@@ -198,24 +221,22 @@ const DynamicForm = () => {
                     ))}
                   </SelectContent>
                 </Select>
-                {errors.marque && (
-                  <p className="text-sm text-red-500">{errors.marque}</p>
-                )}
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="modele" className="text-body font-semibold">
-                  Modèle <span className="text-primary-orange">*</span>
+                <Label htmlFor="modeleSouhaite" className="text-body font-semibold">
+                  Modèle souhaité
                 </Label>
                 <Select
-                  value={formData.modele}
-                  onValueChange={(value) => handleInputChange("modele", value)}
-                  disabled={!formData.marque}
+                  value={formData.modeleSouhaite || "none"}
+                  onValueChange={(value) => handleInputChange("modeleSouhaite", value === "none" ? "" : value)}
+                  disabled={!formData.marqueSouhaitee}
                 >
-                  <SelectTrigger className={`h-12 ${errors.modele ? "border-red-500" : ""}`} disabled={!formData.marque}>
-                    <SelectValue placeholder={formData.marque ? "Sélectionnez un modèle" : "Sélectionnez d'abord une marque"} />
+                  <SelectTrigger className="h-12" disabled={!formData.marqueSouhaitee}>
+                    <SelectValue placeholder={formData.marqueSouhaitee ? "Sélectionnez un modèle" : "Sélectionnez d'abord une marque"} />
                   </SelectTrigger>
                   <SelectContent>
+                    <SelectItem value="none">Aucune préférence</SelectItem>
                     {getAvailableModels().map((model, index) => (
                       <SelectItem key={index} value={model.replace(" d'occasion", "")}>
                         {model.replace(" d'occasion", "")}
@@ -223,48 +244,42 @@ const DynamicForm = () => {
                     ))}
                   </SelectContent>
                 </Select>
-                {errors.modele && (
-                  <p className="text-sm text-red-500">{errors.modele}</p>
-                )}
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="annee" className="text-body font-semibold">
-                  Année de mise en circulation <span className="text-primary-orange">*</span>
-                </Label>
+                <Label htmlFor="anneeMin" className="text-body font-semibold">Année minimum</Label>
                 <Select
-                  value={formData.annee}
-                  onValueChange={(value) => handleInputChange("annee", value)}
+                  value={formData.anneeMin || "none"}
+                  onValueChange={(value) => handleInputChange("anneeMin", value === "none" ? "" : value)}
                 >
-                  <SelectTrigger className={`h-12 ${errors.annee ? "border-red-500" : ""}`}>
-                    <SelectValue placeholder="Sélectionnez une année" />
+                  <SelectTrigger className="h-12">
+                    <SelectValue placeholder="Année minimum" />
                   </SelectTrigger>
                   <SelectContent>
-                    {yearsOfProduction.slice(1).map((year) => (
+                    <SelectItem value="none">Aucune préférence</SelectItem>
+                    {yearsOfProduction.slice(1).reverse().map((year) => (
                       <SelectItem key={year.value} value={year.value}>
                         {year.title}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
-                {errors.annee && (
-                  <p className="text-sm text-red-500">{errors.annee}</p>
-                )}
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="mois" className="text-body font-semibold">Mois</Label>
+                <Label htmlFor="anneeMax" className="text-body font-semibold">Année maximum</Label>
                 <Select
-                  value={formData.mois}
-                  onValueChange={(value) => handleInputChange("mois", value)}
+                  value={formData.anneeMax || "none"}
+                  onValueChange={(value) => handleInputChange("anneeMax", value === "none" ? "" : value)}
                 >
                   <SelectTrigger className="h-12">
-                    <SelectValue placeholder="Sélectionnez un mois" />
+                    <SelectValue placeholder="Année maximum" />
                   </SelectTrigger>
                   <SelectContent>
-                    {["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"].map((mois) => (
-                      <SelectItem key={mois} value={mois}>
-                        {mois}
+                    <SelectItem value="none">Aucune préférence</SelectItem>
+                    {yearsOfProduction.slice(1).reverse().map((year) => (
+                      <SelectItem key={year.value} value={year.value}>
+                        {year.title}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -272,17 +287,16 @@ const DynamicForm = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="carburant" className="text-body font-semibold">
-                  Carburant <span className="text-primary-orange">*</span>
-                </Label>
+                <Label htmlFor="carburant" className="text-body font-semibold">Type de carburant</Label>
                 <Select
-                  value={formData.carburant}
-                  onValueChange={(value) => handleInputChange("carburant", value)}
+                  value={formData.carburant || "none"}
+                  onValueChange={(value) => handleInputChange("carburant", value === "none" ? "" : value)}
                 >
-                  <SelectTrigger className={`h-12 ${errors.carburant ? "border-red-500" : ""}`}>
+                  <SelectTrigger className="h-12">
                     <SelectValue placeholder="Sélectionnez un carburant" />
                   </SelectTrigger>
                   <SelectContent>
+                    <SelectItem value="none">Aucune préférence</SelectItem>
                     {fuels.slice(1).map((fuel) => (
                       <SelectItem key={fuel.value} value={fuel.value}>
                         {fuel.title}
@@ -290,38 +304,19 @@ const DynamicForm = () => {
                     ))}
                   </SelectContent>
                 </Select>
-                {errors.carburant && (
-                  <p className="text-sm text-red-500">{errors.carburant}</p>
-                )}
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="kilometrage" className="text-body font-semibold">
-                  Kilométrage <span className="text-primary-orange">*</span>
-                </Label>
-                <Input
-                  id="kilometrage"
-                  type="number"
-                  placeholder="Ex: 50000"
-                  value={formData.kilometrage}
-                  onChange={(e) => handleInputChange("kilometrage", e.target.value)}
-                  className={`h-12 ${errors.kilometrage ? "border-red-500" : ""}`}
-                />
-                {errors.kilometrage && (
-                  <p className="text-sm text-red-500">{errors.kilometrage}</p>
-                )}
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="boiteVitesse" className="text-body font-semibold">Boîte de vitesse</Label>
                 <Select
-                  value={formData.boiteVitesse}
-                  onValueChange={(value) => handleInputChange("boiteVitesse", value)}
+                  value={formData.boiteVitesse || "none"}
+                  onValueChange={(value) => handleInputChange("boiteVitesse", value === "none" ? "" : value)}
                 >
                   <SelectTrigger className="h-12">
                     <SelectValue placeholder="Sélectionnez un type" />
                   </SelectTrigger>
                   <SelectContent>
+                    <SelectItem value="none">Aucune préférence</SelectItem>
                     <SelectItem value="Automatique">Automatique</SelectItem>
                     <SelectItem value="Manuelle">Manuelle</SelectItem>
                   </SelectContent>
@@ -331,13 +326,14 @@ const DynamicForm = () => {
               <div className="space-y-2">
                 <Label htmlFor="nombrePortes" className="text-body font-semibold">Nombre de portes</Label>
                 <Select
-                  value={formData.nombrePortes}
-                  onValueChange={(value) => handleInputChange("nombrePortes", value)}
+                  value={formData.nombrePortes || "none"}
+                  onValueChange={(value) => handleInputChange("nombrePortes", value === "none" ? "" : value)}
                 >
                   <SelectTrigger className="h-12">
                     <SelectValue placeholder="Sélectionnez le nombre" />
                   </SelectTrigger>
                   <SelectContent>
+                    <SelectItem value="none">Aucune préférence</SelectItem>
                     {["3", "4", "5"].map((nb) => (
                       <SelectItem key={nb} value={nb}>
                         {nb} portes
@@ -348,83 +344,125 @@ const DynamicForm = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="motorisation" className="text-body font-semibold">Motorisation</Label>
+                <Label htmlFor="kilometrageMax" className="text-body font-semibold">Kilométrage maximum</Label>
                 <Input
-                  id="motorisation"
-                  type="text"
-                  placeholder="Ex: 1.5 TDI"
-                  value={formData.motorisation}
-                  onChange={(e) => handleInputChange("motorisation", e.target.value)}
-                  className="h-12"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="finition" className="text-body font-semibold">Finition</Label>
-                <Input
-                  id="finition"
-                  type="text"
-                  placeholder="Ex: Business"
-                  value={formData.finition}
-                  onChange={(e) => handleInputChange("finition", e.target.value)}
-                  className="h-12"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="couleurExterieur" className="text-body font-semibold">Couleur extérieur</Label>
-                <Input
-                  id="couleurExterieur"
-                  type="text"
-                  placeholder="Ex: Blanc"
-                  value={formData.couleurExterieur}
-                  onChange={(e) => handleInputChange("couleurExterieur", e.target.value)}
-                  className="h-12"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="couleurInterieur" className="text-body font-semibold">Couleur intérieur</Label>
-                <Input
-                  id="couleurInterieur"
-                  type="text"
-                  placeholder="Ex: Noir"
-                  value={formData.couleurInterieur}
-                  onChange={(e) => handleInputChange("couleurInterieur", e.target.value)}
+                  id="kilometrageMax"
+                  type="number"
+                  placeholder="Ex: 50000"
+                  value={formData.kilometrageMax}
+                  onChange={(e) => handleInputChange("kilometrageMax", e.target.value)}
                   className="h-12"
                 />
               </div>
 
               <div className="space-y-2 md:col-span-2">
-                <Label htmlFor="etatGeneral" className="text-body font-semibold">État général</Label>
-                <Select
-                  value={formData.etatGeneral}
-                  onValueChange={(value) => handleInputChange("etatGeneral", value)}
-                >
-                  <SelectTrigger className="h-12">
-                    <SelectValue placeholder="Sélectionnez l'état" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Excellent">Excellent</SelectItem>
-                    <SelectItem value="Très bon">Très bon</SelectItem>
-                    <SelectItem value="Bon">Bon</SelectItem>
-                    <SelectItem value="Correct">Correct</SelectItem>
-                    <SelectItem value="À restaurer">À restaurer</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Label htmlFor="couleurPreferee" className="text-body font-semibold">Couleur préférée</Label>
+                <Input
+                  id="couleurPreferee"
+                  type="text"
+                  placeholder="Ex: Blanc, Noir, Gris..."
+                  value={formData.couleurPreferee}
+                  onChange={(e) => handleInputChange("couleurPreferee", e.target.value)}
+                  className="h-12"
+                />
               </div>
             </div>
           </div>
         );
 
       case 1:
-    return (
+        return (
           <div className="space-y-6 animate-fade-in">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-orange to-orange-600 flex items-center justify-center shadow-medium">
                 <StepIcon className="w-6 h-6 text-white" />
               </div>
-      <div>
+              <div>
+                <h3 className="text-h3 font-bold">Budget et préférences</h3>
+                <p className="text-body-sm text-grey">Définissez votre budget et vos priorités</p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <Label htmlFor="budgetMin" className="text-body font-semibold">
+                  Budget minimum (€)
+                </Label>
+                <Input
+                  id="budgetMin"
+                  type="number"
+                  placeholder="Ex: 15000"
+                  value={formData.budgetMin}
+                  onChange={(e) => handleInputChange("budgetMin", e.target.value)}
+                  className={`h-12 ${errors.budgetMin ? "border-red-500" : ""}`}
+                />
+                {errors.budgetMin && (
+                  <p className="text-sm text-red-500">{errors.budgetMin}</p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="budgetMax" className="text-body font-semibold">
+                  Budget maximum (€)
+                </Label>
+                <Input
+                  id="budgetMax"
+                  type="number"
+                  placeholder="Ex: 30000"
+                  value={formData.budgetMax}
+                  onChange={(e) => handleInputChange("budgetMax", e.target.value)}
+                  className={`h-12 ${errors.budgetMax ? "border-red-500" : ""}`}
+                />
+                {errors.budgetMax && (
+                  <p className="text-sm text-red-500">{errors.budgetMax}</p>
+                )}
+              </div>
+            </div>
+
+            <Separator className="bg-primary-orange/20" />
+
+            <div className="space-y-4">
+              <Label className="text-body font-semibold">Critères importants pour vous</Label>
+              <p className="text-body-sm text-grey">Sélectionnez les critères qui comptent le plus</p>
+              <div className="grid md:grid-cols-2 gap-3">
+                {criteresOptions.map((critere) => (
+                  <button
+                    key={critere}
+                    type="button"
+                    onClick={() => toggleCriteresImportant(critere)}
+                    className={`p-4 rounded-xl border-2 transition-all duration-300 text-left ${
+                      formData.criteresImportants.includes(critere)
+                        ? "border-primary-orange bg-primary-orange-50 shadow-medium"
+                        : "border-gray-200 hover:border-primary-orange/50 hover:bg-primary-orange-50/50"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
+                        formData.criteresImportants.includes(critere)
+                          ? "border-primary-orange bg-primary-orange"
+                          : "border-gray-300"
+                      }`}>
+                        {formData.criteresImportants.includes(critere) && (
+                          <CheckCircle2 className="w-4 h-4 text-white" />
+                        )}
+                      </div>
+                      <span className="text-body font-medium">{critere}</span>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+
+      case 2:
+        return (
+          <div className="space-y-6 animate-fade-in">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-orange to-orange-600 flex items-center justify-center shadow-medium">
+                <StepIcon className="w-6 h-6 text-white" />
+              </div>
+              <div>
                 <h3 className="text-h3 font-bold">Vos coordonnées</h3>
                 <p className="text-body-sm text-grey">Comment vous joindre ?</p>
               </div>
@@ -532,23 +570,11 @@ const DynamicForm = () => {
                   <p className="text-sm text-red-500">{errors.ville}</p>
                 )}
               </div>
-
-              <div className="space-y-2 md:col-span-2">
-                <Label htmlFor="adresse" className="text-body font-semibold">Adresse complète</Label>
-                <Input
-                  id="adresse"
-              type="text"
-                  placeholder="Numéro et nom de rue"
-                  value={formData.adresse}
-                  onChange={(e) => handleInputChange("adresse", e.target.value)}
-                  className="h-12"
-                />
-              </div>
             </div>
           </div>
         );
 
-      case 2:
+      case 3:
         return (
           <div className="space-y-6 animate-fade-in">
             <div className="flex items-center gap-3 mb-6">
@@ -556,23 +582,66 @@ const DynamicForm = () => {
                 <StepIcon className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-h3 font-bold">Informations complémentaires</h3>
-                <p className="text-body-sm text-grey">Ajoutez des détails utiles (optionnel)</p>
+                <h3 className="text-h3 font-bold">Délai et informations</h3>
+                <p className="text-body-sm text-grey">Aidez-nous à mieux vous servir</p>
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="commentaires" className="text-body font-semibold">
-                Commentaires ou informations supplémentaires
-              </Label>
-              <textarea
-                id="commentaires"
-                rows={6}
-                placeholder="Décrivez l'état de votre véhicule, des options particulières, l'historique, etc..."
-                value={formData.commentaires}
-                onChange={(e) => handleInputChange("commentaires", e.target.value)}
-                className="w-full p-4 rounded-xl border-2 border-gray-200 focus:border-primary-orange focus:ring-2 focus:ring-primary-orange/20 outline-none transition-all duration-300 resize-none text-body"
-              />
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <Label htmlFor="delaiRecherche" className="text-body font-semibold">
+                  Délai de recherche souhaité
+                </Label>
+                <Select
+                  value={formData.delaiRecherche}
+                  onValueChange={(value) => handleInputChange("delaiRecherche", value)}
+                >
+                  <SelectTrigger className="h-12">
+                    <SelectValue placeholder="Sélectionnez un délai" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="1 semaine">1 semaine</SelectItem>
+                    <SelectItem value="2 semaines">2 semaines</SelectItem>
+                    <SelectItem value="1 mois">1 mois</SelectItem>
+                    <SelectItem value="2 mois">2 mois</SelectItem>
+                    <SelectItem value="Pas de délai spécifique">Pas de délai spécifique</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="urgence" className="text-body font-semibold">
+                  Urgence de votre recherche
+                </Label>
+                <Select
+                  value={formData.urgence}
+                  onValueChange={(value) => handleInputChange("urgence", value)}
+                >
+                  <SelectTrigger className="h-12">
+                    <SelectValue placeholder="Niveau d'urgence" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Très urgente">Très urgente</SelectItem>
+                    <SelectItem value="Urgente">Urgente</SelectItem>
+                    <SelectItem value="Normale">Normale</SelectItem>
+                    <SelectItem value="Sans urgence">Sans urgence</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2 md:col-span-2">
+                <Label htmlFor="commentaires" className="text-body font-semibold">
+                  Commentaires ou informations supplémentaires
+                </Label>
+                <textarea
+                  id="commentaires"
+                  rows={6}
+                  placeholder="Décrivez vos préférences spécifiques, des options particulières, des contraintes, etc..."
+                  value={formData.commentaires}
+                  onChange={(e) => handleInputChange("commentaires", e.target.value)}
+                  className="w-full p-4 rounded-xl border-2 border-gray-200 focus:border-primary-orange focus:ring-2 focus:ring-primary-orange/20 outline-none transition-all duration-300 resize-none text-body"
+                />
+              </div>
             </div>
 
             <Card className="border-2 border-primary-orange-100 bg-primary-orange-50/50">
@@ -580,11 +649,20 @@ const DynamicForm = () => {
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-primary-orange mt-0.5 flex-shrink-0" />
                   <div className="space-y-2">
-                    <h4 className="text-h4 font-bold">Récapitulatif</h4>
+                    <h4 className="text-h4 font-bold">Récapitulatif de votre demande</h4>
                     <div className="space-y-1 text-body-sm text-grey">
-                      <p><strong>Véhicule:</strong> {formData.marque} {formData.modele} ({formData.annee})</p>
-                      <p><strong>Kilométrage:</strong> {formData.kilometrage ? `${parseInt(formData.kilometrage).toLocaleString()} km` : "Non renseigné"}</p>
+                      <p><strong>Recherche:</strong> {formData.marqueSouhaitee || "Marque non spécifiée"} {formData.modeleSouhaite || ""}</p>
+                      <p><strong>Budget:</strong> {
+                        formData.budgetMin && formData.budgetMax
+                          ? `${parseInt(formData.budgetMin).toLocaleString()}€ - ${parseInt(formData.budgetMax).toLocaleString()}€`
+                          : formData.budgetMin
+                          ? `À partir de ${parseInt(formData.budgetMin).toLocaleString()}€`
+                          : "Non spécifié"
+                      }</p>
                       <p><strong>Contact:</strong> {formData.prenom} {formData.nom} - {formData.email}</p>
+                      {formData.delaiRecherche && (
+                        <p><strong>Délai souhaité:</strong> {formData.delaiRecherche}</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -605,13 +683,13 @@ const DynamicForm = () => {
           <CheckCircle2 className="w-12 h-12 text-white" />
         </div>
         <div className="space-y-4">
-          <h3 className="text-h2 font-bold text-gray-900">Demande envoyée avec succès !</h3>
+          <h3 className="text-h2 font-bold text-gray-900">Demande de recherche envoyée !</h3>
           <p className="text-body-lg text-grey max-w-md mx-auto">
-            Nous avons bien reçu votre demande d'estimation. Notre équipe vous contactera sous 24h.
+            Nous avons bien reçu votre demande de recherche personnalisée. Notre équipe va analyser vos critères et vous proposer 3 véhicules sous 14 jours.
           </p>
           <Badge variant="outline" className="border-green-500/50 bg-green-500/10 text-green-700 px-4 py-2">
             <Clock className="w-4 h-4 mr-2" />
-            Réponse sous 24h
+            Réponse sous 14 jours
           </Badge>
         </div>
       </div>
@@ -622,14 +700,14 @@ const DynamicForm = () => {
     <form onSubmit={handleSubmit} className="space-y-8">
       {/* Progress Bar */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-6 overflow-x-auto pb-4">
           {steps.map((step, index) => {
             const StepIcon = step.icon;
             const isActive = index === currentStep;
             const isCompleted = index < currentStep;
             
             return (
-              <div key={step.id} className="flex items-center flex-1">
+              <div key={step.id} className="flex items-center flex-1 min-w-[140px]">
                 <div className="flex flex-col items-center flex-1">
                   <div
                     className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
@@ -646,7 +724,7 @@ const DynamicForm = () => {
                       <StepIcon className="w-6 h-6" />
                     )}
                   </div>
-                  <div className={`mt-2 text-center ${isActive ? "font-semibold" : "text-grey"} text-sm max-w-[100px]`}>
+                  <div className={`mt-2 text-center ${isActive ? "font-semibold" : "text-grey"} text-xs max-w-[120px]`}>
                     {step.title}
                   </div>
                 </div>
@@ -684,7 +762,7 @@ const DynamicForm = () => {
           className="rounded-full min-w-[140px] disabled:opacity-50"
         >
           <ArrowLeft className="mr-2 w-5 h-5" />
-        Précédent
+          Précédent
         </Button>
 
         {currentStep < steps.length - 1 ? (
@@ -695,7 +773,7 @@ const DynamicForm = () => {
             onClick={nextStep}
             className="rounded-full min-w-[140px] group"
           >
-        Suivant
+            Suivant
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         ) : (
@@ -719,9 +797,10 @@ const DynamicForm = () => {
             )}
           </Button>
         )}
-    </div>
+      </div>
     </form>
   );
 };
 
-export default DynamicForm;
+export default PersonalizedSearchForm;
+

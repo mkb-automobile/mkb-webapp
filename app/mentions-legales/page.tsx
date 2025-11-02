@@ -1,16 +1,36 @@
+"use client";
 import { Main } from "@/src/components/layouts";
+import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
+import { Badge } from "@/src/components/ui/badge";
+import { Separator } from "@/src/components/ui/separator";
+import { FileText, Building2, Shield, Scale } from "lucide-react";
 import React from "react";
 
 const LegalNotice = () => {
   return (
     <Main>
-      <div>
-        <div className="w-full border rounded-3xl shadow-2xl bg-primary-orange-50">
-          <h1 className="text-center py-10">Mention Légales</h1>
-        </div>
-        <div className="w-full p-20">
-          <div>
-            <h2>1. Édition du site</h2>
+      <div className="w-full space-y-12 animate-fade-in">
+        <Card className="border-0 shadow-xl bg-gradient-to-br from-primary-orange-50 via-white to-primary-orange-50">
+          <CardHeader className="text-center pb-8">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Scale className="w-8 h-8 text-primary-orange" />
+              <Badge variant="outline" className="border-primary-orange/50 bg-primary-orange/10 text-primary-orange px-4 py-1.5">
+                Informations légales
+              </Badge>
+            </div>
+            <CardTitle className="text-h1">
+              Mentions Légales
+            </CardTitle>
+          </CardHeader>
+        </Card>
+        <Card className="border-0 shadow-large bg-white/90 backdrop-blur-sm">
+          <CardContent className="p-8 md:p-12 space-y-12">
+            <section className="space-y-6">
+              <div className="flex items-center gap-3">
+                <FileText className="w-6 h-6 text-primary-orange" />
+                <h2 className="text-h2">1. Édition du site</h2>
+              </div>
+              <Separator className="bg-primary-orange/30" />
             <p>
               En vertu de{" "}
               <a
@@ -141,9 +161,11 @@ const LegalNotice = () => {
                 </span>
               </li>
             </ul>
-            <h2 className="pt-10">
-              <span>2. Propriété intellectuelle et contrefaçons</span>
-            </h2>
+              <div className="flex items-center gap-3 pt-8">
+                <Shield className="w-6 h-6 text-primary-orange" />
+                <h2 className="text-h2">2. Propriété intellectuelle et contrefaçons</h2>
+              </div>
+              <Separator className="bg-primary-orange/30" />
             <p>
               <strong>
                 <span data-ref="nom_proprietaire" data-fallback="">
@@ -185,9 +207,11 @@ const LegalNotice = () => {
               </a>
               .
             </p>
-            <h2 className="pt-10">
-              <span>3. Limitations de responsabilité</span>
-            </h2>
+              <div className="flex items-center gap-3 pt-8">
+                <Shield className="w-6 h-6 text-primary-orange" />
+                <h2 className="text-h2">3. Limitations de responsabilité</h2>
+              </div>
+              <Separator className="bg-primary-orange/30" />
             <p>
               <strong>
                 <span data-ref="nom_proprietaire" data-fallback="">
@@ -273,9 +297,11 @@ const LegalNotice = () => {
               ographique, quel que soit le support utilisé (texte, photographie
               …).
             </p>
-            <h2 className="pt-10">
-              <span>4. CNIL et gestion des données personnelles</span>
-            </h2>
+              <div className="flex items-center gap-3 pt-8">
+                <Building2 className="w-6 h-6 text-primary-orange" />
+                <h2 className="text-h2">4. CNIL et gestion des données personnelles</h2>
+              </div>
+              <Separator className="bg-primary-orange/30" />
             <p>
               Conformément aux dispositions de{" "}
               <a
@@ -323,9 +349,11 @@ const LegalNotice = () => {
               </a>
               .
             </p>
-            <h2 className="pt-10">
-              <span>5. Liens hypertextes et cookies</span>
-            </h2>
+              <div className="flex items-center gap-3 pt-8">
+                <FileText className="w-6 h-6 text-primary-orange" />
+                <h2 className="text-h2">5. Liens hypertextes et cookies</h2>
+              </div>
+              <Separator className="bg-primary-orange/30" />
             <p>
               Le site{" "}
               <a href="https://mkbautomobile.com">
@@ -394,9 +422,11 @@ const LegalNotice = () => {
               </a>
               .
             </p>
-            <h2 className="pt-10">
-              <span>6. Droit applicable et attribution de juridiction</span>
-            </h2>
+              <div className="flex items-center gap-3 pt-8">
+                <Scale className="w-6 h-6 text-primary-orange" />
+                <h2 className="text-h2">6. Droit applicable et attribution de juridiction</h2>
+              </div>
+              <Separator className="bg-primary-orange/30" />
             <p>
               Tout litige en relation avec l’utilisation du site{" "}
               <a href="https://mkbautomobile.com">
@@ -415,9 +445,10 @@ const LegalNotice = () => {
                 </span>
               </strong>
               .
-            </p>{" "}
-          </div>
-        </div>
+            </p>
+            </section>
+          </CardContent>
+        </Card>
       </div>
     </Main>
   );

@@ -6,13 +6,16 @@ import { useRouter } from "next/navigation";
 import { SearchManufacturer } from "..";
 
 const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
-  <button type="submit" className={`-ml-3 z-0 ${otherClasses}`}>
+  <button 
+    type="submit" 
+    className={`-ml-3 z-10 p-2 rounded-full bg-primary-orange hover:bg-primary-orange/90 transition-all duration-300 hover:scale-110 active:scale-95 shadow-medium hover:shadow-large ${otherClasses}`}
+  >
     <Image
       src="/magnifying-glass.svg"
       alt="maginifying glass"
       width={40}
       height={40}
-      className="objetc-contain"
+      className="object-contain"
     />
   </button>
 );
