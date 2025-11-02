@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -10,7 +14,7 @@
     "moduleResolution": "node", // Modifiez de "bundler" à "node"
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve", // Modifiez de "preserve" à "react"
+    "jsx": "react-jsx", // Modifiez de "preserve" à "react"
     "incremental": true,
     "plugins": [
       {
@@ -21,7 +25,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     },
     "noEmit": true
   },
@@ -31,7 +37,10 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/server/**/*.tsx", // Modifiez pour inclure tous les fichiers .tsx sous src/server
-    "src/server/server."
+    "src/server/server.",
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

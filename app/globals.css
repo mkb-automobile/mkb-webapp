@@ -1,8 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary-orange: 36 100% 56%;
+    --primary-orange-foreground: 0 0% 100%;
+    --secondary-red: 358 89% 28%;
+    --secondary-red-foreground: 0 0% 100%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 36 100% 56%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-white text-black-100;
+  }
+}
 
 * {
   margin: 0;
@@ -11,28 +36,38 @@
   font-family: "Montserrat", sans-serif;
 }
 
+body {
+  @apply text-black-100 antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  @apply text-h1 max-sm:text-3xl font-bold text-black-100 tracking-tight;
+}
+
 h2 {
-  @apply text-3xl max-sm:text-lg;
+  @apply text-h2 max-sm:text-xl font-semibold text-black-100 tracking-tight;
 }
 
 h3 {
-  @apply text-xl max-sm:text-base;
+  @apply text-h3 max-sm:text-lg font-semibold text-black-100;
 }
 
 h4 {
-  @apply text-lg max-sm:text-sm;
+  @apply text-h4 max-sm:text-base font-semibold text-black-100;
 }
 
 h5 {
-  @apply text-base max-sm:text-sm;
+  @apply text-base max-sm:text-sm font-medium text-black-100;
 }
 
 h6 {
-  @apply text-base max-sm:text-xs;
+  @apply text-sm max-sm:text-xs font-medium text-black-100;
 }
 
 p {
-  @apply font-light text-sm max-sm:text-xs;
+  @apply text-body max-sm:text-body-sm font-normal text-black-100 leading-relaxed;
 }
 
 /* START: General styles */
@@ -57,25 +92,42 @@ p {
 }
 
 .custom-btn {
-  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
+  @apply flex flex-row relative justify-center items-center py-3.5 px-8 outline-none transition-all duration-300 font-medium rounded-full;
+  @apply hover:scale-105 active:scale-95;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-orange;
+}
+
+.custom-btn:disabled {
+  @apply opacity-50 cursor-not-allowed hover:scale-100;
 }
 /* END: General styles */
 
 /* START: Hero styles */
 .hero {
-  @apply flex xl:flex-row flex-col gap-5 relative z-0;
+  @apply flex xl:flex-row flex-col gap-8 relative z-0;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .hero__title {
-  @apply 2xl:text-[36px] sm:text-[26pxpx] text-[36px] font-extrabold;
+  @apply text-h1 xl:text-display max-sm:text-3xl font-bold text-black-100;
+  @apply leading-tight tracking-tight;
+  line-height: 1.1;
+}
+
+.hero__subtitle {
+  @apply text-body-lg max-sm:text-base text-grey mt-6 mb-4;
+  @apply leading-relaxed;
+  max-width: 600px;
 }
 
 .hero__image-container {
   @apply xl:flex-[1.5] flex justify-end items-end;
+  animation: slideUp 0.4s ease-out;
 }
 
 .hero__image {
   @apply relative xl:w-full w-[90%] xl:h-full h-[590px] z-0;
+  @apply transition-transform duration-500 hover:scale-105;
 }
 
 /* END: Hero styles */
@@ -105,103 +157,155 @@ p {
 
 /* START: Car Card styles */
 .car-card {
-  @apply flex flex-col p-3 w-72 justify-center items-start text-black-100 bg-primary-orange-50 hover:bg-white hover:shadow-md rounded-3xl;
+  @apply flex flex-col p-5 w-72 justify-center items-start text-black-100;
+  @apply bg-primary-orange-50 hover:bg-white rounded-3xl;
+  @apply transition-all duration-400 ease-out;
+  @apply hover:shadow-large hover:-translate-y-1;
+  @apply border border-transparent hover:border-primary-orange-100;
+  animation: scaleIn 0.3s ease-out;
+}
+
+.car-card:hover {
+  transform: translateY(-4px);
 }
 
 .car-card__content {
-  @apply w-full flex justify-between items-start gap-2;
+  @apply w-full flex justify-between items-start gap-2 mb-2;
 }
 
-.car-card__content-title {
-  @apply text-[22px] leading-[26px] font-bold capitalize;
+.car-card__content-title,
+.car-card_content-title {
+  @apply text-h4 font-bold capitalize text-black-100;
+  @apply leading-tight;
 }
 
 .car-card__price {
-  @apply flex mt-6 text-[32px] leading-[38px] font-extrabold;
+  @apply flex mt-4 mb-2 text-3xl leading-tight font-bold text-black-100;
 }
 
 .car-card__price-dollar {
-  @apply self-start text-[14px] leading-[17px] font-semibold;
+  @apply self-start text-sm leading-none font-semibold mt-1;
 }
 
 .car-card__price-day {
-  @apply self-end text-[14px] leading-[17px] font-medium;
+  @apply self-end text-sm leading-none font-medium mb-1;
 }
 
 .car-card__image {
-  @apply relative w-full h-40 my-3 object-contain;
+  @apply relative w-full h-40 my-4 object-contain;
+  @apply rounded-2xl overflow-hidden;
+  @apply transition-transform duration-300 group-hover:scale-105;
 }
 
 .car-card__icon-container {
   @apply flex group-hover:invisible w-full justify-between text-grey;
+  @apply transition-opacity duration-300;
+  @apply mt-3;
 }
 
 .car-card__icon {
   @apply flex flex-col justify-center items-center gap-2;
+  @apply transition-colors duration-200 hover:text-primary-orange;
 }
 
 .car-card__icon-text {
-  @apply text-[14px] leading-[17px];
+  @apply text-body-sm font-medium;
 }
 
 .car-card__btn-container {
   @apply hidden group-hover:flex absolute bottom-0 w-full z-10;
+  @apply px-5 pb-5;
+  animation: slideUp 0.4s ease-out;
 }
 /* END: Car Card styles */
 
 /* START: Car Details styles */
 .car-details__dialog-panel {
-  @apply relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5;
+  @apply relative w-full max-w-lg max-h-[90vh] overflow-y-auto;
+  @apply transform rounded-3xl bg-white p-8 text-left shadow-large;
+  @apply transition-all duration-400 flex flex-col gap-6;
+  @apply border border-gray-100;
+  animation: scaleIn 0.3s ease-out;
 }
 
 .car-details__main-image {
-  @apply relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg;
+  @apply relative w-full h-48 bg-pattern bg-cover bg-center rounded-2xl;
+  @apply overflow-hidden shadow-medium;
 }
 /* END: Car Details styles */
 
 /* START: Custom Filter styles */
 .custom-filter__btn {
-  @apply relative flex justify-between items-center cursor-default rounded-lg bg-white py-2 px-3 text-left shadow-md sm:text-sm border;
+  @apply relative flex justify-between items-center cursor-default;
+  @apply rounded-xl bg-white py-3 px-4 text-left shadow-soft border border-gray-200;
+  @apply transition-all duration-300 hover:shadow-medium hover:border-primary-orange;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-orange focus:ring-offset-2;
+  @apply text-body-sm font-medium;
 }
 
 .custom-filter__options {
-  @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
+  @apply absolute mt-2 max-h-60 w-full overflow-auto rounded-xl bg-white;
+  @apply py-2 text-body-sm shadow-large border border-gray-100;
+  @apply ring-1 ring-black ring-opacity-5;
+  @apply z-50;
+  animation: slideUp 0.4s ease-out;
 }
 /* END: Custom Filter styles */
 
 /* START: Footer styles */
 .footer {
-  @apply flex flex-col text-black-100  mt-5 border-t border-gray-100;
+  @apply flex flex-col text-black-100 mt-10 border-t border-gray-200;
+  @apply bg-white;
 }
 
 .footer__links-container {
-  @apply flex max-md:flex-col flex-wrap justify-between gap-5 sm:px-16 px-6 py-10;
+  @apply flex max-md:flex-col flex-wrap justify-between gap-8 sm:px-16 px-6 py-12;
 }
 
 .footer__rights {
-  @apply flex flex-col justify-start items-start gap-6;
+  @apply flex flex-col justify-start items-start gap-4;
+}
+
+.footer__rights p {
+  @apply text-body-sm text-grey;
 }
 
 .footer__links {
-  @apply flex-1 w-full flex md:justify-end flex-wrap max-md:mt-10 gap-20;
+  @apply flex-1 w-full flex md:justify-end flex-wrap max-md:mt-10 gap-16;
 }
 
 .footer__link {
-  @apply flex flex-col gap-6 text-sm min-w-[170px];
+  @apply flex flex-col gap-4 text-body-sm min-w-[170px];
+}
+
+.footer__link a {
+  @apply transition-colors duration-200 hover:text-primary-orange;
+  @apply text-grey;
 }
 
 .footer__copyrights {
-  @apply flex justify-between items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-6 py-10;
+  @apply flex justify-between items-center flex-wrap mt-6 pt-8 border-t border-gray-200;
+  @apply sm:px-16 px-6 pb-10;
+}
+
+.footer__copyrights p {
+  @apply text-body-sm text-grey;
 }
 
 .footer__copyrights-link {
-  @apply flex-1 flex sm:justify-end justify-center max-sm:mt-4 gap-10;
+  @apply flex-1 flex sm:justify-end justify-center max-sm:mt-4 gap-8;
+}
+
+.footer__copyrights-link a {
+  @apply transition-colors duration-200 hover:text-primary-orange;
+  @apply text-grey;
 }
 /* END: Footer styles */
 
 /* START: searchbar styles */
 .searchbar {
   @apply flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .searchbar__item {
@@ -209,7 +313,11 @@ p {
 }
 
 .searchbar__input {
-  @apply w-full h-[48px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none cursor-pointer text-sm;
+  @apply w-full h-14 pl-14 p-4 bg-light-white rounded-r-full max-sm:rounded-full;
+  @apply outline-none cursor-pointer text-body-sm;
+  @apply border border-transparent transition-all duration-300;
+  @apply focus:border-primary-orange focus:bg-white focus:shadow-soft;
+  @apply hover:bg-white/50;
 }
 /* END: searchbar styles */
 
@@ -219,14 +327,56 @@ p {
 }
 
 .search-manufacturer__input {
-  @apply w-full h-[48px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-light-white outline-none cursor-pointer text-sm;
+  @apply w-full h-14 pl-14 p-4 rounded-l-full max-sm:rounded-full;
+  @apply bg-light-white outline-none cursor-pointer text-body-sm;
+  @apply border border-transparent transition-all duration-300;
+  @apply focus:border-primary-orange focus:bg-white focus:shadow-soft;
+  @apply hover:bg-white/50;
 }
 
 .search-manufacturer__options {
-  @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
+  @apply absolute mt-2 max-h-60 w-full overflow-auto rounded-xl bg-white;
+  @apply py-2 text-body-sm shadow-large border border-gray-100;
+  @apply ring-1 ring-black ring-opacity-5;
+  @apply z-50;
+  animation: slideUp 0.4s ease-out;
 }
 
 .search-manufacturer__option {
-  @apply cursor-default select-none py-2 pl-10 pr-4;
+  @apply cursor-default select-none py-2.5 px-4;
+  @apply transition-colors duration-200 hover:bg-primary-orange-50;
+  @apply hover:text-primary-orange;
 }
 /* END: search manufacturer styles */
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

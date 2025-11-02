@@ -66,26 +66,31 @@ export default function Home({}) {
               <SearchBar />
             </div>
           </div> */}
-          <section className="w-full py-20 border shadow-xl bg-primary-orange-50">
-            <div className="max-w-[1440px] mx-auto">
-              <div className="w-full pb-10 flex justify-center">
-                <h2>
+          <section className="w-full py-24 border-t border-gray-200 shadow-soft bg-gradient-to-b from-primary-orange-50 to-white">
+            <div className="max-w-[1440px] mx-auto px-6 sm:px-16">
+              <div className="w-full pb-12 flex justify-center">
+                <h2 className="text-center">
                   <span style={{ color: "#ff9f1c" }}>MKB</span> - Un gage de
                   qualité
                 </h2>
               </div>
-              <div className="flex justify-between max-sm:grid grid-cols-1">
+              <div className="flex justify-between max-sm:grid grid-cols-1 gap-8">
                 {sectionHome.map((section, index) => (
-                  <div key={index} className="flex flex-col items-center p-10">
-                    <Image
-                      src={section.img}
-                      width={50}
-                      height={50}
-                      alt={`${section.title}-logo`}
-                      className="pb-5"
-                    />
-                    <h3 className="pb-5">{section.title}</h3>
-                    <p className="text-center text-sm mx-auto leading-7">
+                  <div 
+                    key={index} 
+                    className="flex flex-col items-center p-8 rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-medium group"
+                  >
+                    <div className="p-4 rounded-full bg-white shadow-soft mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Image
+                        src={section.img}
+                        width={50}
+                        height={50}
+                        alt={`${section.title}-logo`}
+                        className="transition-transform duration-300"
+                      />
+                    </div>
+                    <h3 className="pb-4 text-center">{section.title}</h3>
+                    <p className="text-center text-body max-w-xs mx-auto leading-relaxed text-grey">
                       {section.text}
                     </p>
                   </div>
@@ -114,52 +119,53 @@ export default function Home({}) {
               </div>
             </div>
           </section>
-          <section className="py-20 border shadow-xl bg-primary-orange-50">
-            <div className="max-w-[1440px] mx-auto flex gap-4 max-md:grid grid-cols-1 max-sm:p-4 ">
-              <div className="w-1/3 flex justify-center max-md:w-full max-sm:flex flex-col  pb-5 px-20">
-                <div>
-                  <div>
-                    <h2>
-                      Ne ratez pas
-                      <br />
-                      <span style={{ color: "#ff9f1c" }}>
-                        une bonne occasion
-                      </span>
-                    </h2>
-                  </div>
+          <section className="py-24 border-t border-gray-200 shadow-soft bg-gradient-to-b from-white to-primary-orange-50">
+            <div className="max-w-[1440px] mx-auto flex gap-8 max-md:grid grid-cols-1 px-6 sm:px-16">
+              <div className="w-1/3 flex justify-center flex-col max-md:w-full pb-5 max-md:px-0">
+                <div className="mb-6">
+                  <h2 className="leading-tight">
+                    Ne ratez pas
+                    <br />
+                    <span style={{ color: "#ff9f1c" }}>
+                      une bonne occasion
+                    </span>
+                  </h2>
                 </div>
-                <div>
-                  <p>
-                    La meilleure façon d’acheter votre voiture à proximité de
+                <div className="mb-8">
+                  <p className="text-body-lg text-grey leading-relaxed">
+                    La meilleure façon d'acheter votre voiture à proximité de
                     chez vous et cela partout en France
                   </p>
                 </div>
                 <div>
-                  <div>
-                    <div className="flex justify-center w-full">
-                      <CustomButton
-                        title="Trouver votre voiture"
-                        containerStyles="bg-secondary-red text-white rounded-full mt-10 shadow-xl"
-                        handleClick={() => {
-                          savePageVisitedToLocalStorage("voitures-occasions");
-                          router.push("/voitures-occasions");
-                        }}
-                      />
-                    </div>
+                  <div className="flex justify-center w-full max-md:justify-start">
+                    <CustomButton
+                      title="Trouver votre voiture"
+                      containerStyles="bg-secondary-red text-white rounded-full mt-4 shadow-medium hover:shadow-large"
+                      handleClick={() => {
+                        savePageVisitedToLocalStorage("voitures-occasions");
+                        router.push("/voitures-occasions");
+                      }}
+                    />
                   </div>
                 </div>
               </div>
-              <div className="grid grid-cols-2 max-sm:flex flex-col items-center gap-4">
+              <div className="grid grid-cols-2 max-sm:flex flex-col items-center gap-6">
                 {carsModel.map((car, index) => (
-                  <div key={index} className="rounded-t-lg w-fit">
-                    <Image
-                      src={car.path}
-                      width={350}
-                      height={200}
-                      alt={car.title}
-                      className="rounded-t-lg w-full h-auto object-cover"
-                    />
-                    <h4 className="mb-2 p-7 bg-white rounded-b-lg">
+                  <div 
+                    key={index} 
+                    className="rounded-2xl w-fit overflow-hidden shadow-medium hover:shadow-large transition-all duration-300 hover:-translate-y-1 group bg-white"
+                  >
+                    <div className="overflow-hidden">
+                      <Image
+                        src={car.path}
+                        width={350}
+                        height={200}
+                        alt={car.title}
+                        className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <h4 className="p-6 bg-white font-semibold">
                       {car.title}
                     </h4>
                   </div>

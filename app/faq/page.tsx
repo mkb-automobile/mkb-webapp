@@ -1,6 +1,8 @@
 import FaqAccordion from "@/src/components/FaqAccordion";
 import { Main } from "@/src/components/layouts";
-import CustomLink from "@/src/components/ui/links/CustomLink";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/src/components/ui/card";
+import { Button } from "@/src/components/ui/button";
+import Link from "next/link";
 import React from "react";
 
 const Faq = () => {
@@ -141,34 +143,41 @@ Prise de rendez-vous par :
   ];
   return (
     <Main>
-      <section className="px-5">
-        <div className="flex flex-col max-w-[1440px] mx-auto w-full ">
-          <div className="py-10">
-            <h2 className="flex flex-col items-center justify-center">
-              Vous avez des questions ? <br />
-              <span style={{ color: "#ff9f1c" }}>On essaye d'y répondre</span>
-            </h2>
-          </div>
-          <div className="flex flex-col gap-10 py-10">
-            {foqContainerFaq.map((item, index) => (
-              <div key={index} className="flex flex-col gap-4">
-                <h3>{item.title}</h3>
-                <FaqAccordion data={item.data} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="px-5">
-        <div>
-          <p>Vous n’avez pas trouvé la réponse que vous cherchiez ?</p>
-          <h2>N’hésitez pas à nous contacter</h2>
+      <div className="max-w-4xl mx-auto px-6 max-md:px-4 space-y-12 animate-fade-in">
+        <div className="text-center space-y-4 py-8">
+          <h1 className="text-h1 max-sm:text-3xl">
+            Vous avez des questions ? <br />
+            <span className="text-primary-orange">On essaye d'y répondre</span>
+          </h1>
         </div>
 
-        <div className="flex justify-center bg-primary-orange p-5 rounded-full gap-2 shadow-xl">
-          <CustomLink title={"Nous contacter"} href="/contact" />
+        <div className="space-y-8">
+          {foqContainerFaq.map((item, index) => (
+            <Card key={index} className="shadow-soft">
+              <CardHeader>
+                <CardTitle className="text-h3 text-primary-orange">{item.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <FaqAccordion data={item.data} />
+              </CardContent>
+            </Card>
+          ))}
         </div>
-      </section>
+
+        <Card className="bg-gradient-to-br from-primary-orange-50 to-white border-primary-orange-100 shadow-medium">
+          <CardContent className="pt-6 pb-8 text-center space-y-6">
+            <div className="space-y-2">
+              <h2 className="text-h2">Vous n'avez pas trouvé la réponse que vous cherchiez ?</h2>
+              <p className="text-body-lg text-grey">
+                Notre équipe est là pour vous aider
+              </p>
+            </div>
+            <Button asChild variant="orange" size="lg">
+              <Link href="/contact">Nous contacter</Link>
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
     </Main>
   );
 };
