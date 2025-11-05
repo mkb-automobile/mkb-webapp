@@ -48,7 +48,7 @@ const faqData = [
   {
     question: "Comment prendre un rendez-vous de reprise de voiture ?",
     answer:
-      "Après avoir fait une demande d’estimation en ligne, vous recevrez votre prix de vente final par e-mail. Il faudra valider un rendez-vous sur notre site web pour prendre rendez-vous. Prise de rendez-vous par : Téléphone : 01 88 83 09 17 E-mail : contact@mkbautomobile.fr",
+      "Après avoir fait une demande d'estimation en ligne, vous recevrez votre prix de vente final par e-mail. Il faudra valider un rendez-vous sur notre site web pour prendre rendez-vous. Prise de rendez-vous par : Téléphone : 01 88 83 09 17 E-mail : contact@portfolio.dev",
   },
 ];
 

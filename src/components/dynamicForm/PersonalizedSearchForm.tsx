@@ -8,6 +8,7 @@ import { Progress } from "../ui/progress";
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { Separator } from "../ui/separator";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog";
 import { CheckCircle2, ArrowRight, ArrowLeft, Search, User, FileText, Send, Sparkles, Clock, Car, DollarSign, Settings } from "lucide-react";
 import { marqueModel, yearsOfProduction, fuels } from "@/src/constants";
 
@@ -96,6 +97,7 @@ const PersonalizedSearchForm = () => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
 
   const progress = ((currentStep + 1) / steps.length) * 100;
 
@@ -155,11 +157,12 @@ const PersonalizedSearchForm = () => {
     if (!validateStep(currentStep)) return;
 
     setIsSubmitting(true);
+    // Portfolio: simulation d'envoi avec affichage dans un popup
     await new Promise(resolve => setTimeout(resolve, 1500));
     
-    console.log("Personalized search form submitted:", formData);
     setIsSubmitting(false);
     setIsSubmitted(true);
+    setShowDialog(true);
     
     // Here you would send the data to your API
     // await fetch('/api/recherche-personnalisee', { method: 'POST', body: JSON.stringify(formData) });
@@ -697,6 +700,7 @@ const PersonalizedSearchForm = () => {
   }
 
   return (
+    <>
     <form onSubmit={handleSubmit} className="space-y-8">
       {/* Progress Bar */}
       <div className="space-y-4">
@@ -799,6 +803,96 @@ const PersonalizedSearchForm = () => {
         )}
       </div>
     </form>
+    
+    {/* Dialog pour afficher les données soumises */}
+    <Dialog open={showDialog} onOpenChange={setShowDialog}>
+      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-white">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2 text-2xl">
+            <CheckCircle2 className="w-6 h-6 text-green-600" />
+            Demande de recherche personnalisée envoyée avec succès !
+          </DialogTitle>
+          <DialogDescription className="text-base pt-2">
+            Voici un récapitulatif des informations que vous avez envoyées :
+          </DialogDescription>
+        </DialogHeader>
+        <div className="space-y-4 pt-4">
+          {/* Critères de recherche */}
+          <div className="p-4 bg-primary-orange-50 rounded-lg">
+            <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+              <Search className="w-5 h-5" />
+              Critères de recherche
+            </h3>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              {formData.marqueSouhaitee && <p><span className="font-medium">Marque souhaitée:</span> {formData.marqueSouhaitee}</p>}
+              {formData.modeleSouhaite && <p><span className="font-medium">Modèle souhaité:</span> {formData.modeleSouhaite}</p>}
+              {formData.budgetMin && <p><span className="font-medium">Budget min:</span> {formData.budgetMin} €</p>}
+              {formData.budgetMax && <p><span className="font-medium">Budget max:</span> {formData.budgetMax} €</p>}
+              {formData.anneeMin && <p><span className="font-medium">Année min:</span> {formData.anneeMin}</p>}
+              {formData.anneeMax && <p><span className="font-medium">Année max:</span> {formData.anneeMax}</p>}
+              {formData.carburant && <p><span className="font-medium">Carburant:</span> {formData.carburant}</p>}
+              {formData.boiteVitesse && <p><span className="font-medium">Boîte:</span> {formData.boiteVitesse}</p>}
+              {formData.kilometrageMax && <p><span className="font-medium">Kilométrage max:</span> {formData.kilometrageMax} km</p>}
+              {formData.couleurPreferee && <p><span className="font-medium">Couleur préférée:</span> {formData.couleurPreferee}</p>}
+            </div>
+            {formData.criteresImportants && formData.criteresImportants.length > 0 && (
+              <div className="mt-3 pt-3 border-t">
+                <p className="text-sm font-medium mb-2">Critères importants:</p>
+                <div className="flex flex-wrap gap-2">
+                  {formData.criteresImportants.map((critere, idx) => (
+                    <Badge key={idx} variant="outline" className="bg-white">
+                      {critere}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+          
+          {/* Coordonnées */}
+          <div className="p-4 bg-gray-50 rounded-lg">
+            <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+              <User className="w-5 h-5" />
+              Vos coordonnées
+            </h3>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              {formData.nom && <p><span className="font-medium">Nom:</span> {formData.nom}</p>}
+              {formData.prenom && <p><span className="font-medium">Prénom:</span> {formData.prenom}</p>}
+              {formData.email && <p><span className="font-medium">Email:</span> {formData.email}</p>}
+              {formData.telephone && <p><span className="font-medium">Téléphone:</span> {formData.telephone}</p>}
+              {formData.codePostal && <p><span className="font-medium">Code postal:</span> {formData.codePostal}</p>}
+              {formData.ville && <p><span className="font-medium">Ville:</span> {formData.ville}</p>}
+            </div>
+          </div>
+          
+          {/* Informations complémentaires */}
+          {(formData.delaiRecherche || formData.urgence || formData.commentaires) && (
+            <div className="p-4 bg-white border border-gray-200 rounded-lg">
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <FileText className="w-5 h-5" />
+                Informations complémentaires
+              </h3>
+              <div className="space-y-2 text-sm">
+                {formData.delaiRecherche && <p><span className="font-medium">Délai de recherche:</span> {formData.delaiRecherche}</p>}
+                {formData.urgence && <p><span className="font-medium">Urgence:</span> {formData.urgence}</p>}
+                {formData.commentaires && (
+                  <div className="pt-2">
+                    <p className="font-medium mb-1">Commentaires:</p>
+                    <p className="text-gray-700 whitespace-pre-wrap">{formData.commentaires}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+          <div className="pt-4 border-t">
+            <p className="text-sm text-red-600 font-medium">
+              ⚠️ Important : Les messages ne sont pas envoyés. Ceci est une démonstration pour portfolio uniquement.
+            </p>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+    </>
   );
 };
 

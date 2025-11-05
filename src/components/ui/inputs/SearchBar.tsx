@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -28,15 +28,22 @@ function SearchBar({
   setModel,
 }: any) {
   const router = useRouter();
+  const [localModel, setLocalModel] = useState(model);
+
+  // Sync localModel with external model prop
+  useEffect(() => {
+    setLocalModel(model);
+  }, [model]);
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (manufacturer === "" && model === "") {
-      return alert("");
+    if (manufacturer === "" && localModel === "") {
+      return;
     }
 
-    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+    setModel(localModel);
+    updateSearchParams(localModel.toLowerCase(), manufacturer.toLowerCase());
   };
 
   const updateSearchParams = (model: string, manufacturer: string) => {
@@ -60,6 +67,13 @@ function SearchBar({
     router.push(newPathName);
   };
 
+  const handleClear = () => {
+    setManufacturer("");
+    setModel("");
+    setLocalModel("");
+    updateSearchParams("", "");
+  };
+
   return (
     <form className="searchbar" onSubmit={handleSearch}>
       <div className="searchbar__item">
@@ -81,11 +95,22 @@ function SearchBar({
         <input
           type="text"
           name="model"
-          value={model}
-          onChange={(e) => setModel(e.target.value)}
+          value={localModel}
+          onChange={(e) => setLocalModel(e.target.value)}
           placeholder="Tiguan"
           className="searchbar__input"
         />
+        {(manufacturer || localModel) && (
+          <button
+            type="button"
+            onClick={handleClear}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-grey hover:text-black transition-colors"
+            aria-label="Effacer la recherche"
+            title="Effacer la recherche"
+          >
+            ×
+          </button>
+        )}
         <SearchButton otherClasses="sm:hidden" />
       </div>
       <SearchButton otherClasses="max-sm:hidden" />

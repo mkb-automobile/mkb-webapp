@@ -1,13 +1,13 @@
 "use client";
-import Image from "next/image";
-import { CarCardProps } from "../../../types";
-import { Button } from "../../ui/button";
-import { Card, CardContent } from "../../ui/card";
-import { Badge } from "../../ui/badge";
-import { useRouter } from "next/navigation";
-import { saveToLocalStorage } from "../../localStorage/SaveToLocalStorage";
 import { formatNumber } from "@/src/utils";
 import { ArrowRight, Calendar, Fuel, Gauge, Settings } from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { CarCardProps } from "../../../types";
+import { saveToLocalStorage } from "../../localStorage/SaveToLocalStorage";
+import { Badge } from "../../ui/badge";
+import { Button } from "../../ui/button";
+import { Card, CardContent } from "../../ui/card";
 
 function CarCard({ data }: CarCardProps) {
   const router = useRouter();
@@ -76,7 +76,7 @@ function CarCard({ data }: CarCardProps) {
               <div className="p-2 rounded-lg bg-primary-orange-50">
                 <Settings className="w-5 h-5 text-primary-orange" />
               </div>
-              <p className="text-sm font-medium">{typeboite == "A" ? "Auto" : "Manu"}</p>
+              <p className="text-sm font-medium">{typeboite == "A" ? "A" : "M"}</p>
             </div>
             <div className="flex flex-col items-center gap-2 group-hover:scale-110 transition-transform duration-300">
               <div className="p-2 rounded-lg bg-primary-orange-50">
@@ -89,7 +89,7 @@ function CarCard({ data }: CarCardProps) {
                 <Fuel className="w-5 h-5 text-primary-orange" />
               </div>
               <p className="text-sm font-medium">
-                {energie == "DIESEL" ? "Diesel" : "Essence"}
+                {energie == "DIESEL" ? "D" : "E"}
               </p>
             </div>
             <div className="flex flex-col items-center gap-2 group-hover:scale-110 transition-transform duration-300">

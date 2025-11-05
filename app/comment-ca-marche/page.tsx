@@ -158,9 +158,9 @@ const Works = () => {
                 className="rounded-full px-8 py-6 text-lg border-2 hover:bg-primary-orange-50 transition-all duration-300"
                 asChild
               >
-                <a href="mailto:contact@mkbautomobile.fr" className="flex items-center">
+                <a href="mailto:contact@portfolio.dev" className="flex items-center">
                   <Mail className="mr-2 w-5 h-5" />
-                  contact@mkbautomobile.fr
+                  contact@portfolio.dev
                 </a>
               </Button>
             </div>

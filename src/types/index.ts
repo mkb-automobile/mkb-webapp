@@ -74,6 +74,6 @@ export interface OptionsProps {
 export interface CustomFiltersProps {
   title: string;
   options?: OptionsProps[];
-  setYear?: (year: number) => void;
+  setYear?: (year: string | number) => void;
   setFuel?: (fuel: string) => void;
 }

@@ -1,9 +1,55 @@
 import { lenboxConfig } from "../config/services";
-import { mockCars } from "../constants";
 
 export const fetchData = async () => {
-  // Portfolio/demo: return mock cars instead of remote API
-  return mockCars;
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+  
+  if (!apiUrl) {
+    console.warn("⚠️ NEXT_PUBLIC_API_URL n'est pas définie. Utilisation de http://localhost:4000 par défaut.");
+  }
+
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 secondes
+
+    const response = await fetch(`${apiUrl}/api`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error("Les données ne sont pas au format JSON attendu (tableau)");
+    }
+
+    return data;
+  } catch (error: any) {
+    // Gestion des erreurs
+    if (error.name === 'AbortError') {
+      console.error("Timeout lors de la récupération des données:", error);
+      throw new Error("La requête a pris trop de temps. Veuillez réessayer plus tard.");
+    }
+    
+    if (error instanceof TypeError && (error.message.includes('fetch') || error.message.includes('Failed to fetch'))) {
+      console.error("Erreur réseau lors de la récupération des données:", error);
+      throw new Error("Erreur de connexion réseau. Vérifiez que le serveur backend est accessible sur " + apiUrl);
+    }
+
+    console.error(
+      "Une erreur s'est produite lors de la récupération des données JSON:",
+      error,
+    );
+    throw error;
+  }
 };
 
 export const submitLoanApplication = async (data: any) => {

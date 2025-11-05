@@ -21,11 +21,13 @@ function CustomFilter({
 
   useEffect(() => {
     if (selected) {
-      if (setYear && typeof selected.value === "number") {
-        setYear(selected.value);
+      // For year filter: value can be string (from yearsOfProduction) or number
+      if (setYear) {
+        setYear(selected.value as string | number);
       }
-      if (setFuel && typeof selected.value === "string") {
-        setFuel(selected.value);
+      // For fuel filter: value is always string
+      if (setFuel) {
+        setFuel(selected.value as string);
       }
     }
   }, [selected, setYear, setFuel]);

@@ -32,17 +32,11 @@ export const CarContextProvider = ({
       .then((result) => {
         setData(result as CarDataProps[]);
         setIsLoading(false);
+        setError(null);
       })
       .catch((err) => {
-        // En mode développement, les erreurs sont gérées silencieusement dans fetchData
-        // En production, on affiche l'erreur
-        if (process.env.NODE_ENV === 'production') {
-          console.error("Erreur lors du chargement des données:", err);
-          setError(err.message || "Erreur lors du chargement des données");
-        } else {
-          // En développement, on log juste un avertissement
-          console.warn("Mode développement : aucune donnée chargée depuis l'API");
-        }
+        console.error("Erreur lors du chargement des données depuis l'API:", err);
+        setError(err.message || "Erreur lors du chargement des données");
         setIsLoading(false);
         // Ne pas planter l'application, continuer avec un tableau vide
         setData([]);

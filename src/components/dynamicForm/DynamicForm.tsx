@@ -8,6 +8,7 @@ import { Progress } from "../ui/progress";
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { Separator } from "../ui/separator";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog";
 import { CheckCircle2, ArrowRight, ArrowLeft, Car, User, FileText, Send, Sparkles, Clock } from "lucide-react";
 import { marqueModel, yearsOfProduction, fuels } from "@/src/constants";
 
@@ -90,6 +91,7 @@ const DynamicForm = () => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
 
   const progress = ((currentStep + 1) / steps.length) * 100;
 
@@ -142,12 +144,12 @@ const DynamicForm = () => {
     if (!validateStep(currentStep)) return;
 
     setIsSubmitting(true);
-    // Simulate API call
+    // Portfolio: simulation d'envoi avec affichage dans un popup
     await new Promise(resolve => setTimeout(resolve, 1500));
     
-    console.log("Form submitted:", formData);
     setIsSubmitting(false);
     setIsSubmitted(true);
+    setShowDialog(true);
     
     // Here you would send the data to your API
     // await fetch('/api/reprise', { method: 'POST', body: JSON.stringify(formData) });
@@ -619,6 +621,7 @@ const DynamicForm = () => {
   }
 
   return (
+    <>
     <form onSubmit={handleSubmit} className="space-y-8">
       {/* Progress Bar */}
       <div className="space-y-4">
@@ -721,6 +724,73 @@ const DynamicForm = () => {
         )}
     </div>
     </form>
+    
+    {/* Dialog pour afficher les données soumises */}
+    <Dialog open={showDialog} onOpenChange={setShowDialog}>
+      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-white">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2 text-2xl">
+            <CheckCircle2 className="w-6 h-6 text-green-600" />
+            Demande d'estimation envoyée avec succès !
+          </DialogTitle>
+          <DialogDescription className="text-base pt-2">
+            Voici un récapitulatif des informations que vous avez envoyées :
+          </DialogDescription>
+        </DialogHeader>
+        <div className="space-y-4 pt-4">
+          {/* Informations véhicule */}
+          <div className="p-4 bg-primary-orange-50 rounded-lg">
+            <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+              <Car className="w-5 h-5" />
+              Caractéristiques du véhicule
+            </h3>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              {formData.marque && <p><span className="font-medium">Marque:</span> {formData.marque}</p>}
+              {formData.modele && <p><span className="font-medium">Modèle:</span> {formData.modele}</p>}
+              {formData.annee && <p><span className="font-medium">Année:</span> {formData.annee}</p>}
+              {formData.carburant && <p><span className="font-medium">Carburant:</span> {formData.carburant}</p>}
+              {formData.kilometrage && <p><span className="font-medium">Kilométrage:</span> {formData.kilometrage} km</p>}
+              {formData.boiteVitesse && <p><span className="font-medium">Boîte:</span> {formData.boiteVitesse}</p>}
+              {formData.couleurExterieur && <p><span className="font-medium">Couleur extérieure:</span> {formData.couleurExterieur}</p>}
+              {formData.etatGeneral && <p><span className="font-medium">État général:</span> {formData.etatGeneral}</p>}
+            </div>
+          </div>
+          
+          {/* Coordonnées */}
+          <div className="p-4 bg-gray-50 rounded-lg">
+            <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+              <User className="w-5 h-5" />
+              Vos coordonnées
+            </h3>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              {formData.nom && <p><span className="font-medium">Nom:</span> {formData.nom}</p>}
+              {formData.prenom && <p><span className="font-medium">Prénom:</span> {formData.prenom}</p>}
+              {formData.email && <p><span className="font-medium">Email:</span> {formData.email}</p>}
+              {formData.telephone && <p><span className="font-medium">Téléphone:</span> {formData.telephone}</p>}
+              {formData.codePostal && <p><span className="font-medium">Code postal:</span> {formData.codePostal}</p>}
+              {formData.ville && <p><span className="font-medium">Ville:</span> {formData.ville}</p>}
+            </div>
+          </div>
+          
+          {/* Commentaires */}
+          {formData.commentaires && (
+            <div className="p-4 bg-white border border-gray-200 rounded-lg">
+              <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
+                <FileText className="w-5 h-5" />
+                Commentaires
+              </h3>
+              <p className="text-base text-gray-700 whitespace-pre-wrap">{formData.commentaires}</p>
+            </div>
+          )}
+          <div className="pt-4 border-t">
+            <p className="text-sm text-red-600 font-medium">
+              ⚠️ Important : Les messages ne sont pas envoyés. Ceci est une démonstration pour portfolio uniquement.
+            </p>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+    </>
   );
 };
 

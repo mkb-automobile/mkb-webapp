@@ -120,9 +120,9 @@ const LegalNotice = () => {
                   <br />
                 </span>
                 Contact :{" "}
-                <a href="mailto:souleymane.traore@mkbautomobile.fr">
+                <a href="mailto:contact@portfolio.dev">
                   <span data-ref="contact_directeur" data-fallback="">
-                    souleymane.traore@mkbautomobile.fr
+                    contact@portfolio.dev
                   </span>
                 </a>
                 .
@@ -141,9 +141,9 @@ const LegalNotice = () => {
                   Souleymane Traoré
                 </span>{" "}
                 –{" "}
-                <a href="mailto:souleymane.traore@mkbautomobile.fr">
+                <a href="mailto:contact@portfolio.dev">
                   <span data-ref="contact_dpo" data-fallback="">
-                    souleymane.traore@mkbautomobile.fr
+                    contact@portfolio.dev
                   </span>
                 </a>
               </li>
@@ -328,10 +328,10 @@ const LegalNotice = () => {
                 </span>
               </strong>{" "}
               –{" "}
-              <a href="mailto:souleymane.traore@mkbautomobile.fr">
+              <a href="mailto:contact@portfolio.dev">
                 <strong>
                   <span data-ref="contact_dpo" data-fallback="">
-                    souleymane.traore@mkbautomobile.fr
+                    contact@portfolio.dev
                   </span>
                 </strong>
               </a>

@@ -1,16 +1,30 @@
 "use client";
 
-import { Fragment } from "react";
+import { Fragment, useMemo } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { SearchManufacturerProps } from "@/src/types";
-import { dataFormatText } from "@/src/utils/formatText";
 
 const SearchManufacturer = ({
   data,
   manufacturer,
   setManufacturer,
 }: SearchManufacturerProps) => {
+  // Extract unique manufacturers from car data
+  const manufacturers = useMemo(() => {
+    if (!data || !Array.isArray(data)) return [];
+    const unique = Array.from(new Set(data.map((car: any) => car.marque).filter(Boolean)));
+    return unique.sort();
+  }, [data]);
+
+  // Filter manufacturers based on search input
+  const filteredManufacturers = useMemo(() => {
+    if (!manufacturer) return manufacturers;
+    return manufacturers.filter((m: string) =>
+      m.toLowerCase().includes(manufacturer.toLowerCase())
+    );
+  }, [manufacturers, manufacturer]);
+
   return (
     <div className="search-manufacturer">
       <Combobox value={manufacturer} onChange={setManufacturer}>
@@ -36,38 +50,41 @@ const SearchManufacturer = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Combobox.Options>
-              {data?.marque?.map((item: any) => (
-                <Combobox.Option
-                  key={item}
-                  className={({
-                    active,
-                  }) => `relative search-manufacturer__option ${
-                    active ? "bg-primary-orange text-white" : "text-gray-900"
-                  }
-                                        `}
-                  value={item}
-                >
-                  {({ selected, active }) => (
-                    <>
-                      <span
-                        className={`block truncate ${
-                          selected ? "font-medium" : "font-normal"
-                        }`}
-                      >
-                        {item}
-                      </span>
-                      {selected ? (
+            <Combobox.Options className="search-manufacturer__options">
+              {filteredManufacturers.length === 0 ? (
+                <div className="relative search-manufacturer__option text-gray-500 py-3 px-4">
+                  Aucune marque trouvée
+                </div>
+              ) : (
+                filteredManufacturers.map((item: string) => (
+                  <Combobox.Option
+                    key={item}
+                    value={item}
+                    className={({
+                      active,
+                    }) => `relative search-manufacturer__option ${
+                      active ? "bg-primary-orange text-white" : "text-gray-900"
+                    }`}
+                  >
+                    {({ selected }) => (
+                      <>
                         <span
-                          className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                            active ? "text-white" : "text-teal-600"
+                          className={`block truncate ${
+                            selected ? "font-medium" : "font-normal"
                           }`}
-                        ></span>
-                      ) : null}
-                    </>
-                  )}
-                </Combobox.Option>
-              ))}
+                        >
+                          {item}
+                        </span>
+                        {selected && (
+                          <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-primary-orange">
+                            ✓
+                          </span>
+                        )}
+                      </>
+                    )}
+                  </Combobox.Option>
+                ))
+              )}
             </Combobox.Options>
           </Transition>
         </div>

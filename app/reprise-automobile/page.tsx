@@ -55,7 +55,7 @@ Il faudra valider un rendez-vous sur notre site web pour prendre rendez-vous.
 Prise de rendez-vous par :
 <ul>
 <li>Téléphone : 01 88 83 09 17 </li>
-<li>E-mail : contact@mkbautomobile.fr </li>
+<li>E-mail : contact@portfolio.dev </li>
 </ul>`,
     },
     {
@@ -281,9 +281,9 @@ Prise de rendez-vous par :
                         className="rounded-full justify-start hover:bg-primary-orange-50 transition-all duration-300 group"
                         asChild
                       >
-                        <a href="mailto:contact@mkbautomobile.fr" className="flex items-center">
+                        <a href="mailto:contact@portfolio.dev" className="flex items-center">
                           <Mail className="mr-3 w-5 h-5 text-primary-orange" />
-                          contact@mkbautomobile.fr
+                          contact@portfolio.dev
                           <ArrowRight className="ml-auto w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </a>
                       </Button>

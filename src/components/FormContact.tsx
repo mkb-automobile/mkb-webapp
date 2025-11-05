@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "./ui/dialog";
 import { Send, Loader2, CheckCircle2, XCircle, User, Mail, Phone, MessageSquare, Sparkles } from "lucide-react";
 
 const FormContact = ({ car }: any) => {
@@ -16,6 +17,8 @@ const FormContact = ({ car }: any) => {
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [showDialog, setShowDialog] = useState(false);
+  const [submittedData, setSubmittedData] = useState<any>(null);
 
   // const router = useRouter();
   const marque = car?.marque;
@@ -70,15 +73,15 @@ const FormContact = ({ car }: any) => {
     };
 
     try {
-      // Service Spider-VO supprimé: simulation d'envoi pour portfolio
+      // Portfolio: simulation d'envoi avec affichage dans un popup
       await new Promise((resolve) => setTimeout(resolve, 800));
-      setSubmitStatus("success");
+      setSubmittedData(formData);
+      setShowDialog(true);
       setName("");
       setFirstName("");
       setEmail("");
       setPhone("");
       setMessage("");
-      setTimeout(() => setSubmitStatus(null), 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
       setSubmitStatus("error");
@@ -342,6 +345,64 @@ const FormContact = ({ car }: any) => {
           )}
         </motion.button>
       </motion.div>
+      
+      {/* Dialog pour afficher les données soumises */}
+      <Dialog open={showDialog} onOpenChange={setShowDialog}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-white">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 text-2xl">
+              <CheckCircle2 className="w-6 h-6 text-green-600" />
+              Message envoyé avec succès !
+            </DialogTitle>
+            <DialogDescription className="text-base pt-2">
+              Voici un récapitulatif des informations que vous avez envoyées :
+            </DialogDescription>
+          </DialogHeader>
+          {submittedData && (
+            <div className="space-y-4 pt-4">
+              <div className="grid grid-cols-2 gap-4 p-4 bg-gray-50 rounded-lg">
+                <div>
+                  <p className="text-sm font-semibold text-gray-600 mb-1">Nom</p>
+                  <p className="text-base">{submittedData.name}</p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-gray-600 mb-1">Prénom</p>
+                  <p className="text-base">{submittedData.firstName}</p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-gray-600 mb-1">Email</p>
+                  <p className="text-base">{submittedData.email}</p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-gray-600 mb-1">Téléphone</p>
+                  <p className="text-base">{submittedData.phone}</p>
+                </div>
+              </div>
+              {submittedData.marque && (
+                <div className="p-4 bg-primary-orange-50 rounded-lg">
+                  <p className="text-sm font-semibold text-gray-600 mb-2">Véhicule concerné</p>
+                  <div className="grid grid-cols-2 gap-2 text-sm">
+                    {submittedData.marque && <p><span className="font-medium">Marque:</span> {submittedData.marque}</p>}
+                    {submittedData.modele && <p><span className="font-medium">Modèle:</span> {submittedData.modele}</p>}
+                    {submittedData.refCar && <p className="col-span-2"><span className="font-medium">Référence:</span> {submittedData.refCar}</p>}
+                  </div>
+                </div>
+              )}
+              {submittedData.message && (
+                <div className="p-4 bg-white border border-gray-200 rounded-lg">
+                  <p className="text-sm font-semibold text-gray-600 mb-2">Message</p>
+                  <p className="text-base text-gray-700 whitespace-pre-wrap">{submittedData.message}</p>
+                </div>
+              )}
+              <div className="pt-4 border-t">
+                <p className="text-sm text-red-600 font-medium">
+                  ⚠️ Important : Les messages ne sont pas envoyés. Ceci est une démonstration pour portfolio uniquement.
+                </p>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </motion.form>
   );
 };

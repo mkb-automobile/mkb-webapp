@@ -4,13 +4,15 @@ export function applyPagination({
   data,
   manufacturer,
   model,
+  fuel,
+  year,
   page,
   elementPerPage,
 }: any) {
   const startPage = (page - 1) * elementPerPage;
   const endPAge = startPage + elementPerPage;
 
-  const dataFilter = getFilteredData({ data, manufacturer, model });
+  const dataFilter = getFilteredData({ data, manufacturer, model, fuel, year });
   const dataFilterWithPaginatin = paginateData({
     data: dataFilter,
     start: startPage,

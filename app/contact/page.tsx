@@ -172,13 +172,13 @@ const Contact = () => {
                     className="w-full rounded-full group"
                   >
                     <motion.a
-                      href="mailto:contact@mkbautomobile.fr"
+                      href="mailto:contact@portfolio.dev"
                       className="flex items-center justify-center gap-3"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       <Mail className="w-5 h-5 text-primary-orange" />
-                      <span>contact@mkbautomobile.fr</span>
+                      <span>contact@portfolio.dev</span>
                       <ArrowRight className="ml-auto w-5 h-5 text-primary-orange group-hover:translate-x-1 transition-transform" />
                     </motion.a>
                   </Button>

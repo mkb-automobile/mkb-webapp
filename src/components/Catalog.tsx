@@ -1,20 +1,20 @@
 "use client";
 import { fuels, yearsOfProduction } from "@/src/constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useCarContext } from "../hooks/CarContext";
+import { applyPagination } from "../utils/applyPagination";
+import { CarCard } from "./cards";
+import CustomFilter from "./CustomFilter";
+import { saveToLocalStorage } from "./localStorage/SaveToLocalStorage";
 import { Loader, SearchBar } from "./ui";
 import { Button } from "./ui/button";
-import { useCarContext } from "../hooks/CarContext";
-import { CarCard } from "./cards";
-import { saveToLocalStorage } from "./localStorage/SaveToLocalStorage";
-import CustomFilter from "./CustomFilter";
-import { applyPagination } from "../utils/applyPagination";
 
 function CatalogCars() {
   const { data, isLoading, error } = useCarContext();
   const [manufacturer, setManufacturer] = useState("");
   const [model, setModel] = useState("");
   const [fuel, setFuel] = useState("");
-  const [year, setYear] = useState(2010);
+  const [year, setYear] = useState<string | number>("");
   const [searchResults, setSearchResults] = useState(null);
   const [page, setPage] = useState<number>(() => {
     if (typeof window !== "undefined") {
@@ -29,9 +29,16 @@ function CatalogCars() {
     data,
     manufacturer,
     model,
+    fuel,
+    year,
     page,
     elementPerPage: 16,
   });
+
+  // Reset to first page when filters change
+  useEffect(() => {
+    setPage(1);
+  }, [manufacturer, model, fuel, year]);
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
@@ -50,7 +57,7 @@ function CatalogCars() {
               Nos Véhicules
             </h1>
             <p className="text-body-lg text-grey max-w-2xl">
-              Découvrez notre large sélection de véhicules d'occasion vérifiés et contrôlés. 
+              Découvrez notre large sélection de véhicules d'occasion vérifiés et contrôlés.
               Plus de 200 points de contrôle pour votre sécurité.
             </p>
           </div>
@@ -58,7 +65,7 @@ function CatalogCars() {
         <div className="home__filters mb-12 space-y-6">
           <div className="w-full">
             <SearchBar
-              data={dataFilterWithPaginatin}
+              data={data}
               manufacturer={manufacturer}
               setManufacturer={setManufacturer}
               model={model}
@@ -116,8 +123,8 @@ function CatalogCars() {
             <>
               <div className="home__cars-wrapper">
                 {dataFilterWithPaginatin?.map((car: any, index: any) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className="animate-scale-in"
                     style={{ animationDelay: `${index * 0.05}s` }}
                   >
