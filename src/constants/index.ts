@@ -366,3 +366,6 @@ export const footerLinks = [
     ],
   },
 ];
+
+// Mock cars for portfolio/demo usage
+export { mockCars } from "./mockCars";

@@ -10,12 +10,12 @@ import { ArrowRight, Shield, CheckCircle2, Zap } from "lucide-react";
 const Hero = () => {
   const router = useRouter();
   return (
-    <section className="relative max-w-[1440px] mx-auto pt-32 w-full pb-32 px-6 sm:px-16 overflow-hidden">
-      {/* Background gradient effect */}
+    <section className="relative w-full pt-32 pb-32 overflow-hidden">
+      {/* Full-bleed background layer */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-orange-50 via-white to-primary-orange-50/30 -z-10" />
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary-orange/10 rounded-full blur-3xl -z-10" />
-      
-      <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-16 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         <div className="space-y-8 animate-fade-in">
           {/* Badge */}
           <div className="flex items-center gap-3">
@@ -94,8 +94,8 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="hero__image-container relative lg:block hidden">
-          <div className="hero__image relative w-full h-[600px] animate-fade-in">
+        <div className="hero__image-container relative hidden lg:block xl:flex xl:justify-end xl:items-center">
+          <div className="hero__image relative w-full max-w-full h-[500px] lg:h-[600px] xl:h-[650px] 2xl:h-[700px] animate-fade-in">
             <div className="absolute inset-0 bg-gradient-to-t from-primary-orange/20 to-transparent rounded-3xl blur-2xl" />
             <Image
               src="/audi-a3-sportback-35-tfsi-150-s-tronic-7-neuf-2022-fleury-les-aubrais-1.png"
@@ -103,6 +103,7 @@ const Hero = () => {
               fill
               className="object-contain relative z-10 drop-shadow-2xl"
               priority
+              sizes="(max-width: 1024px) 0vw, (max-width: 1280px) 50vw, 600px"
             />
           </div>
         </div>

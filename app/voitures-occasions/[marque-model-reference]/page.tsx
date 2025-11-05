@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, use } from "react";
 import "./productPage.css";
 import { Main } from "@/src/components/layouts";
 import {
@@ -17,9 +17,9 @@ import SocialNetwork from "@/src/components/socialNetwork/SocialNetwork";
 import { cardDetailsServicesMkb } from "@/src/constants";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     "marque-model-reference": string;
-  };
+  }>;
 }
 
 type ElementId = "critere" | "description";
@@ -27,13 +27,16 @@ type ElementId = "critere" | "description";
 export default function Page({ params }: PageProps) {
   const { data, isLoading } = useCarContext();
   const [activeElement, setActiveElement] = useState<ElementId>("critere");
+  
+  // Unwrap params Promise using React.use()
+  const unwrappedParams = use(params);
 
   const car = data?.find((item) => {
     const { marque, modele, reference } = item;
     const newModel = modele.replace(/\s/g, "-").toLocaleLowerCase();
     const newMarque = marque.replace(/\s/g, "-").toLocaleLowerCase();
     const id = `${newMarque}-${newModel}-${reference}`;
-    return id === params["marque-model-reference"];
+    return id === unwrappedParams["marque-model-reference"];
   });
 
   const date = car?.datemes ? new Date(car.datemes) : undefined;
@@ -46,6 +49,21 @@ export default function Page({ params }: PageProps) {
     <Main>
       {isLoading ? (
         <p>Loading...</p>
+      ) : !car ? (
+        <div className="padding-x padding-y max-width animate-fade-in">
+          <div className="bg-gradient-to-br from-primary-orange-50 to-orange-50 border-2 border-primary-orange-100 rounded-3xl p-12 shadow-large text-center space-y-4">
+            <div className="w-16 h-16 mx-auto bg-primary-orange/10 rounded-full flex items-center justify-center">
+              <span className="text-3xl">🚗</span>
+            </div>
+            <h2 className="text-black-100 text-h2 font-bold">Véhicule introuvable</h2>
+            <p className="text-grey text-body-lg max-w-md mx-auto">
+              La fiche demandée n'existe pas ou a été déplacée.
+            </p>
+            <div className="pt-2">
+              <CustomLink title="← Retour au catalogue" href="/voitures-occasions" />
+            </div>
+          </div>
+        </div>
       ) : (
         <>
           <div className="flex px-5 pb-10 w-full max-xl:flex-col max-md:flex-col">

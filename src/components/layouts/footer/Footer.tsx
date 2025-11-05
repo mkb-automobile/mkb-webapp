@@ -8,13 +8,14 @@ import { Heart, Shield, Sparkles } from "lucide-react";
 
 function Footer() {
   return (
-    <footer className="max-w-[1440px] mx-auto flex flex-col text-black-100 mt-20 border-t border-gray-200 w-full bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-      {/* Background decoration */}
+    <footer className="w-full mt-20 border-t border-gray-200 relative overflow-hidden">
+      {/* Full-bleed background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:48px_48px] opacity-50" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-orange/5 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary-orange/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
-      
-      <div className="relative z-10 flex max-md:flex-col flex-wrap justify-between gap-8 sm:px-16 px-6 py-16">
+
+      <div className="relative z-10 max-w-[1440px] mx-auto flex max-md:flex-col flex-wrap justify-between gap-8 sm:px-16 px-6 py-16">
         <div className="flex flex-col justify-start items-start gap-6 max-w-xs">
           <div className="relative group">
             <div className="absolute inset-0 bg-primary-orange/20 rounded-lg blur-xl group-hover:blur-2xl transition-all duration-500" />
@@ -57,7 +58,7 @@ function Footer() {
         </div>
       </div>
       <Separator className="bg-gray-200" />
-      <div className="relative z-10 flex flex-col sm:flex-row justify-between items-center gap-6 mt-8 sm:px-16 px-6 py-8">
+      <div className="relative z-10 max-w-[1440px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-6 mt-8 sm:px-16 px-6 py-8">
         <div className="flex items-center gap-2">
           <p className="text-body-sm text-grey">
             © {new Date().getFullYear()} MKB-Automobile. Tous Droits Réservés

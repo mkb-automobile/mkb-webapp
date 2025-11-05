@@ -1,8 +1,9 @@
 import { lenboxConfig } from "../config/services";
+import { mockCars } from "../constants";
 
 export const fetchData = async () => {
-  console.warn("ℹ️ Service Spider-VO désactivé: fetchData renvoie un tableau vide.");
-  return [];
+  // Portfolio/demo: return mock cars instead of remote API
+  return mockCars;
 };
 
 export const submitLoanApplication = async (data: any) => {
