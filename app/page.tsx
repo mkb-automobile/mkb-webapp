@@ -1,23 +1,22 @@
 "use client";
 import { Hero } from "@/src/components";
-import FaqAccordion from "@/src/components/FaqAccordion";
 import { savePageVisitedToLocalStorage } from "@/src/components/localStorage/SaveToLocalStorage";
 import SocialNetwork from "@/src/components/socialNetwork/SocialNetwork";
+import HomeRevews from "@/src/components/trustmary/HomeRevews";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/src/components/ui/accordion";
+import { Badge } from "@/src/components/ui/badge";
 import { Button } from "@/src/components/ui/button";
 import { Card, CardContent } from "@/src/components/ui/card";
-import { Badge } from "@/src/components/ui/badge";
 import { Separator } from "@/src/components/ui/separator";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/src/components/ui/accordion";
-import HomeRevews from "@/src/components/trustmary/HomeRevews";
 import {
   carsModel,
   manifactureLogo,
   sectionHome,
   supportCards,
 } from "@/src/constants";
+import { ArrowRight, Award, Phone, Sparkles, Star, TrendingUp, Users } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { ArrowRight, Phone, CheckCircle2, Shield, Star, Sparkles, TrendingUp, Users, Award, Zap } from "lucide-react";
 import "../src/styles/trustmary.css";
 
 const faqData = [
@@ -53,9 +52,9 @@ const faqData = [
   },
 ];
 
-export default function Home({}) {
+export default function Home({ }) {
   const router = useRouter();
-  console.info(
+  console.warn(
     "Avertissement : En utilisant cette console, vous vous exposez au risque que des personnes malveillantes se fassent passer pour vous et volent vos informations grâce à une attaque appelée Self-XSS. Ne saisissez pas et ne copiez pas du code que vous ne comprenez pas.",
   );
   return (
@@ -88,8 +87,8 @@ export default function Home({}) {
               </div>
               <div className="grid md:grid-cols-3 gap-8">
                 {sectionHome.map((section, index) => (
-                  <Card 
-                    key={index} 
+                  <Card
+                    key={index}
                     className="border-0 shadow-large bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden"
                   >
                     <CardContent className="p-8 flex flex-col items-center text-center space-y-6">
@@ -170,7 +169,7 @@ export default function Home({}) {
                       </span>
                     </h2>
                     <p className="text-body-lg text-grey leading-relaxed max-w-lg">
-                      La meilleure façon d'acheter votre voiture à proximité de chez vous et cela partout en France. 
+                      La meilleure façon d'acheter votre voiture à proximité de chez vous et cela partout en France.
                       Des véhicules vérifiés aux meilleurs prix.
                     </p>
                   </div>
@@ -246,7 +245,7 @@ export default function Home({}) {
                     via la recherche personnalisée
                   </h2>
                   <p className="text-body-lg text-grey leading-relaxed">
-                    Nos experts vous accompagnent tout au long de votre processus d'achat. 
+                    Nos experts vous accompagnent tout au long de votre processus d'achat.
                     Un service sur-mesure pour trouver le véhicule qui correspond exactement à vos attentes.
                   </p>
                 </div>

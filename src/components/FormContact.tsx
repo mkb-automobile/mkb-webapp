@@ -5,7 +5,6 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
-import { sipdervoConfig } from "../config/services";
 import { Send, Loader2, CheckCircle2, XCircle, User, Mail, Phone, MessageSquare, Sparkles } from "lucide-react";
 
 const FormContact = ({ car }: any) => {
@@ -71,26 +70,15 @@ const FormContact = ({ car }: any) => {
     };
 
     try {
-      const response = await fetch(`${sipdervoConfig.serverUrl}/api/form`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSubmitStatus("success");
-        setName("");
-        setFirstName("");
-        setEmail("");
-        setPhone("");
-        setMessage("");
-        setTimeout(() => setSubmitStatus(null), 5000);
-      } else {
-        setSubmitStatus("error");
-        setTimeout(() => setSubmitStatus(null), 5000);
-      }
+      // Service Spider-VO supprimé: simulation d'envoi pour portfolio
+      await new Promise((resolve) => setTimeout(resolve, 800));
+      setSubmitStatus("success");
+      setName("");
+      setFirstName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+      setTimeout(() => setSubmitStatus(null), 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
       setSubmitStatus("error");

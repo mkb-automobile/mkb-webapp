@@ -1,13 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["www.spider-vo.net", "spidervo.s3.fr-par.scw.cloud"],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "**",
       },
     ],
+  },
+  turbopack: {
+    // Explicitly set the project root to avoid workspace root inference warnings
+    root: __dirname,
   },
 };
 
